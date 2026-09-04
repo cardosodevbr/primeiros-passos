@@ -1,0 +1,47 @@
+/* =========================================================
+   DESIGN TOKENS
+   =========================================================
+   
+   Global non-color design tokens :)
+   
+   As cores são def. em colors.css e a semantica é mapeada em semantic.css
+   ========================================================= */
+
+:root {
+
+  /* =======================================================
+     TYPOGRAPHY
+     ======================================================= */
+
+  --font-family-primary:
+    "Roboto",
+    "system-ui",
+    "Segoe UI",
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Fira Sans",
+    "Helvetica Neue",
+    sans-serif,
+    arial;
+
+  --font-family-base:
+    var(--font-family-primary);
+
+  --font-style-normal:
+    normal;
+
+  --font-weight-regular:
+    400;
+
+
+  /* =======================================================
+     TYPOGRAPHY — REFERENCE
+     ======================================================= */
+
+  --font-size-reference:
+    32px;
+
+  --line-height-reference:
+    40px;
+}

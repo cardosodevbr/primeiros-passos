@@ -1,0 +1,106 @@
+/* =========================================================
+   SEMANTIC DESIGN TOKENS
+   ========================================================= */
+
+:root {
+
+  /* =======================================================
+     BRAND
+     ======================================================= */
+
+  --color-primary:
+    var(--color-brand-primary);
+
+  --color-primary-extra:
+    var(--color-brand-primary-extra);
+
+
+  /* =======================================================
+     PAGE
+     ======================================================= */
+
+  --color-background:
+    var(--color-surface-page);
+
+  --color-foreground:
+    var(--color-text-primary);
+
+
+  /* =======================================================
+     SURFACES
+     ======================================================= */
+
+  --color-surface:
+    var(--color-surface-page);
+
+  --color-surface-subtle:
+    var(--color-surface-subtle);
+
+  --color-surface-muted:
+    var(--color-surface-muted);
+
+  --color-surface-promotion:
+    var(--color-surface-pink);
+
+
+  /* =======================================================
+     CONTENT
+     ======================================================= */
+
+  --color-content-primary:
+    var(--color-text-primary);
+
+  --color-content-secondary:
+    var(--color-text-secondary);
+
+
+  /* =======================================================
+     OUTLINES
+     ======================================================= */
+
+  --color-outline:
+    var(--color-border-default);
+
+
+  /* =======================================================
+     FEEDBACK
+     ======================================================= */
+
+  --color-success:
+    var(--color-green-600);
+
+  --color-success-subtle:
+    var(--color-green-100);
+
+  --color-warning:
+    var(--color-yellow-600);
+
+  --color-warning-subtle:
+    var(--color-yellow-100);
+
+  --color-error:
+    var(--color-red-600);
+
+  --color-error-subtle:
+    var(--color-red-100);
+
+  --color-info:
+    var(--color-blue-600);
+
+  --color-info-subtle:
+    var(--color-blue-100);
+
+
+  /* =======================================================
+     TRANSFORME-SE
+     ======================================================= */
+
+  --color-transforme-primary:
+    var(--color-transforme-brand-primary);
+
+  --color-transforme-secondary:
+    var(--color-transforme-brand-secondary);
+
+  --color-transforme-tertiary:
+    var(--color-transforme-brand-tertiary);
+}
