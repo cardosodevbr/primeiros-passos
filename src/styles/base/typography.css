@@ -1,0 +1,18 @@
+body {
+    font-family: var(--font-family-base);
+    font-style: var(--font-style-normal);
+    color: var(--color-background);
+}
+
+.heading {
+    font-family: var(--font-family-primary);
+}
+
+.body {
+    font-family: var(--font-family-base);
+}
+
+/* body font
+heading defaults
+links
+text rendering */

@@ -1,20 +1,53 @@
+/* ========================================================= GLOBAL STYLES =========================================================
+ ARCHITECTURE (rodar nesta ordem para evitar problemas de depend.):
+ 0. Tokens
+ 1. Base
+ 2. Layout
+ 3. Components
+ 4. Pages
+  =========================================================*/
+
+
+
 /* =========================================================
-   GLOBAL STYLES
+   TOKENS
    ========================================================= */
 
-* {
-  box-sizing: border-box;
-}
+@import url("./tokens/colors.css");
+@import url("./tokens/semantic.css");
+@import url("./tokens/tokens.css");
 
-html {
-  font-family: var(--font-family-primary);
-  font-style: var(--font-style-normal);
-}
 
-body {
-  margin: 0;
-  background-color: var(--color-background);
-  color: var(--color-content-primary);
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-regular);
-}
+/* =========================================================
+   BASE
+   ========================================================= */
+
+@import url("./base/reset.css");
+@import url("./base/typography.css");
+@import url("./base/accessibility.css");
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+@import url("./layout/container.css");
+@import url("./layout/grid.css");
+@import url("./layout/sections.css");
+
+
+/* =========================================================
+   COMPONENTS
+   ========================================================= */
+
+@import url("./components/button.css");
+@import url("./components/card.css");
+@import url("./components/footer.css");
+@import url("./components/header.css");
+@import url("./components/input.css");
+
+
+/* =========================================================
+   PAGES
+   ========================================================= */
+@import url("./pages/home.css");
