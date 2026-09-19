@@ -1,3 +1,26 @@
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    color: #1a1a1a;
+}
+
 .cabecalho {
-    
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 15px 0;
+}
+
+.cabecalho .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texto-home{
+color: #1a1a1a;
+}
+
+.filtros-pesquisa{
+    color: #1a1a1a;
 }
