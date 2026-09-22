@@ -3,6 +3,9 @@
    ========================================================= */
 
 :root {
+  --bg-page: var(--color-bg);
+  --bg-card: var(--color-surface);
+  --bg-input: #080f1c;
 
   /* =======================================================
      BRAND
@@ -97,10 +100,17 @@
 
   --color-transforme-primary:
     var(--color-transforme-brand-primary);
+  --text-primary: var(--color-text);
+  --text-secondary: var(--color-text-secondary);
+  --text-muted: var(--color-muted);
 
   --color-transforme-secondary:
     var(--color-transforme-brand-secondary);
+  --accent-primary: var(--color-purple);
+  --accent-secondary: var(--color-blue);
 
   --color-transforme-tertiary:
     var(--color-transforme-brand-tertiary);
+}  --border-default: var(--color-border);
+  --border-subtle: var(--color-border-soft);
 }

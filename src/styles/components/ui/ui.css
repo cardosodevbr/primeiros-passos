@@ -1,0 +1,50 @@
+/* Elementos visuais compartilhados */
+.barra-busca {
+  margin-top: 22px;
+}
+
+.searchBar {
+  width: 400px;
+  height: 50px;
+  padding: 0 18px 0 48px;
+  color: var(--color-text);
+  border: 1px solid #182a42;
+  border-radius: 8px;
+  background: var(--bg-input);
+  font-size: 13px;
+}
+
+.searchBar:focus {
+  border-color: var(--color-purple);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(129, 60, 255, 0.12);
+}
+
+.barra-busca {
+  position: relative;
+}
+
+.barra-busca::before {
+  content: "⌕";
+  position: absolute;
+  left: 17px;
+  top: 50%;
+  transform: translateY(-52%);
+  color: #e52bff;
+  font-size: 27px;
+  line-height: 1;
+  z-index: 1;
+}
+
+.filtros-pesquisa {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.filtros-pesquisa p {
+  color: #aeb4c1;
+  font-size: 12px;
+  margin-right: 3px;
+}
