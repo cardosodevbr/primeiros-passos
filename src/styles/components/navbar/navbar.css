@@ -1,0 +1,51 @@
+.logo {
+  flex: 0 0 190px;
+}
+
+.logo h1 {
+  color: #19a8ff;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+.menu {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+}
+
+.menu > div {
+  position: relative;
+}
+
+.menu h1 {
+  color: #e4e6ec;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.inicio h1 {
+  color: var(--color-purple-light);
+}
+
+.inicio::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -13px;
+  height: 2px;
+  background: var(--color-purple);
+  box-shadow: 0 0 8px rgba(129, 60, 255, 0.55);
+}
+
+.botoes-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

@@ -1,0 +1,46 @@
+.btn-entrar button,
+.btn-cadastrar button {
+  min-width: 76px;
+  height: 36px;
+  padding-inline: 15px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.2s ease;
+}
+
+.btn-entrar button {
+  color: var(--color-text);
+  border: 1px solid #31415b;
+  background: transparent;
+}
+
+.btn-entrar button:hover {
+  border-color: var(--color-purple);
+}
+
+.btn-cadastrar button {
+  color: white;
+  background: linear-gradient(135deg, #7433f4, #9146ff);
+}
+
+.btn-cadastrar button:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.filtros-pesquisa button[btn-filtros] {
+  color: #cbd0db;
+  border: 1px solid #1d3049;
+  border-radius: 6px;
+  background: #080f1c;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 11px;
+  transition: 0.2s ease;
+}
+
+.filtros-pesquisa button[btn-filtros]:hover {
+  border-color: var(--color-purple);
+  color: white;
+}

@@ -1,0 +1,102 @@
+.texto-home h1 {
+  max-width: 590px;
+  color: var(--color-text);
+  font-size: clamp(42px, 4.2vw, 62px);
+  font-weight: 400;
+  letter-spacing: -1.8px;
+}
+
+.texto-home h1 span {
+  color: var(--color-purple);
+}
+
+.texto-home p {
+  max-width: 440px;
+  margin-top: 16px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.dados-pp {
+  margin-bottom: 52px;
+}
+
+.dados-pp + * {
+  margin-top: 0;
+}
+
+/* Seção "Como funciona" */
+.como-funciona {
+  padding-block: 0 60px;
+  text-align: center;
+}
+
+.como-funciona h2 {
+  color: var(--color-purple-light);
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.como-funciona .subtitulo {
+  margin-top: 12px;
+  color: var(--color-text);
+  font-size: 20px;
+}
+
+.etapas {
+  display: grid;
+  grid-template-columns: 1fr 140px 1fr 140px 1fr;
+  align-items: center;
+  margin-top: 58px;
+}
+
+.etapa {
+  position: relative;
+  height: 125px;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  background: #06101e;
+}
+
+.etapa::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--color-purple);
+  box-shadow: 0 0 16px rgba(129, 60, 255, 0.3);
+}
+
+.etapa-linha {
+  height: 0;
+  border-top: 2px dashed #d7d9df;
+}
+
+@media (max-width: 700px) {
+  .texto-home h1 {
+    font-size: 40px;
+  }
+
+  .searchBar {
+    width: 100%;
+  }
+
+  .filtros-pesquisa {
+    flex-wrap: wrap;
+  }
+
+  .etapas {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .etapa-linha {
+    width: 70%;
+    margin-inline: auto;
+  }
+}

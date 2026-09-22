@@ -1,18 +1,30 @@
+/* Tipografia */
 body {
     font-family: var(--font-family-base);
     font-style: var(--font-style-normal);
     color: var(--color-background);
+  font-weight: 400;
 }
 
 .heading {
     font-family: var(--font-family-primary);
+h1,
+h2,
+h3,
+p {
+  margin: 0;
 }
 
-.body {
-    font-family: var(--font-family-base);
+h1,
+h2,
+h3 {
+  line-height: 1.15;
 }
 
 /* body font
 heading defaults
 links
-text rendering */
+text rendering */::placeholder {
+  color: var(--color-muted);
+  opacity: 1;
+}
