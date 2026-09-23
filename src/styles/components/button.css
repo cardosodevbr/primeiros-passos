@@ -1,0 +1,106 @@
+@import url('../tokens/colors.css');
+
+button {
+    margin: 1px;
+}
+
+/*  --------------------------------------------------------- 
+            Buttons
+    ---------------------------------------------------------*/
+.primary-btn {
+    background-color: var(--color-purple-600);
+    border: 1px solid var(--color-logo-purple-dark);
+    color: var(--color-surface-pink);
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 8px 16px;
+    outline: none;
+}
+
+.primary-btn:hover {
+    background-color: var(--color-logo-purple-dark);
+    border: 1px solid var(--color-logo-purple);
+    color: var(--color-surface-pink);
+    box-shadow: none;
+}
+
+.primary-btn:active {
+    background-color: #3b0764;
+    border: 1px solid var(--color-logo-purple);
+    color: var(--color-surface-pink);
+    box-shadow: none;
+}
+
+/* ================================================================ */
+
+.secundary-btn {
+    background-color: var(--color-logo-purple-light);
+    border: 1px solid var(--color-logo-purple-dark);
+    color: var(--color-purple-900);
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 8px 16px;
+    outline: none;
+}
+
+.secundary-btn:hover {
+    background-color: var(--color-logo-purple-dark);
+    border: 1px solid var(--color-logo-purple);
+    color: var(--color-surface-pink);
+    box-shadow: none;
+}
+
+.secundary-btn:active {
+    background-color: var(--color-logo-purple-dark);
+    border: 1px solid var(--color-logo-purple);
+    color: var(--color-surface-pink);
+    box-shadow: none;
+}
+
+/* ================================================================ */
+
+.tertiary-btn {
+    background-color: var(--color-background);
+    border: 3px solid var(--color-logo-purple-dark);
+    border-radius: 8px;
+    color: var(--color-surface-pink);
+    transition: all 0.3s ease;
+    padding: 8px 40px;
+    outline: none;
+}
+
+.tertiary-btn:hover {
+    background-color: var(--color-logo-purple-dark);
+    border: 3px solid var(--color-logo-purple);
+    color: var(--color-surface-pink);
+    box-shadow: none;
+}
+
+/* -----------------------------------------------------------------
+                        Gradientes
+   -----------------------------------------------------------------*/
+
+.gradient-btn {
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 8px 20px;
+    /* Borda do capeta (capa pequena)*/
+    background-image: linear-gradient(#fff, #fff), linear-gradient(270deg, var(--color-purple-600), var(--color-red-600));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    transition: opacity 0.3s ease;
+}
+
+.gradient-btn:hover {
+    background-image: linear-gradient(#fff, #fff), linear-gradient(to right, var(--color-purple-600), var(--color-red-600));
+}
+
+.gradient2-btn {
+    background: linear-gradient(245deg, var(--color-purple-600), var(--color-red-600));
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    color: var(--color-surface-pink);
+    transition: opacity 0.3s ease;
+}
