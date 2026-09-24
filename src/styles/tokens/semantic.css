@@ -5,102 +5,69 @@
 :root {
 
   /* =======================================================
-     BRAND
+     BRAND & ACCENTS
      ======================================================= */
 
-  --color-primary:
-    var(--color-brand-primary);
-
-  --color-primary-extra:
-    var(--color-brand-primary-extra);
+  --color-primary: var(--color-purple-600);
+  --color-primary-hover: var(--color-purple-500);
+  --color-primary-gradient: linear-gradient(135deg, #a855f7 0%, #d946ef 100%);
+  --color-brand-neon: #d946ef;
+  --color-brand-cyan: #38bdf8;
 
 
   /* =======================================================
-     PAGE
+     PAGE & LAYOUT
      ======================================================= */
 
-  --color-background:
-    var(--color-violet-950);
-
-  --color-foreground:
-    var(--color-text-primary);
+  --color-background: #070913;
+  --color-sidebar-bg: #090c1a;
+  --color-header-bg: #070913;
+  --color-foreground: #f8fafc;
 
 
   /* =======================================================
-     SURFACES
+     SURFACES & CARDS
      ======================================================= */
 
-  --color-surface:
-    var(--color-surface-page);
-
-  --color-surface-subtle:
-    var(--color-surface-subtle);
-
-  --color-surface-muted:
-    var(--color-surface-muted);
-
-  --color-surface-promotion:
-    var(--color-surface-pink);
+  --color-surface: #0e1224;
+  --color-surface-hover: #141b33;
+  --color-surface-active: #1d2545;
+  --color-surface-subtle: rgba(255, 255, 255, 0.04);
+  --color-surface-muted: rgba(255, 255, 255, 0.02);
+  --color-surface-tag: rgba(139, 92, 246, 0.12);
 
 
   /* =======================================================
-     CONTENT
+     CONTENT / TEXT
      ======================================================= */
 
-  --color-content-primary:
-    var(--color-text-primary);
-
-  --color-content-secondary:
-    var(--color-text-secondary);
+  --color-content-primary: #f8fafc;
+  --color-content-secondary: #94a3b8;
+  --color-content-tertiary: #64748b;
+  --color-content-muted: #475569;
+  --color-content-active: #c084fc;
 
 
   /* =======================================================
-     OUTLINES
+     OUTLINES & BORDERS
      ======================================================= */
 
-  --color-outline:
-    var(--color-border-default);
+  --color-outline: rgba(56, 189, 248, 0.18);
+  --color-outline-subtle: rgba(255, 255, 255, 0.08);
+  --color-outline-hover: rgba(168, 85, 247, 0.5);
+  --color-outline-active: #a855f7;
 
 
   /* =======================================================
      FEEDBACK
      ======================================================= */
 
-  --color-success:
-    var(--color-green-600);
-
-  --color-success-subtle:
-    var(--color-green-100);
-
-  --color-warning:
-    var(--color-yellow-600);
-
-  --color-warning-subtle:
-    var(--color-yellow-100);
-
-  --color-error:
-    var(--color-red-600);
-
-  --color-error-subtle:
-    var(--color-red-100);
-
-  --color-info:
-    var(--color-blue-600);
-
-  --color-info-subtle:
-    var(--color-blue-100);
-
-
-  /* =======================================================
-     TRANSFORME-SE
-     ======================================================= */
-
-  --color-transforme-primary:
-    var(--color-transforme-brand-primary);
-
-  --color-transforme-secondary:
-    var(--color-transforme-brand-secondary);
-
-  --color-transforme-tertiary:
-    var(--color-transforme-brand-tertiary);
+  --color-success: var(--color-emerald-500);
+  --color-success-subtle: rgba(16, 185, 129, 0.15);
+  --color-warning: var(--color-amber-500);
+  --color-warning-subtle: rgba(245, 158, 11, 0.15);
+  --color-error: var(--color-rose-500);
+  --color-error-subtle: rgba(244, 63, 94, 0.15);
+  --color-info: var(--color-sky-400);
+  --color-info-subtle: rgba(56, 189, 248, 0.15);
 }

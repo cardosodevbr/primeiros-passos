@@ -1,18 +1,35 @@
 body {
-    font-family: var(--font-family-base);
-    font-style: var(--font-style-normal);
-    color: var(--color-background);
+  font-family: var(--font-family-base);
+  color: var(--color-content-primary);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
 }
 
-.heading {
-    font-family: var(--font-family-primary);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-primary);
+  color: var(--color-content-primary);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
 }
 
-.body {
-    font-family: var(--font-family-base);
+/* 🎨 Dev tip: classe para os títulos com gradiente vibrante */
+.text-gradient {
+  background: linear-gradient(135deg, #c084fc 0%, #e879f9 50%, #d946ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* body font
-heading defaults
-links
-text rendering */
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

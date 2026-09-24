@@ -1,0 +1,134 @@
+/* =========================================================
+   PAGE SECTIONS & HEADER BAR
+   ========================================================= */
+
+/* Hero Title Section */
+.vagas-hero-section {
+  margin-bottom: var(--space-6);
+}
+
+.vagas-eyebrow {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #c084fc;
+  margin-bottom: var(--space-2);
+}
+
+.vagas-title {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--color-content-primary);
+  margin-bottom: var(--space-2);
+  line-height: 1.2;
+}
+
+.vagas-subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-content-secondary);
+}
+
+/* Horizontal Category Filter Pills Bar */
+.category-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-6);
+  scrollbar-width: none;
+}
+
+.category-filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.category-pill {
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-outline-subtle);
+  color: var(--color-content-secondary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.category-pill:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  color: #ffffff;
+  background-color: rgba(139, 92, 246, 0.18);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.3);
+  transform: translateY(-2px);
+}
+
+.category-pill:active {
+  transform: scale(0.97);
+}
+
+.category-pill.active {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(217, 70, 239, 0.3) 100%);
+  border-color: #d946ef;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(217, 70, 239, 0.4);
+}
+
+/* Pagination Section */
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+.pagination-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-outline-subtle);
+  color: var(--color-content-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  border-color: rgba(168, 85, 247, 0.6);
+  color: #ffffff;
+  background-color: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.35);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.pagination-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.pagination-btn.active {
+  background: var(--color-primary-gradient);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(217, 70, 239, 0.5);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .vagas-title {
+    font-size: var(--text-2xl);
+  }
+}

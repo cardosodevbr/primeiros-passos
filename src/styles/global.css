@@ -1,16 +1,15 @@
 /* ========================================================= GLOBAL STYLES =========================================================
- ARCHITECTURE (rodar nesta ordem para evitar problemas de depend.):
- 0. Tokens
- 1. Base
- 2. Layout
- 3. Components
- 4. Pages
-  =========================================================*/
-
+   ARCHITECTURE (rodar nesta ordem para evitar problemas de depend.):
+   0. Tokens
+   1. Base
+   2. Layout
+   3. Components
+   4. Pages
+   =========================================================*/
 
 
 /* =========================================================
-   TOKENS
+   0. TOKENS
    ========================================================= */
 
 @import url("./tokens/colors.css");
@@ -19,7 +18,7 @@
 
 
 /* =========================================================
-   BASE
+   1. BASE
    ========================================================= */
 
 @import url("./base/reset.css");
@@ -28,7 +27,7 @@
 
 
 /* =========================================================
-   LAYOUT
+   2. LAYOUT
    ========================================================= */
 
 @import url("./layout/container.css");
@@ -37,17 +36,20 @@
 
 
 /* =========================================================
-   COMPONENTS
+   3. COMPONENTS
    ========================================================= */
 
+@import url("./components/sidebar.css");
+@import url("./components/header.css");
 @import url("./components/button.css");
 @import url("./components/card.css");
-@import url("./components/footer.css");
-@import url("./components/header.css");
 @import url("./components/input.css");
+@import url("./components/badge.css");
+@import url("./components/footer.css");
 
 
 /* =========================================================
-   PAGES
+   4. PAGES
    ========================================================= */
+@import url("./pages/vagas.css");
 @import url("./pages/home.css");

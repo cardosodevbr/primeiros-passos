@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Primeiros Passos - Encontre a sua Vaga" />
+  <!-- RemixIcon CDN para ícones -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/styles/global.css" />
+  <title>Vagas | Primeiros Passos</title>
+</head>
+
+<body>
+  <!-- App Outer Shell: Sidebar + Main Content Layout -->
+  <div class="app-shell">
+
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+    <!-- Left Fixed Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar" aria-label="Navegação Principal">
+      <!-- Official Brand Logo -->
+      <a href="vagas.html" class="sidebar-logo">
+        <img src="./src/assets/logos/logo.png" alt="Logo Primeiros Passos" class="sidebar-logo-icon" />
+        <span class="logo-text">Primeiros<br /><span>Passos</span></span>
+      </a>
+
+      <!-- Main Navigation Links -->
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">
+          <span class="sidebar-icon"><i class="ri-home-4-line"></i></span>
+          <span>Início</span>
+        </a>
+
+        <a href="vagas.html" class="sidebar-link active" aria-current="page">
+          <span class="sidebar-icon"><i class="ri-briefcase-line"></i></span>
+          <span>Vagas</span>
+        </a>
+
+        <a href="#" class="sidebar-link">
+          <span class="sidebar-icon"><i class="ri-building-4-line"></i></span>
+          <span>Para empresas</span>
+        </a>
+
+        <a href="#" class="sidebar-link">
+          <span class="sidebar-icon"><i class="ri-lightbulb-line"></i></span>
+          <span>Dicas</span>
+        </a>
+
+        <a href="#" class="sidebar-link">
+          <span class="sidebar-icon"><i class="ri-group-line"></i></span>
+          <span>Sobre nós</span>
+        </a>
+
+        <hr class="sidebar-divider" />
+
+        <a href="#" class="sidebar-link">
+          <span class="sidebar-icon"><i class="ri-star-line"></i></span>
+          <span>Candidaturas</span>
+        </a>
+
+        <a href="#" class="sidebar-link">
+          <span class="sidebar-icon"><i class="ri-notification-3-line"></i></span>
+          <span>Notificações</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="app-main">
+
+      <!-- Top App Header -->
+      <header class="app-header">
+        <!-- Mobile Menu Trigger -->
+        <button class="mobile-menu-toggle" id="btn-toggle-sidebar" aria-label="Abrir menu lateral">
+          <i class="ri-menu-line"></i>
+        </button>
+
+        <!-- Top Search Bar Input -->
+        <div class="header-search-form">
+          <div class="search-input-wrapper">
+            <span class="search-input-icon"><i class="ri-search-line"></i></span>
+            <input type="text" id="global-search-input" class="header-search-input"
+              placeholder="Buscar por vaga, empresa ou palavra-chave..." aria-label="Buscar vagas" />
+          </div>
+        </div>
+
+        <!-- User Controls -->
+        <div class="header-user-controls">
+          <button class="icon-button" aria-label="Notificações">
+            <i class="ri-notification-3-line"></i>
+            <span class="notification-dot"></span>
+          </button>
+
+          <!-- Profile Menu -->
+          <div class="user-profile-menu">
+            <div class="user-avatar">A</div>
+            <span class="user-name">Ana Silva</span>
+            <i class="ri-arrow-down-s-line user-chevron"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Page Body -->
+      <main class="main-content">
+
+        <!-- Hero Title Header -->
+        <section class="vagas-hero-section">
+          <span class="vagas-eyebrow">V A G A S</span>
+          <h1 class="vagas-title">Encontre sua próxima <span class="text-gradient">oportunidade</span></h1>
+          <p class="vagas-subtitle">Vagas de jovem aprendiz, estágio e primeiro emprego em um só lugar.</p>
+        </section>
+
+        <!-- Horizontal Category Filter Pills -->
+        <nav class="category-filter-bar" aria-label="Filtro por categoria">
+          <button class="category-pill active" data-category="todas">Todas</button>
+          <button class="category-pill" data-category="tecnologia">Tecnologia</button>
+          <button class="category-pill" data-category="administrativo">Administrativo</button>
+          <button class="category-pill" data-category="marketing">Marketing</button>
+          <button class="category-pill" data-category="atendimento">Atendimento</button>
+          <button class="category-pill" data-category="operacional">Operacional</button>
+        </nav>
+
+        <!-- 2-Column Grid Layout: Job Cards Column + Sidebar Filter Column -->
+        <div class="vagas-layout-grid">
+
+          <!-- Left Column: Job Cards List -->
+          <div class="job-cards-column">
+            <div class="job-cards-list" id="job-cards-container">
+
+              <!-- Card 1: Tech Solutions (programming-language 1.png) -->
+              <article class="job-card" data-category="tecnologia" data-type="Aprendiz" data-modality="Híbrido"
+                data-location="São Paulo - SP">
+                <div class="job-card-main">
+                  <div class="job-icon-box">
+                    <img src="./src/assets/icons/ui/programming-language 1.png" alt="Tecnologia Icon"
+                      class="card-icon-img" />
+                  </div>
+                  <div class="job-info">
+                    <a href="#" class="job-title">Jovem Aprendiz em Tecnologia</a>
+                    <span class="job-company">Tech Solutions</span>
+                    <div class="job-meta-row">
+                      <span class="job-location-item">São Paulo - SP</span>
+                      <span>•</span>
+                      <span>Híbrido</span>
+                      <span class="badge badge-tag">Aprendiz</span>
+                      <span class="badge badge-tag">Tecnologia</span>
+                      <span class="time-info">⏱ 6 horas por dia</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card-actions">
+                  <button class="bookmark-btn" aria-label="Salvar vaga">
+                    <i class="ri-bookmark-line"></i>
+                  </button>
+                  <a href="#" class="btn-details">Ver detalhes <i class="ri-arrow-right-line btn-details-arrow"></i></a>
+                </div>
+              </article>
+
+              <!-- Card 2: NovaTech (pasta 1.png) -->
+              <article class="job-card" data-category="administrativo" data-type="Estágio" data-modality="Presencial"
+                data-location="Campinas - SP">
+                <div class="job-card-main">
+                  <div class="job-icon-box">
+                    <img src="./src/assets/icons/ui/pasta 1.png" alt="Administrativo Icon" class="card-icon-img" />
+                  </div>
+                  <div class="job-info">
+                    <a href="#" class="job-title">Assistente Administrativo</a>
+                    <span class="job-company">NovaTech</span>
+                    <div class="job-meta-row">
+                      <span class="job-location-item">Campinas - SP</span>
+                      <span>•</span>
+                      <span>Presencial</span>
+                      <span class="badge badge-tag">Estágio</span>
+                      <span class="badge badge-tag">Administrativo</span>
+                      <span class="time-info">⏱ 6 horas por dia</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card-actions">
+                  <button class="bookmark-btn" aria-label="Salvar vaga">
+                    <i class="ri-bookmark-line"></i>
+                  </button>
+                  <a href="#" class="btn-details">Ver detalhes <i class="ri-arrow-right-line btn-details-arrow"></i></a>
+                </div>
+              </article>
+
+              <!-- Card 3: Mídia Criativa (megaphone 1.png) -->
+              <article class="job-card" data-category="marketing" data-type="Estágio" data-modality="Híbrido"
+                data-location="São Paulo - SP">
+                <div class="job-card-main">
+                  <div class="job-icon-box">
+                    <img src="./src/assets/icons/ui/megaphone 1.png" alt="Marketing Icon" class="card-icon-img" />
+                  </div>
+                  <div class="job-info">
+                    <a href="#" class="job-title">Estagiário de Marketing</a>
+                    <span class="job-company">Mídia Criativa</span>
+                    <div class="job-meta-row">
+                      <span class="job-location-item">São Paulo - SP</span>
+                      <span>•</span>
+                      <span>Híbrido</span>
+                      <span class="badge badge-tag">Estágio</span>
+                      <span class="badge badge-tag">Marketing</span>
+                      <span class="time-info">⏱ 6 horas por dia</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card-actions">
+                  <button class="bookmark-btn" aria-label="Salvar vaga">
+                    <i class="ri-bookmark-line"></i>
+                  </button>
+                  <a href="#" class="btn-details">Ver detalhes <i class="ri-arrow-right-line btn-details-arrow"></i></a>
+                </div>
+              </article>
+
+              <!-- Card 4: InfoCenter (education 1.png) -->
+              <article class="job-card" data-category="tecnologia" data-type="Aprendiz" data-modality="Presencial"
+                data-location="Rio de Janeiro - RJ">
+                <div class="job-card-main">
+                  <div class="job-icon-box">
+                    <img src="./src/assets/icons/ui/education 1.png" alt="Informática Icon" class="card-icon-img" />
+                  </div>
+                  <div class="job-info">
+                    <a href="#" class="job-title">Auxiliar de Informática</a>
+                    <span class="job-company">InfoCenter</span>
+                    <div class="job-meta-row">
+                      <span class="job-location-item">Rio de Janeiro - RJ</span>
+                      <span>•</span>
+                      <span>Presencial</span>
+                      <span class="badge badge-tag">Aprendiz</span>
+                      <span class="badge badge-tag">Tecnologia</span>
+                      <span class="time-info">⏱ 6 horas por dia</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card-actions">
+                  <button class="bookmark-btn" aria-label="Salvar vaga">
+                    <i class="ri-bookmark-line"></i>
+                  </button>
+                  <a href="#" class="btn-details">Ver detalhes <i class="ri-arrow-right-line btn-details-arrow"></i></a>
+                </div>
+              </article>
+
+              <!-- Card 5: Vida Saudável (helpdesk 1.png) -->
+              <article class="job-card" data-category="atendimento" data-type="Aprendiz" data-modality="Híbrido"
+                data-location="Curitiba - PR">
+                <div class="job-card-main">
+                  <div class="job-icon-box">
+                    <img src="./src/assets/icons/ui/helpdesk 1.png" alt="Suporte Icon" class="card-icon-img" />
+                  </div>
+                  <div class="job-info">
+                    <a href="#" class="job-title">Atendente de Suporte</a>
+                    <span class="job-company">Vida Saudável</span>
+                    <div class="job-meta-row">
+                      <span class="job-location-item">Curitiba - PR</span>
+                      <span>•</span>
+                      <span>Híbrido</span>
+                      <span class="badge badge-tag">Aprendiz</span>
+                      <span class="badge badge-tag">Atendimento</span>
+                      <span class="time-info">⏱ 6 horas por dia</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card-actions">
+                  <button class="bookmark-btn" aria-label="Salvar vaga">
+                    <i class="ri-bookmark-line"></i>
+                  </button>
+                  <a href="#" class="btn-details">Ver detalhes <i class="ri-arrow-right-line btn-details-arrow"></i></a>
+                </div>
+              </article>
+
+              <!-- Card 6: LogFast (graphic 1.png) -->
+              <article class="job-card" data-category="operacional" data-type="Aprendiz" data-modality="Presencial"
+                data-location="Belo Horizonte - MG">
+                <div class="job-card-main">
+                  <div class="job-icon-box">
+                    <img src="./src/assets/icons/ui/graphic 1.png" alt="Logística Icon" class="card-icon-img" />
+                  </div>
+                  <div class="job-info">
+                    <a href="#" class="job-title">Auxiliar Logístico</a>
+                    <span class="job-company">LogFast</span>
+                    <div class="job-meta-row">
+                      <span class="job-location-item">Belo Horizonte - MG</span>
+                      <span>•</span>
+                      <span>Presencial</span>
+                      <span class="badge badge-tag">Aprendiz</span>
+                      <span class="badge badge-tag">Operacional</span>
+                      <span class="time-info">⏱ 6 horas por dia</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card-actions">
+                  <button class="bookmark-btn" aria-label="Salvar vaga">
+                    <i class="ri-bookmark-line"></i>
+                  </button>
+                  <a href="#" class="btn-details">Ver detalhes <i class="ri-arrow-right-line btn-details-arrow"></i></a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-container">
+              <button class="pagination-btn" aria-label="Página anterior" disabled>
+                <i class="ri-arrow-left-s-line"></i>
+              </button>
+              <button class="pagination-btn active">1</button>
+              <button class="pagination-btn">2</button>
+              <button class="pagination-btn" aria-label="Próxima página">
+                <i class="ri-arrow-right-s-line"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Sidebar Filters & Promo Banner -->
+          <aside class="filters-sidebar-column">
+
+            <!-- Filter Widget Card -->
+            <div class="filter-card">
+              <div class="filter-card-header">
+                <h2 class="filter-card-title">Filtros</h2>
+                <button type="button" class="clear-filters-btn" id="btn-clear-filters">Limpar filtros</button>
+              </div>
+
+              <form id="vagas-filter-form" onsubmit="event.preventDefault();">
+                <!-- Palavra-chave -->
+                <div class="form-group">
+                  <label for="filter-keyword" class="form-label">Palavra-chave</label>
+                  <div class="input-with-icon">
+                    <span class="input-icon"><i class="ri-search-line"></i></span>
+                    <input type="text" id="filter-keyword" class="form-input has-icon"
+                      placeholder="Buscar por cargo, empresa..." />
+                  </div>
+                </div>
+
+                <!-- Área -->
+                <div class="form-group" style="margin-top: 16px;">
+                  <label for="filter-area" class="form-label">Área</label>
+                  <select id="filter-area" class="form-select">
+                    <option value="">Todas</option>
+                    <option value="tecnologia">Tecnologia</option>
+                    <option value="administrativo">Administrativo</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="atendimento">Atendimento</option>
+                    <option value="operacional">Operacional</option>
+                  </select>
+                </div>
+
+                <!-- Tipo de vaga -->
+                <div class="form-group" style="margin-top: 16px;">
+                  <label for="filter-type" class="form-label">Tipo de vaga</label>
+                  <select id="filter-type" class="form-select">
+                    <option value="">Todos</option>
+                    <option value="Aprendiz">Jovem Aprendiz</option>
+                    <option value="Estágio">Estágio</option>
+                  </select>
+                </div>
+
+                <!-- Modalidade -->
+                <div class="form-group" style="margin-top: 16px;">
+                  <label class="form-label">Modalidade</label>
+                  <div class="checkbox-group">
+                    <label class="custom-checkbox">
+                      <input type="checkbox" name="modality" value="Presencial" />
+                      <span>Presencial</span>
+                    </label>
+                    <label class="custom-checkbox">
+                      <input type="checkbox" name="modality" value="Híbrido" />
+                      <span>Híbrido</span>
+                    </label>
+                    <label class="custom-checkbox">
+                      <input type="checkbox" name="modality" value="Remoto" />
+                      <span>Remoto</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Localização -->
+                <div class="form-group" style="margin-top: 16px;">
+                  <label for="filter-location" class="form-label">Localização</label>
+                  <div class="input-with-icon">
+                    <span class="input-icon"><i class="ri-map-pin-line"></i></span>
+                    <input type="text" id="filter-location" class="form-input has-icon"
+                      placeholder="Digite a cidade ou estado" />
+                  </div>
+                </div>
+
+                <!-- Button -->
+                <div style="margin-top: 24px;">
+                  <button type="submit" id="btn-apply-filters" class="btn-apply-filter">Aplicar filtros</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Motivational Banner Card -->
+            <div class="banner-card">
+              <div class="banner-icon-box">
+                <i class="ri-rocket-2-line"></i>
+              </div>
+              <div class="banner-content">
+                <h3 class="banner-title">Cada vaga é um novo passo.</h3>
+                <p class="banner-desc">Continue buscando, você consegue!</p>
+              </div>
+            </div>
+
+          </aside>
+        </div>
+
+      </main>
+
+      <!-- Footer Oficial  -->
+      <footer class="app-footer">
+        <div class="footer-container">
+          <!-- Coluna 1: Logo Oficial com Ícone + Texto -->
+          <div class="footer-brand">
+            <a href="vagas.html" class="footer-logo-link">
+              <img src="./src/assets/logos/logo.png" alt="Primeiros Passos Icon" class="footer-logo-icon" />
+              <span class="logo-text">Primeiros<br /><span>Passos</span></span>
+            </a>
+          </div>
+
+          <div class="footer-vertical-divider"></div>
+
+          <!-- Coluna 2: Navegação -->
+          <div class="footer-column">
+            <h3 class="footer-column-title">Navegação</h3>
+            <ul class="footer-links-list">
+              <li><a href="index.html" class="footer-link">Inicio</a></li>
+              <li><a href="vagas.html" class="footer-link">Vagas</a></li>
+              <li><a href="#" class="footer-link">Para empresas</a></li>
+              <li><a href="#" class="footer-link">Dicas</a></li>
+              <li><a href="#" class="footer-link">Sobre nós</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-vertical-divider"></div>
+
+          <!-- Coluna 3: Ajuda -->
+          <div class="footer-column">
+            <h3 class="footer-column-title">Ajuda</h3>
+            <ul class="footer-links-list">
+              <li><a href="#" class="footer-link">Perguntas frequentes</a></li>
+              <li><a href="#" class="footer-link">Como Funciona</a></li>
+              <li><a href="#" class="footer-link">Suporte</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-vertical-divider"></div>
+
+          <!-- Coluna 4: Legal -->
+          <div class="footer-column">
+            <h3 class="footer-column-title">Legal</h3>
+            <ul class="footer-links-list">
+              <li><a href="#" class="footer-link">Termos de uso</a></li>
+              <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+              <li><a href="#" class="footer-link">Acessibilidade</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-vertical-divider"></div>
+
+          <!-- Coluna 5: Siga-nos & Contatos -->
+          <div class="footer-social-column">
+            <h3 class="footer-column-title">Siga-nos</h3>
+            <div class="footer-social-icons">
+              <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+              <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+              <a href="#" class="social-icon-btn" aria-label="TikTok"><i class="ri-tiktok-fill"></i></a>
+              <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+            </div>
+            <p class="footer-social-desc">Acompanhe nossas novidades e faça parte dessa jornada!</p>
+
+            <hr class="footer-horizontal-divider" />
+
+            <div class="footer-contact-list">
+              <div class="footer-contact-item">
+                <span class="footer-contact-icon"><i class="ri-mail-line"></i></span>
+                <span>primeirospassos@gmail.com</span>
+              </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-icon"><i class="ri-phone-line"></i></span>
+                <span>(11) 91111-0000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom-copyright">
+          <p>&copy; 2026 Primeiros Passos. Todos os direitos reservados.</p>
+        </div>
+      </footer>
+
+    </div>
+
+  </div>
+
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+
+</html>

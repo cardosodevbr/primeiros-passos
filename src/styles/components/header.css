@@ -1,26 +1,246 @@
-.container{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    color: #1a1a1a;
+/* =========================================================
+   TOP HEADER COMPONENT
+   ========================================================= */
+
+.app-header {
+  height: 72px;
+  padding: 0 var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  border-bottom: 1px solid var(--color-outline-subtle);
+  background-color: var(--color-header-bg);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
 }
 
-.cabecalho {
-    background-color: #1a1a1a;
-    color: #fff;
-    padding: 15px 0;
+/* Mobile Toggle Hamburger */
+.mobile-menu-toggle {
+  display: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  color: var(--color-content-primary);
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: all var(--transition-fast);
 }
 
-.cabecalho .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.mobile-menu-toggle:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: rgba(168, 85, 247, 0.5);
+  color: #c084fc;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+  transform: translateY(-1px);
 }
 
-.texto-home{
-color: #1a1a1a;
+/* Main Top Search Bar */
+.header-search-form {
+  flex: 1;
+  max-width: 480px;
 }
 
-.filtros-pesquisa{
-    color: #1a1a1a;
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--color-content-secondary);
+  pointer-events: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast);
+}
+
+.header-search-input {
+  width: 100%;
+  height: 42px;
+  padding-left: 42px;
+  padding-right: var(--space-4);
+  background-color: #0c1020;
+  border: 1px solid var(--color-outline);
+  border-radius: var(--radius-md);
+  color: var(--color-content-primary);
+  font-size: var(--text-sm);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.header-search-input::placeholder {
+  color: var(--color-content-tertiary);
+}
+
+.header-search-input:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  background-color: #0f152b;
+}
+
+.header-search-input:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.35);
+  background-color: #121832;
+}
+
+.search-input-wrapper:focus-within .search-input-icon {
+  color: #c084fc;
+}
+
+/* Right User & Notification Controls */
+.header-user-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* 🔔 Botão de Notificação com Hover Neon Vibrante */
+.icon-button {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-content-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  font-size: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.icon-button:hover {
+  background-color: rgba(139, 92, 246, 0.22);
+  border-color: rgba(168, 85, 247, 0.6);
+  color: #e879f9;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.45);
+}
+
+.icon-button:hover i {
+  animation: bellRing 0.4s ease forwards;
+}
+
+.icon-button:active {
+  transform: scale(0.95);
+}
+
+@keyframes bellRing {
+  0% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(14deg);
+  }
+
+  75% {
+    transform: rotate(-14deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.notification-dot {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 9px;
+  height: 9px;
+  background-color: #d946ef;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 10px #d946ef, 0 0 4px #ffffff;
+  transition: transform var(--transition-fast);
+}
+
+.icon-button:hover .notification-dot {
+  transform: scale(1.2);
+}
+
+/* User Profile Badge Menu com Hover Responsivo */
+.user-profile-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  cursor: pointer;
+  padding: 6px 14px 6px 6px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all var(--transition-fast);
+}
+
+.user-profile-menu:hover {
+  background-color: rgba(139, 92, 246, 0.18);
+  border-color: rgba(168, 85, 247, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.3);
+}
+
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #a855f7 0%, #d946ef 100%);
+  color: #ffffff;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.user-profile-menu:hover .user-avatar {
+  transform: scale(1.08);
+  box-shadow: 0 0 16px rgba(217, 70, 239, 0.6);
+}
+
+.user-name {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-content-primary);
+  transition: color var(--transition-fast);
+}
+
+.user-profile-menu:hover .user-name {
+  color: #ffffff;
+}
+
+.user-chevron {
+  color: var(--color-content-secondary);
+  font-size: 1.1rem;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.user-profile-menu:hover .user-chevron {
+  color: #c084fc;
+  transform: translateY(2px);
+}
+
+@media (max-width: 900px) {
+  .app-header {
+    padding: 0 var(--space-4);
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .user-name {
+    display: none;
+  }
 }

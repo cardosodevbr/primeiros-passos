@@ -1,106 +1,106 @@
-@import url('../tokens/colors.css');
+/* =========================================================
+   BUTTONS COMPONENT
+   ========================================================= */
 
 button {
-    margin: 1px;
+  font-family: inherit;
+  cursor: pointer;
 }
 
-/*  --------------------------------------------------------- 
-            Buttons
-    ---------------------------------------------------------*/
-.primary-btn {
-    background-color: var(--color-purple-600);
-    border: 1px solid var(--color-logo-purple-dark);
-    color: var(--color-surface-pink);
-    transition: all 0.3s ease;
-    border-radius: 12px;
-    padding: 8px 16px;
-    outline: none;
+/* 1. Details Button ("Ver detalhes →") com Hover Neon e Animação */
+.btn-details {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: #f8fafc;
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
-.primary-btn:hover {
-    background-color: var(--color-logo-purple-dark);
-    border: 1px solid var(--color-logo-purple);
-    color: var(--color-surface-pink);
-    box-shadow: none;
+.btn-details:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(217, 70, 239, 0.3) 100%);
+  border-color: #d946ef;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(217, 70, 239, 0.4);
+  transform: translateY(-2px) scale(1.02);
 }
 
-.primary-btn:active {
-    background-color: #3b0764;
-    border: 1px solid var(--color-logo-purple);
-    color: var(--color-surface-pink);
-    box-shadow: none;
+.btn-details-arrow {
+  transition: transform var(--transition-fast);
 }
 
-/* ================================================================ */
-
-.secundary-btn {
-    background-color: var(--color-logo-purple-light);
-    border: 1px solid var(--color-logo-purple-dark);
-    color: var(--color-purple-900);
-    transition: all 0.3s ease;
-    border-radius: 12px;
-    padding: 8px 16px;
-    outline: none;
+.btn-details:hover .btn-details-arrow {
+  transform: translateX(4px);
 }
 
-.secundary-btn:hover {
-    background-color: var(--color-logo-purple-dark);
-    border: 1px solid var(--color-logo-purple);
-    color: var(--color-surface-pink);
-    box-shadow: none;
+.btn-details:active {
+  transform: scale(0.97);
 }
 
-.secundary-btn:active {
-    background-color: var(--color-logo-purple-dark);
-    border: 1px solid var(--color-logo-purple);
-    color: var(--color-surface-pink);
-    box-shadow: none;
+/* 2. Apply Filters Button com Glow Violeta */
+.btn-apply-filter {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  background: #0d1226;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #ffffff;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-bold);
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* ================================================================ */
-
-.tertiary-btn {
-    background-color: var(--color-background);
-    border: 3px solid var(--color-logo-purple-dark);
-    border-radius: 8px;
-    color: var(--color-surface-pink);
-    transition: all 0.3s ease;
-    padding: 8px 40px;
-    outline: none;
+.btn-apply-filter:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.35) 0%, rgba(217, 70, 239, 0.35) 100%);
+  border-color: #d946ef;
+  box-shadow: 0 0 20px rgba(217, 70, 239, 0.45);
+  transform: translateY(-2px);
 }
 
-.tertiary-btn:hover {
-    background-color: var(--color-logo-purple-dark);
-    border: 3px solid var(--color-logo-purple);
-    color: var(--color-surface-pink);
-    box-shadow: none;
+.btn-apply-filter:active {
+  transform: translateY(0) scale(0.98);
 }
 
-/* -----------------------------------------------------------------
-                        Gradientes
-   -----------------------------------------------------------------*/
-
-.gradient-btn {
-    border: 2px solid transparent;
-    border-radius: 8px;
-    padding: 8px 20px;
-    /* Borda do capeta (capa pequena)*/
-    background-image: linear-gradient(#fff, #fff), linear-gradient(270deg, var(--color-purple-600), var(--color-red-600));
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-
-    transition: opacity 0.3s ease;
+/* 3. Generic Action Buttons */
+.btn-primary {
+  background: var(--color-primary-gradient);
+  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-sm);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+  transition: all var(--transition-fast);
 }
 
-.gradient-btn:hover {
-    background-image: linear-gradient(#fff, #fff), linear-gradient(to right, var(--color-purple-600), var(--color-red-600));
+.btn-primary:hover {
+  opacity: 0.95;
+  box-shadow: 0 6px 20px rgba(217, 70, 239, 0.5);
+  transform: translateY(-2px) scale(1.02);
 }
 
-.gradient2-btn {
-    background: linear-gradient(245deg, var(--color-purple-600), var(--color-red-600));
-    border: none;
-    border-radius: 8px;
-    padding: 8px 20px;
-    color: var(--color-surface-pink);
-    transition: opacity 0.3s ease;
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--color-outline);
+  color: var(--color-content-primary);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-outline-hover);
+  background-color: var(--color-surface-hover);
+  transform: translateY(-1px);
 }

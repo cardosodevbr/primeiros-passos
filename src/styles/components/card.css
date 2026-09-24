@@ -1,0 +1,271 @@
+/* =========================================================
+   CARDS SYSTEM (Job Card, Filter Widget & Promo Banner)
+   ========================================================= */
+
+/* 1. Job Card Component */
+.job-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-outline);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-primary-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.job-card:hover {
+  background: linear-gradient(135deg, #0e1224 0%, #131932 100%);
+  border-color: rgba(168, 85, 247, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+.job-card:hover::before {
+  opacity: 1;
+}
+
+.job-card-main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex: 1;
+  min-width: 0;
+}
+
+/* Category Icon Box com Imagens PNG de src/assets/icons/ui */
+.job-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  color: #c084fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.job-card:hover .job-icon-box {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.3);
+  border-color: #c084fc;
+}
+
+.card-icon-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(192, 132, 252, 0.4));
+  transition: transform var(--transition-fast);
+}
+
+.job-card:hover .card-icon-img {
+  transform: scale(1.1);
+}
+
+/* Job Details Typography */
+.job-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.job-title {
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-content-primary);
+  line-height: 1.3;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.job-title:hover {
+  color: #c084fc;
+}
+
+.job-company {
+  font-size: var(--text-xs);
+  color: var(--color-content-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.job-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-content-tertiary);
+  margin-top: 2px;
+}
+
+.job-location-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Right Card Action Group */
+.job-card-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.bookmark-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-content-secondary);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all var(--transition-fast);
+}
+
+.bookmark-btn:hover {
+  color: #c084fc;
+  background-color: var(--color-surface-subtle);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.bookmark-btn.saved {
+  color: #d946ef;
+  background-color: rgba(217, 70, 239, 0.15);
+  border-color: rgba(217, 70, 239, 0.4);
+  box-shadow: 0 0 10px rgba(217, 70, 239, 0.3);
+}
+
+/* 2. Filter Sidebar Card */
+.filter-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-outline);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.filter-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-card-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-content-primary);
+}
+
+.clear-filters-btn {
+  font-size: var(--text-xs);
+  color: #d946ef;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+.clear-filters-btn:hover {
+  color: #e879f9;
+  text-shadow: 0 0 8px rgba(232, 121, 249, 0.5);
+}
+
+/* 3. Motivational Banner Card */
+.banner-card {
+  background: linear-gradient(135deg, #160a33 0%, #0d1226 100%);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.banner-card::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(217, 70, 239, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.banner-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(217, 70, 239, 0.2));
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: #e879f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.3rem;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.banner-title {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-content-primary);
+  line-height: 1.3;
+}
+
+.banner-desc {
+  font-size: var(--text-xs);
+  color: var(--color-content-secondary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .job-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job-card-actions {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: var(--space-2);
+  }
+}

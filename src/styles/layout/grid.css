@@ -1,0 +1,43 @@
+/* =========================================================
+   VAGAS PAGE GRID SYSTEM
+   ========================================================= */
+
+.vagas-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--space-6);
+  align-items: start;
+  margin-top: var(--space-6);
+}
+
+.job-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.filters-sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  position: sticky;
+  top: var(--space-6);
+}
+
+/* Responsive Grid Breakpoint */
+@media (max-width: 1080px) {
+  .vagas-layout-grid {
+    grid-template-columns: 1fr 300px;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 900px) {
+  .vagas-layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-sidebar-column {
+    position: static;
+  }
+}

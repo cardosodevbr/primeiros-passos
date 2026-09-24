@@ -1,18 +1,24 @@
-//  NÃO importar core diretamente
-import { initHeader } from './components/header.js'
-import { initModal } from './components/modal.js'
+// =========================================================
+//  MAIN APPLICATION ENTRY POINT (Modular JS)
+// =========================================================
 
-import { initHome } from './pages/home.js'
+import { initSidebar } from './components/sidebar.js';
+import { initHeader } from './components/header.js';
+import { initModal } from './components/modal.js';
+import { initVagasPage } from './pages/vagas.js';
 
 function init() {
-  initHeader()
-  initModal()
+  // Componentes globais
+  initSidebar();
+  initHeader();
+  initModal();
 
-  initHome()
+  // Páginas específicas
+  initVagasPage();
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init)
+  document.addEventListener('DOMContentLoaded', init);
 } else {
-  init()
+  init();
 }
