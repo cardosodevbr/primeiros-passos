@@ -6,6 +6,7 @@ import { initSidebar } from './components/sidebar.js';
 import { initHeader } from './components/header.js';
 import { initModal } from './components/modal.js';
 import { initVagasPage } from './pages/vagas.js';
+import { initCurriculoPage } from './pages/curriculo.js';
 
 function init() {
   // Componentes globais
@@ -15,6 +16,7 @@ function init() {
 
   // Páginas específicas
   initVagasPage();
+  initCurriculoPage();
 }
 
 if (document.readyState === 'loading') {

@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Preencha seu currículo - Primeiros Passos" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/pages/curriculo.css" />
+    <title>Meu Currículo | Primeiros Passos</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+      <!-- SIDEBAR -->
+      <aside class="app-sidebar" id="app-sidebar" aria-label="Navegação Principal">
+        <a href="vagas.html" class="sidebar-logo">
+          <img src="../assets/logos/img_Primeiros passos.png" alt="Logo Primeiros Passos" class="sidebar-logo-icon" />
+          <span class="logo-text">Primeiros<br /><span>Passos</span></span>
+        </a>
+        <nav class="sidebar-nav">
+          <a href="../../index.html" class="sidebar-link"><span class="sidebar-icon"><i class="ri-home-4-line"></i></span><span>Início</span></a>
+          <a href="vagas.html" class="sidebar-link"><span class="sidebar-icon"><i class="ri-briefcase-line"></i></span><span>Vagas</span></a>
+          <a href="#" class="sidebar-link"><span class="sidebar-icon"><i class="ri-building-4-line"></i></span><span>Para empresas</span></a>
+          <a href="#" class="sidebar-link"><span class="sidebar-icon"><i class="ri-lightbulb-line"></i></span><span>Dicas</span></a>
+          <a href="#" class="sidebar-link"><span class="sidebar-icon"><i class="ri-group-line"></i></span><span>Sobre nós</span></a>
+          <hr class="sidebar-divider" />
+          <a href="#" class="sidebar-link"><span class="sidebar-icon"><i class="ri-star-line"></i></span><span>Candidaturas</span></a>
+          <a href="#" class="sidebar-link"><span class="sidebar-icon"><i class="ri-notification-3-line"></i></span><span>Notificações</span></a>
+          <a href="curriculo.html" class="sidebar-link active" aria-current="page"><span class="sidebar-icon"><i class="ri-user-line"></i></span><span>Perfil</span></a>
+        </nav>
+      </aside>
+
+      <div class="app-main">
+        <header class="app-header">
+          <button class="mobile-menu-toggle" id="btn-toggle-sidebar" aria-label="Abrir menu lateral"><i class="ri-menu-line"></i></button>
+          <div class="header-search-form">
+            <div class="search-input-wrapper">
+              <span class="search-input-icon"><i class="ri-search-line"></i></span>
+              <input type="text" id="global-search-input" class="header-search-input" placeholder="Buscar vagas, áreas ou empresas..." />
+            </div>
+          </div>
+          <div class="header-user-controls">
+            <button class="icon-button" aria-label="Notificações"><i class="ri-notification-3-line"></i><span class="notification-dot"></span></button>
+            <div class="user-profile-menu">
+              <div class="user-avatar">A</div>
+              <span class="user-name">Ana Silva</span>
+              <i class="ri-arrow-down-s-line user-chevron"></i>
+            </div>
+          </div>
+        </header>
+
+        <main class="main-content">
+          <div class="curriculo-header">
+            <a href="#" class="back-link"><i class="ri-arrow-left-line"></i> Voltar para o perfil</a>
+            <div class="curriculo-title-wrapper">
+              <div class="curriculo-icon-box"><i class="ri-user-line"></i></div>
+              <div>
+                <h1 class="curriculo-title">Meu Currículo</h1>
+                <p class="curriculo-subtitle">Preencha seus dados para criar seu perfil e se candidatar às vagas.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="stepper-container">
+            <div class="stepper-line-bg"></div>
+            <div class="stepper-progress" id="stepperProgress"></div>
+            <div class="stepper-steps">
+              <div class="step active" data-step="0">1</div>
+              <div class="step" data-step="1">2</div>
+              <div class="step" data-step="2">3</div>
+              <div class="step" data-step="3">4</div>
+            </div>
+          </div>
+
+          <!-- Datalist global de idiomas -->
+          <datalist id="idiomas-list">
+            <option value="Português"></option>
+            <option value="Inglês"></option>
+            <option value="Espanhol"></option>
+            <option value="Francês"></option>
+            <option value="Alemão"></option>
+            <option value="Italiano"></option>
+            <option value="Mandarim"></option>
+            <option value="Japonês"></option>
+            <option value="Coreano"></option>
+            <option value="Árabe"></option>
+            <option value="Russo"></option>
+            <option value="Libras"></option>
+          </datalist>
+
+          <div class="curriculo-layout-grid">
+            <form class="curriculo-form" id="form-curriculo" novalidate>
+
+              <!-- ============ ETAPA 1 ============ -->
+              <div class="form-step active" id="step-1">
+                <div class="form-section">
+                  <h2 class="section-title"><i class="ri-user-settings-line"></i> Dados pessoais</h2>
+                  <div class="grid grid-cols-2 gap-md">
+                    <div class="form-group">
+                      <label class="form-label">Nome completo *</label>
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-user-line"></i></span>
+                        <input type="text" class="form-input has-icon" placeholder="Ex: Ana Silva" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">E-mail *</label>
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-mail-line"></i></span>
+                        <input type="email" class="form-input has-icon" placeholder="Ex: seuemail@gmail.com" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Telefone *</label>
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-phone-line"></i></span>
+                        <input type="tel" class="form-input has-icon" placeholder="Ex: (11) 96794-7639" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Data de nascimento *</label>
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-calendar-line"></i></span>
+                        <input type="date" class="form-input has-icon" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Cidade *</label>
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-map-pin-line"></i></span>
+                        <select class="form-select has-icon" required>
+                          <option value="" disabled selected>Ex: São Paulo</option>
+                          <option value="sp">São Paulo</option>
+                          <option value="rj">Rio de Janeiro</option>
+                          <option value="bh">Belo Horizonte</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Estado *</label>
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-map-pin-2-line"></i></span>
+                        <select class="form-select has-icon" required>
+                          <option value="" disabled selected>Selecione seu estado</option>
+                          <option value="SP">SP</option>
+                          <option value="RJ">RJ</option>
+                          <option value="MG">MG</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <h2 class="section-title"><i class="ri-graduation-cap-line"></i> Informações adicionais</h2>
+                  <div class="grid grid-cols-2 gap-md">
+                    <div class="form-group">
+                      <label class="form-label">Nível de escolaridade *</label>
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-book-open-line"></i></span>
+                        <select class="form-select has-icon" required>
+                          <option value="" disabled selected>Selecione seu nível de escolaridade</option>
+                          <option value="medio">Ensino Médio</option>
+                          <option value="superior">Ensino Superior</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Área de interesse *</label>
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-briefcase-line"></i></span>
+                        <select class="form-select has-icon" required>
+                          <option value="" disabled selected>Selecione uma área</option>
+                          <option value="tecnologia">Tecnologia</option>
+                          <option value="administrativo">Administrativo</option>
+                          <option value="marketing">Marketing</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group mt-4">
+                    <label class="form-label">Você possui algum tipo de deficiência? *</label>
+                    <div class="radio-group">
+                      <label class="custom-radio"><input type="radio" name="deficiencia" value="sim" required><span>Sim</span></label>
+                      <label class="custom-radio"><input type="radio" name="deficiencia" value="nao"><span>Não</span></label>
+                      <label class="custom-radio"><input type="radio" name="deficiencia" value="nao-informar"><span>Prefiro não informar</span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============ ETAPA 2 ============ -->
+              <div class="form-step" id="step-2">
+                <div class="form-section">
+                  <h2 class="section-title"><i class="ri-graduation-cap-line"></i> Formação</h2>
+                  <p class="section-desc">Conte sobre sua formação acadêmica e cursos complementares.</p>
+
+                  <div class="repeatable-block" data-block="formacao">
+                    <div class="grid grid-cols-2 gap-md">
+                      <div class="form-group">
+                        <label class="form-label">Escolaridade atual *</label>
+                        <div class="input-with-icon">
+                          <span class="input-icon"><i class="ri-book-open-line"></i></span>
+                          <select class="form-select has-icon" required>
+                            <option value="" disabled selected>Selecione sua escolaridade atual</option>
+                            <option value="medio">Ensino Médio</option>
+                            <option value="superior">Ensino Superior</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Curso *</label>
+                        <div class="input-with-icon">
+                          <span class="input-icon"><i class="ri-book-2-line"></i></span>
+                          <input type="text" class="form-input has-icon" placeholder="Ex: Ciência da computação" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Instituição de ensino *</label>
+                        <div class="input-with-icon">
+                          <span class="input-icon"><i class="ri-building-line"></i></span>
+                          <input type="text" class="form-input has-icon" placeholder="Ex: Universidade de São Paulo" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Modalidade *</label>
+                        <div class="input-with-icon">
+                          <span class="input-icon"><i class="ri-home-office-line"></i></span>
+                          <select class="form-select has-icon" required>
+                            <option value="" disabled selected>Selecione a modalidade</option>
+                            <option value="presencial">Presencial</option>
+                            <option value="ead">EAD</option>
+                            <option value="hibrido">Híbrido</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Data de início *</label>
+                        <div class="input-with-icon">
+                          <span class="input-icon"><i class="ri-calendar-line"></i></span>
+                          <input type="date" class="form-input has-icon" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Previsão de conclusão *</label>
+                        <div class="input-with-icon">
+                          <span class="input-icon"><i class="ri-calendar-check-line"></i></span>
+                          <input type="date" class="form-input has-icon" required>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" class="btn-remove-block">
+                      <i class="ri-delete-bin-line"></i> Remover formação
+                    </button>
+                  </div>
+
+                  <button type="button" class="btn-add-more" data-add="formacao">
+                    <i class="ri-add-line"></i> Adicionar outra formação
+                  </button>
+                </div>
+
+                <div class="form-section">
+                  <h2 class="section-title"><i class="ri-translate-2"></i> Idiomas</h2>
+                  <p class="section-desc">Adicione os idiomas que você domina</p>
+
+                  <div class="skills-tags" id="idiomas-tags"></div>
+
+                  <button type="button" class="btn-add-more" id="btn-add-idioma">
+                    <i class="ri-add-line"></i> Adicionar idioma
+                  </button>
+                </div>
+              </div>
+
+              <!-- ============ ETAPA 3 ============ -->
+              <div class="form-step" id="step-3">
+                <div class="form-section">
+                  <h2 class="section-title"><i class="ri-briefcase-line"></i> Experiências</h2>
+                  <p class="section-desc">Conte para nós sobre suas experiências profissionais e voluntárias.</p>
+
+                  <div class="repeatable-block" data-block="experiencia">
+                    <div class="grid grid-cols-2 gap-md">
+                      <div class="form-group">
+                        <label class="form-label">Nome da empresa *</label>
+                        <div class="input-with-icon">
+                          <span class="input-icon"><i class="ri-building-4-line"></i></span>
+                          <input type="text" class="form-input has-icon" placeholder="Ex: Google, Oi, DIO Future, etc." required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Cargo *</label>
+                        <div class="input-with-icon">
+                          <span class="input-icon"><i class="ri-briefcase-4-line"></i></span>
+                          <input type="text" class="form-input has-icon" placeholder="Ex: Jovem Aprendiz, Estágio, etc." required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Tipo de vínculo *</label>
+                        <div class="input-with-icon">
+                          <span class="input-icon"><i class="ri-file-list-3-line"></i></span>
+                          <select class="form-select has-icon" required>
+                            <option value="" disabled selected>Selecione o tipo de vínculo</option>
+                            <option value="clt">CLT</option>
+                            <option value="estagio">Estágio</option>
+                            <option value="aprendiz">Jovem Aprendiz</option>
+                            <option value="trainee">Trainee</option>
+                            <option value="voluntariado">Voluntariado</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Período *</label>
+                        <div class="period-inputs">
+                          <div class="input-with-icon">
+                            <span class="input-icon"><i class="ri-calendar-line"></i></span>
+                            <input type="month" class="form-input has-icon" required>
+                          </div>
+                          <span>Até</span>
+                          <div class="input-with-icon">
+                            <span class="input-icon"><i class="ri-calendar-line"></i></span>
+                            <input type="month" class="form-input has-icon" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group mt-4">
+                      <label class="form-label">Principais atividades e responsabilidades *</label>
+                      <textarea class="form-input" rows="4" placeholder="Descreva as principais atividades..." maxlength="500" required></textarea>
+                      <div class="char-counter">0/500</div>
+                    </div>
+                    <button type="button" class="btn-remove-block">
+                      <i class="ri-delete-bin-line"></i> Remover experiência
+                    </button>
+                  </div>
+
+                  <button type="button" class="btn-add-more" data-add="experiencia">
+                    <i class="ri-add-line"></i> Adicionar outra experiência
+                  </button>
+                </div>
+
+                <div class="info-card-tip">
+                  <i class="ri-lightbulb-line"></i>
+                  <div>
+                    <h4>Dica</h4>
+                    <p>Inclua também experiências voluntárias, projetos pessoais e trabalhos informais. Toda experiência conta!</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============ ETAPA 4 ============ -->
+              <div class="form-step" id="step-4">
+                <div class="form-section">
+                  <h2 class="section-title"><i class="ri-tools-line"></i> Habilidades técnicas</h2>
+                  <p class="section-desc">Adicione as habilidades técnicas que você possui (máx. 10)</p>
+
+                  <div class="form-group">
+                    <label class="form-label" id="skill-label">Habilidades adicionais (0/10)</label>
+                    <div class="skills-tags" id="skills-tags"></div>
+                    <div class="skills-input-row">
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-tools-line"></i></span>
+                        <input type="text" class="form-input has-icon" placeholder="Ex: Pacote Office, Python, Photoshop..." id="input-skill">
+                      </div>
+                      <button type="button" class="btn-add-skill" id="btn-add-skill" aria-label="Adicionar habilidade">
+                        <i class="ri-add-line"></i>
+                      </button>
+                    </div>
+                    <div class="skill-progress-bar">
+                      <div class="skill-progress-fill" id="skillProgressFill"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <h2 class="section-title"><i class="ri-user-heart-line"></i> Habilidades comportamentais</h2>
+                  <p class="section-desc">Selecione as habilidades que mais se identificam com você</p>
+                  <div class="grid grid-cols-3 gap-md">
+                    <label class="custom-checkbox"><input type="checkbox" value="Trabalho em equipe"><span>Trabalho em equipe</span></label>
+                    <label class="custom-checkbox"><input type="checkbox" value="Comunicação"><span>Comunicação</span></label>
+                    <label class="custom-checkbox"><input type="checkbox" value="Proatividade"><span>Proatividade</span></label>
+                    <label class="custom-checkbox"><input type="checkbox" value="Organização"><span>Organização</span></label>
+                    <label class="custom-checkbox"><input type="checkbox" value="Liderança"><span>Liderança</span></label>
+                    <label class="custom-checkbox"><input type="checkbox" value="Resiliência"><span>Resiliência</span></label>
+                    <label class="custom-checkbox"><input type="checkbox" value="Criatividade"><span>Criatividade</span></label>
+                    <label class="custom-checkbox"><input type="checkbox" value="Adaptabilidade"><span>Adaptabilidade</span></label>
+                    <label class="custom-checkbox"><input type="checkbox" value="Resolução de problemas"><span>Resolução de problemas</span></label>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <h2 class="section-title"><i class="ri-award-line"></i> Outras habilidades</h2>
+                  <p class="section-desc">Possui outras habilidades ou conhecimentos? Adicione quantas quiser!</p>
+
+                  <div class="form-group">
+                    <label class="form-label" id="outras-label">Outras habilidades (0/10)</label>
+                    <div class="skills-tags" id="outras-tags"></div>
+                    <div class="skills-input-row">
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-award-line"></i></span>
+                        <input type="text" class="form-input has-icon" placeholder="Ex: Oratória, Edição de vídeo, Libras..." id="input-outras">
+                      </div>
+                      <button type="button" class="btn-add-skill" id="btn-add-outras" aria-label="Adicionar habilidade">
+                        <i class="ri-add-line"></i>
+                      </button>
+                    </div>
+                    <div class="skill-progress-bar">
+                      <div class="skill-progress-fill" id="outrasProgressFill"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- AÇÕES -->
+              <div class="form-actions">
+                <button type="button" id="btn-prev" class="btn-outline">
+                  <i class="ri-arrow-left-line"></i> Voltar
+                </button>
+                <button type="button" id="btn-next" class="btn-primary">
+                  Salvar e continuar <i class="ri-arrow-right-line"></i>
+                </button>
+                <button type="submit" id="btn-submit" class="btn-primary">
+                  Finalizar Cadastro <i class="ri-check-line"></i>
+                </button>
+              </div>
+            </form>
+
+            <!-- SIDEBAR DIREITA -->
+            <aside class="curriculo-sidebar-column">
+              <div class="sidebar-curriculo-card">
+                <h3 class="sidebar-curriculo-title">Vamos construir <span class="text-gradient">o seu futuro</span> juntos!</h3>
+                <p class="sidebar-curriculo-desc">Seu perfil é o primeiro passo para conquistar novas oportunidades.</p>
+
+                <div class="vertical-stepper">
+                  <div class="v-step active">
+                    <div class="v-step-number">1</div>
+                    <div class="v-step-content"><h4>Dados pessoais</h4><p>Conte pra gente um pouco sobre você.</p></div>
+                  </div>
+                  <div class="v-step">
+                    <div class="v-step-number">2</div>
+                    <div class="v-step-content"><h4>Formação</h4><p>Sua trajetória educacional.</p></div>
+                  </div>
+                  <div class="v-step">
+                    <div class="v-step-number">3</div>
+                    <div class="v-step-content"><h4>Experiências</h4><p>Se já teve alguma experiência.</p></div>
+                  </div>
+                  <div class="v-step">
+                    <div class="v-step-number">4</div>
+                    <div class="v-step-content"><h4>Habilidades</h4><p>Suas principais competências.</p></div>
+                  </div>
+                </div>
+
+                <div class="sidebar-curriculo-footer">
+                  <i class="ri-star-line"></i>
+                  <p>Grandes conquistas começam com pequenos passos.</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+          <div class="footer-container">
+            <div class="footer-brand">
+              <a href="vagas.html" class="footer-logo-link">
+                <img src="../assets/logos/img_Primeiros passos.png" alt="Logo" class="footer-logo-icon" />
+                <span class="logo-text">Primeiros<br /><span>Passos</span></span>
+              </a>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-column">
+              <h3 class="footer-column-title">Navegação</h3>
+              <ul class="footer-links-list">
+                <li><a href="../../index.html" class="footer-link">Inicio</a></li>
+                <li><a href="vagas.html" class="footer-link">Vagas</a></li>
+                <li><a href="#" class="footer-link">Para empresas</a></li>
+                <li><a href="#" class="footer-link">Dicas</a></li>
+                <li><a href="#" class="footer-link">Sobre nós</a></li>
+              </ul>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-column">
+              <h3 class="footer-column-title">Ajuda</h3>
+              <ul class="footer-links-list">
+                <li><a href="#" class="footer-link">Perguntas frequentes</a></li>
+                <li><a href="#" class="footer-link">Como Funciona</a></li>
+                <li><a href="#" class="footer-link">Suporte</a></li>
+              </ul>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-column">
+              <h3 class="footer-column-title">Legal</h3>
+              <ul class="footer-links-list">
+                <li><a href="#" class="footer-link">Termos de uso</a></li>
+                <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+                <li><a href="#" class="footer-link">Acessibilidade</a></li>
+              </ul>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-social-column">
+              <h3 class="footer-column-title">Siga-nos</h3>
+              <div class="footer-social-icons">
+                <a href="#" class="social-icon-btn"><i class="ri-instagram-line"></i></a>
+                <a href="#" class="social-icon-btn"><i class="ri-linkedin-fill"></i></a>
+                <a href="#" class="social-icon-btn"><i class="ri-tiktok-fill"></i></a>
+                <a href="#" class="social-icon-btn"><i class="ri-youtube-fill"></i></a>
+              </div>
+              <p class="footer-social-desc">Acompanhe nossas novidades e faça parte dessa jornada!</p>
+              <hr class="footer-horizontal-divider" />
+              <div class="footer-contact-list">
+                <div class="footer-contact-item"><span class="footer-contact-icon"><i class="ri-mail-line"></i></span><span>primeirospassos@gmail.com</span></div>
+                <div class="footer-contact-item"><span class="footer-contact-icon"><i class="ri-phone-line"></i></span><span>(11) 91111-0000</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom-copyright">
+            <p>&copy; 2026 Primeiros Passos. Todos os direitos reservados.</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- MODAL: ADICIONAR IDIOMA -->
+    <div class="modal-overlay" id="modal-idioma" hidden>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-idioma-titulo">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modal-idioma-titulo">
+            <i class="ri-translate-2"></i> Adicionar idioma
+          </h3>
+          <button type="button" class="modal-close" id="modal-idioma-fechar" aria-label="Fechar">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Idioma *</label>
+            <div class="input-with-icon">
+              <span class="input-icon"><i class="ri-translate-2"></i></span>
+              <input type="text" class="form-input has-icon" id="modal-idioma-input" list="idiomas-list" placeholder="Ex: Português, Inglês, Libras..." autocomplete="off">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Nível *</label>
+            <div class="input-with-icon">
+              <span class="input-icon"><i class="ri-bar-chart-line"></i></span>
+              <select class="form-select has-icon" id="modal-nivel-select">
+                <option value="" disabled selected>Selecione o nível</option>
+                <option value="Básico">Básico</option>
+                <option value="Intermediário">Intermediário</option>
+                <option value="Avançado">Avançado</option>
+                <option value="Fluente">Fluente</option>
+                <option value="Nativo">Nativo</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-outline" id="modal-idioma-cancelar">Cancelar</button>
+          <button type="button" class="btn-primary" id="modal-idioma-adicionar">
+            <i class="ri-check-line"></i> Adicionar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>
