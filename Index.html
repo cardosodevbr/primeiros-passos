@@ -1,193 +1,406 @@
-<!doctype html>
-<html lang="pt_br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/styles/global.css" />
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Primeiros Passos</title>
-  </head>
-  <body>
+    <title>Primeiros Passos | Seu primeiro emprego começa aqui</title>
+    <meta name="description" content="Conectamos jovens talentos a oportunidades que abrem caminhos para o futuro.">
 
-    <header class="cabecalho"> 
-    
-      <div class="container">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
 
-      <div class="logo"> 
-        
-        <h1>logo</h1>
+    <link rel="stylesheet" href="src/styles/pages/home.css">
+    <link rel="stylesheet" href="src/styles/global.cssA">
+</head>
 
-      </div>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+           <img src="./src/assets/logos/logo.png" alt="">
 
-      <div class="menu">
+            <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-        <div class="inicio">
+            <nav class="main-nav" aria-label="Navegação principal">
+                <a class="nav-link nav-link--active" href="index.html">Início</a>
+                <a class="nav-link" href="src/pages/vagas.html">Vagas</a>
+                <a class="nav-link" href="#empresas">Para empresas</a>
+                <a class="nav-link" href="#dicas">Dicas</a>
+                <a class="nav-link" href="#sobre">Sobre nós</a>
+            </nav>
 
-          <h1>inicio</h1>
-
+            <div class="header-actions">
+                <a class="button button--ghost button--small" href="#login">Entrar</a>
+                <a class="button button--primary button--small" href="#cadastro">Cadastrar</a>
+            </div>
         </div>
-        <div class="vagas">
-
-          <h1>vagas</h1>
-
-        </div>
-        <div class="paraEmpresas">
-
-          <h1>Para Empresas</h1>
-
-        </div>
-        <div class="sobreNos">
-
-          <h1>Sobre Nós</h1>
-
-
-        </div>
-
-      </div>
-
-      <divd class="botoes-header">
-
-        <div class="btn-entrar">
-
-          <button>entrar</button>
-
-        </div>
-
-        <div class="btn-cadastrar">
-
-          <button>cadastrar</button>
-
-        </div>
-
-      </div>
-
-       </div>
-    
-    
     </header>
 
-    <section class="container">
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container hero-content">
+                <div class="hero-copy">
 
-      <div class="texto-pesquisa">
+                    <h1 id="hero-title">
+                        Seu primeiro passo<br>
+                        pode <span>mudar tudo.</span>
+                    </h1>
 
-        <div class="texto-home">
-        <h1>Seu primeiro passo pode mudar tudo.</h1>
-        <p>Conectamos jovens talentos à oportunidades que abre caminho para o futuro</p>
+                    <p class="hero-description">
+                        Conectamos jovens talentos a oportunidades<br class="desktop-only">
+                        que abrem caminhos para o futuro.
+                    </p>
+
+                    <form class="search-box" id="job-search-form">
+                        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="11" cy="11" r="6.5"></circle>
+                            <path d="M16 16l4 4"></path>
+                        </svg>
+
+                        <input
+                            id="job-search"
+                            name="busca"
+                            type="search"
+                            autocomplete="off"
+                            placeholder="Busque por cargo, área ou empresa..."
+                            aria-label="Buscar por cargo, área ou empresa"
+                        >
+
+                    </form>
+
+                    <div class="popular-searches" aria-label="Buscas mais acessadas">
+                        <span>Mais buscadas:</span>
+                        <button type="button" class="search-tag" data-search="Jovem Aprendiz">Jovem Aprendiz</button>
+                        <button type="button" class="search-tag" data-search="Estágio">Estágio</button>
+                        <button type="button" class="search-tag" data-search="Atendimento">Atendimento</button>
+                        <button type="button" class="search-tag" data-search="Administração">Administração</button>
+                        <button type="button" class="search-tag" data-search="Marketing">Marketing</button>
+                    </div>
+                </div>
+
+               
+                </div>
+            </div>
+        </section>
+
+        <section class="stats container" aria-label="Números da plataforma">
+            <article class="stat-card">
+                <div class="stat-icon">
+                    <img src="./src/assets/icons/ui/pasta 1.png" alt="">
+                </div>
+                <div>
+                    <strong><span>1.250</span>+</strong>
+                    <span>Oportunidades<br>disponíveis</span>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon">
+                    <img src="./src/assets/icons/ui/brainstorm 1.png" alt="">
+                </div>
+                <div>
+                    <strong><span>860</span>+</strong>
+                    <span>Empresas<br>parceiras</span>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon">
+                    <img src="./src/assets/icons/ui/education 1.png" alt="">
+                </div>
+                <div>
+                    <strong><span>5430</span>+</strong>
+                    <span>Jovens conectados<br>a oportunidades</span>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon">
+                    <img src="./src/assets/icons/ui/graphic 1.png" alt="">
+                </div>
+                <div>
+                    <strong><span>98</span>%</strong>
+                    <span>De jovens recomendam<br>a plataforma</span>
+                </div>
+            </article>
+        </section>
+
+        <section class="how-it-works" id="sobre" aria-labelledby="how-title">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">COMO FUNCIONA</p>
+                    <h2 id="how-title">Começar sua carreira pode ser <span>mais simples</span></h2>
+                </div>
+
+                <div class="steps">
+                    <article class="step-card">
+                        <div class="step-number">01</div>
+                        <div class="step-icon step-icon--profile">
+                            <svg viewBox="0 0 120 96" aria-hidden="true">
+                                <rect x="17" y="17" width="68" height="48" rx="8"></rect>
+                                <circle cx="39" cy="38" r="9"></circle>
+                                <path d="M29 54c3-8 17-8 20 0"></path>
+                                <path d="M55 32h19"></path>
+                                <path d="M55 41h12"></path>
+                                <path d="M55 50h16"></path>
+                                <path d="M77 57l27-27 8 8-27 27-11 2z"></path>
+                            </svg>
+                        </div>
+                        <h3>Crie seu perfil</h3>
+                        <p>Conte um pouco sobre você,<br>suas habilidades e interesses.</p>
+                        <a class="step-button" href="#cadastro">Rápido e gratuito</a>
+                    </article>
+
+                    <article class="step-card">
+                        <div class="step-number">02</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 120 96" aria-hidden="true">
+                                <rect x="16" y="15" width="80" height="57" rx="8"></rect>
+                                <path d="M24 29h64"></path>
+                                <circle cx="66" cy="48" r="16"></circle>
+                                <path d="M78 60l12 12"></path>
+                                <circle cx="30" cy="22" r="2"></circle>
+                                <circle cx="37" cy="22" r="2"></circle>
+                                <circle cx="44" cy="22" r="2"></circle>
+                            </svg>
+                        </div>
+                        <h3>Encontre oportunidades</h3>
+                        <p>Veja vagas que combinam<br>com seu perfil e objetivos.</p>
+                        <a class="step-button" href="src/pages/vagas.html">Vagas para o seu momento</a>
+                    </article>
+
+                    <article class="step-card">
+                        <div class="step-number">03</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 120 96" aria-hidden="true">
+                                <path d="M22 47L101 14 71 80 56 51z"></path>
+                                <path d="M22 47l34 4 45-37"></path>
+                                <path d="M56 51l15 29"></path>
+                            </svg>
+                        </div>
+                        <h3>Candidatese!</h3>
+                        <p>Envie seu perfil e dê o<br>próximo passo para o seu futuro.</p>
+                        <a class="step-button" href="src/pages/vagas.html">Mais perto dos seus sonhos</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <div class="bottom-wave" aria-hidden="true">
+            <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
+                <path class="wave wave--back" d="M0 92C150 28 188 160 348 142C505 124 536 63 696 104C856 145 932 174 1097 121C1240 75 1310 92 1440 45V180H0Z"></path>
+                <path class="wave wave--front" d="M0 86C134 26 190 141 338 137C505 132 522 91 672 112C824 134 935 176 1080 126C1241 71 1320 87 1440 50V180H0Z"></path>
+            </svg>
+        </div>
+<!-- SEÇÃO: DEPOIMENTOS -->
+<section class="testimonials" id="depoimentos">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-kicker text-purple">EXPERIÊNCIAS DE QUEM DEU O PRIMEIRO PASSO</h2>
+            <p class="section-subtitle">Conheça quem já encontrou oportunidades e transformou sua história com o Primeiros Passos</p>
         </div>
 
-        <div class="barra-busca">
-        <input type="text" placeholder="Busque por cargo, área ou empresa..." class="searchBar">
+        <div class="testimonials-grid">
+            <!-- Card 1 -->
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <img src="https://i.pravatar.cc/150?img=5" alt="Mariana" class="avatar">
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+                </div>
+                <p class="quote">"Consegui minha primeira oportunidade como Jovem Aprendiz. O Primeiros Passos me ajudou a encontrar vagas que realmente combinavam comigo."</p>
+                <div class="card-footer">
+                    <div class="author-info">
+                        <span class="name">Mariana</span>
+                        <span class="role">Jovem Aprendiz</span>
+                    </div>
+                    <div class="quote-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 11L8 15H11V19H5V11L7 7H10L10 11ZM19 11L17 15H20V19H14V11L16 7H19L19 11Z" fill="#7C3AED"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Lucas" class="avatar">
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+                </div>
+                <p class="quote">"Consegui minha primeira oportunidade como Jovem Aprendiz. O Primeiros Passos me ajudou a encontrar vagas que realmente combinavam comigo."</p>
+                <div class="card-footer">
+                    <div class="author-info">
+                        <span class="name">Lucas</span>
+                        <span class="role">Estagiário de Tecnologia</span>
+                    </div>
+                    <div class="quote-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 11L8 15H11V19H5V11L7 7H10L10 11ZM19 11L17 15H20V19H14V11L16 7H19L19 11Z" fill="#7C3AED"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <img src="https://i.pravatar.cc/150?img=9" alt="Ana" class="avatar">
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+                </div>
+                <p class="quote">"Consegui minha primeira oportunidade como Jovem Aprendiz. O Primeiros Passos me ajudou a encontrar vagas que realmente combinavam comigo."</p>
+                <div class="card-footer">
+                    <div class="author-info">
+                        <span class="name">Ana</span>
+                        <span class="role">Assistente Administrativo</span>
+                    </div>
+                    <div class="quote-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 11L8 15H11V19H5V11L7 7H10L10 11ZM19 11L17 15H20V19H14V11L16 7H19L19 11Z" fill="#7C3AED"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEÇÃO: POR QUE USAR -->
+<section class="benefits" id="beneficios">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-kicker text-purple">POR QUE USAR O PRIMEIROS PASSOS?</h2>
+            <p class="section-subtitle main-subtitle">Começar sua carreira pode ser <span class="text-purple-light">mais simples</span></p>
         </div>
 
-      </div>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M16 8l4-4"></path></svg>
+                </div>
+                <div class="benefit-text">
+                    <h3>Vagas para o seu momento</h3>
+                    <p>Oportunidades de jovem aprendiz, estágio e primeiro emprego</p>
+                </div>
+            </div>
 
-      <div class="filtros-pesquisa">
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="22" x2="14" y2="22"></line><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1.45.62 2.84 1.5 3.5.76.76 1.23 1.52 1.41 2.5"></path></svg>
+                </div>
+                <div class="benefit-text">
+                    <h3>Vagas para o seu momento</h3>
+                    <p>Oportunidades de jovem aprendiz, estágio e primeiro emprego</p>
+                </div>
+            </div>
 
-        <p>Mais buscadas:</p>
-
-        <button btn-filtros>Jovem aprendiz</button>
-        <button btn-filtros>Estágio</button>
-        <button btn-filtros>Atendimento</button>
-        <button btn-filtros>Administração</button>
-        <button btn-filtros>Marketing</button>
-
-      </div>
-
-
-    </section>
-
-    <section class="container">
-
-      <div class="img-hero">
-
-        <img src="#" alt="Jovem de mochila nas costas entrando em uma porta que dá acesso à uma cidade.">
-
-      </div>
-
-
-    </section>
-
-    <section class="container">
-
-      <div class="dados-pp">
-
-        <div class="caixa-dados">
-
-          <div class="img-dados">
-          <img src="#" alt="maleta de trabalho">
-
-          </div>
-
-          <div class="texto-caixa">
-
-            <h1>1250+</h1>
-            <p>Oportunidades disponíveis</p>
-
-          </div>
-
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <div class="benefit-text">
+                    <h3>Vagas para o seu momento</h3>
+                    <p>Oportunidades de jovem aprendiz, estágio e primeiro emprego</p>
+                </div>
+            </div>
         </div>
-        <div class="caixa-dados">
+    </div>
+</section>
 
-          <div class="img-dados">
-          <img src="#" alt="3 icones de usuario com um raio em cima">
-
-          </div>
-
-          <div class="texto-caixa">
-
-            <h1>860+</h1>
-            <p>Empresas Parceiras</p>
-
-          </div>
-
+<!-- SEÇÃO: CTA FINAL -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-banner">
+            <div class="cta-content">
+                <h2>Seu futuro começa<br>com o <span class="text-purple-light">primeiro passo.</span></h2>
+                <p>Cadastre-se agora e encontre oportunidades<br>que combinam com você.</p>
+                <a href="#" class="btn btn-primary">Criar meu perfil &rarr;</a>
+            </div>
+            
+            <!-- Substitua o src pela imagem exportada da menina do Figma -->
+            <div class="cta-image">
+                <div class="stars-decoration">✦ ✧ ✦</div>
+                <img src="https://via.placeholder.com/400x300/1E1E2C/FFFFFF?text=Imagem+da+Menina+Aqui" alt="Jovem sorrindo com mochila">
+                <span class="handwritten-note">Mais oportunidades<br>para um futuro real!</span>
+            </div>
         </div>
-        <div class="caixa-dados">
+    </div>
+</section>
 
-          <div class="img-dados">
-          <img src="#" alt="capelo">
-
-          </div>
-
-          <div class="texto-caixa">
-
-            <h1>5430+</h1>
-            <p>Jovens conectados à oportunidades</p>
-
-          </div>
-
-        </div>
-        <div class="caixa-dados">
-
-          <div class="img-dados">
-          <img src="#" alt="gráfico de crescimento">
-
-          </div>
-
-          <div class="texto-caixa">
-
-            <h1>98%</h1>
-            <p>De jovens recomendam a plataforma</p>
-
-          </div>
-
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-brand">
+            <div class="logo">
+                <!-- SVG logo simples baseado no mockup -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#7C3AED"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                <span class="logo-text">PRIMEIROS<br><span class="text-blue">PASSOS</span></span>
+            </div>
         </div>
 
+        <div class="footer-nav">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Vagas</a></li>
+                <li><a href="#">Para empresas</a></li>
+                <li><a href="#">Dicas</a></li>
+                <li><a href="#">Sobre nós</a></li>
+            </ul>
+        </div>
 
-      </div>
+        <div class="footer-nav">
+            <h4>Ajuda</h4>
+            <ul>
+                <li><a href="#">Perguntas frequentes</a></li>
+                <li><a href="#">Como funciona</a></li>
+                <li><a href="#">Suporte</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-nav">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Termos de uso</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="#">Acessibilidade</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-social">
+            <h4>Siga-nos</h4>
+            <div class="social-icons">
+                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+            </div>
+            <p class="social-text">Acompanhe nossas novidades e faça parte dessa jornada!</p>
+            <hr class="footer-divider">
+            <div class="contact-info">
+                <p>✉ primeiros.passos@gmail.com</p>
+                <p>✆ (11) 91111-0000</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </main>
 
 
 
-    </section>
-
-        
-    
-
-
-
-
-
-
-
-  </body>
-  <script type="module" src="./js/main.js"></script>
+    <script type="module" src="src/js/pages/home.js"></script>
+</body>
 </html>

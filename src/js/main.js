@@ -24,3 +24,27 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const buscarBtn = document.querySelector(".buscar");
+  const input = document.querySelector(".search-bar input");
+
+  buscarBtn.addEventListener("click", () => {
+    const termo = input.value.trim();
+    if (termo) {
+      window.location.href = `pages/vagas.html?search=${encodeURIComponent(termo)}`;
+    }
+  });
+
+  // Tags clicáveis
+  document.querySelectorAll(".tags span").forEach(tag => {
+    tag.addEventListener("click", () => {
+      const termo = tag.textContent;
+      window.location.href = `pages/vagas.html?search=${encodeURIComponent(termo)}`;
+    });
+  });
+});
+
+
+
