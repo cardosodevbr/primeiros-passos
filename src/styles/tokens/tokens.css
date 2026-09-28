@@ -7,7 +7,7 @@
    As cores são def. em colors.css e a semantica é mapeada em semantic.css
    ========================================================= */
 
-@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700&family=Caveat:wght@400;600;700&display=swap");
 
 /* =======================================================
    TYPOGRAPHY
@@ -20,13 +20,18 @@
     BlinkMacSystemFont,
     "Segoe UI",
     Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
+    "Helvetica Neue",
+    Arial,
     sans-serif;
 
   --font-family-base:
     var(--font-family-primary);
+
+  /* Fonte display — usada no logo e headline da Home */
+  --font-family-display: "Orbitron", sans-serif;
+
+  /* Fonte manuscrita — usada no banner CTA da Home */
+  --font-family-handwritten: "Caveat", cursive;
 
   --font-weight-regular: 400;
   --font-weight-medium: 500;

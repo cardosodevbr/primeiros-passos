@@ -7,6 +7,19 @@ body {
   line-height: 1.5;
 }
 
+/* Force Inter em elementos de texto */
+p,
+span,
+div,
+a,
+button,
+input,
+textarea,
+select,
+label {
+  font-family: var(--font-family-primary);
+}
+
 h1,
 h2,
 h3,
