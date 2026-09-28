@@ -3,8 +3,35 @@
    ========================================================= */
 
 import { $, $$ } from '../core/dom.js';
+import { debounce } from '../core/utils.js';
 
 export function initCurriculoPage() {
+  // Global search functionality
+  const globalSearchInput = $('#global-search-input');
+  if (globalSearchInput) {
+    const handleGlobalSearch = debounce((searchTerm) => {
+      if (searchTerm.trim()) {
+        // Redirect to vagas page with search term
+        window.location.href = `vagas.html?search=${encodeURIComponent(searchTerm)}`;
+      }
+    }, 500);
+
+    globalSearchInput.addEventListener('input', (e) => {
+      handleGlobalSearch(e.target.value);
+    });
+
+    // Trigger search on Enter key
+    globalSearchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const searchTerm = globalSearchInput.value.trim();
+        if (searchTerm) {
+          window.location.href = `vagas.html?search=${encodeURIComponent(searchTerm)}`;
+        }
+      }
+    });
+  }
+
   const form = $('#form-curriculo');
   if (!form) return;
 

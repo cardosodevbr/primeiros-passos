@@ -31,6 +31,53 @@ export function initVagasPage() {
     location: ''
   };
 
+  // Check for search parameter in URL and apply it
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchParam = urlParams.get('search');
+  if (searchParam && keywordInput) {
+    keywordInput.value = searchParam;
+    state.keyword = searchParam;
+    if (globalSearchInput) {
+      globalSearchInput.value = searchParam;
+    }
+    applyFilters();
+  }
+
+  // Global search input sync with keyword input
+  if (globalSearchInput) {
+    const handleGlobalSearch = debounce((searchTerm) => {
+      if (keywordInput) {
+        keywordInput.value = searchTerm;
+        state.keyword = searchTerm;
+        applyFilters();
+      }
+    }, 300);
+
+    globalSearchInput.addEventListener('input', (e) => {
+      handleGlobalSearch(e.target.value);
+    });
+
+    // Sync keyword input back to global search input
+    if (keywordInput) {
+      keywordInput.addEventListener('input', (e) => {
+        globalSearchInput.value = e.target.value;
+      });
+    }
+
+    // Trigger search on Enter key
+    globalSearchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const searchTerm = globalSearchInput.value.trim();
+        if (keywordInput) {
+          keywordInput.value = searchTerm;
+          state.keyword = searchTerm;
+          applyFilters();
+        }
+      }
+    });
+  }
+
   /* ---------------------------------------------------------
      1. BOOKMARK TOGGLE (Salvar Vaga)
      --------------------------------------------------------- */
@@ -138,15 +185,11 @@ export function initVagasPage() {
     });
   });
 
-  // Debounced Input de Busca por Palavra-chave
-  const handleKeywordInput = debounce((val) => {
-    state.keyword = val;
-    applyFilters();
-  }, 200);
-
+  // Keyword input handling (for sidebar filter)
   if (keywordInput) {
     keywordInput.addEventListener('input', (e) => {
-      handleKeywordInput(e.target.value);
+      state.keyword = e.target.value;
+      applyFilters();
     });
   }
 
@@ -207,6 +250,11 @@ export function initVagasPage() {
       state.type = '';
       state.modalities = [];
       state.location = '';
+
+      // Clear URL search parameter
+      const url = new URL(window.location);
+      url.searchParams.delete('search');
+      window.history.replaceState({}, '', url);
 
       categoryPills.forEach(p => p.classList.remove('active'));
       const defaultPill = $('.category-pill[data-category="todas"]');
