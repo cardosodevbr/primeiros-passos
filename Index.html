@@ -7,12 +7,11 @@
     <title>Primeiros Passos | Seu primeiro emprego começa aqui</title>
     <meta name="description" content="Conectamos jovens talentos a oportunidades que abrem caminhos para o futuro.">
 
+    <!-- As fontes são carregadas centralmente via tokens.css (importado pelo global.css) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="src/styles/pages/home.css">
-    <link rel="stylesheet" href="src/styles/global.cssA">
+    <link rel="stylesheet" href="src/styles/global.css">
 </head>
 
 <body>
@@ -29,7 +28,7 @@
             <nav class="main-nav" aria-label="Navegação principal">
                 <a class="nav-link nav-link--active" href="index.html">Início</a>
                 <a class="nav-link" href="src/pages/vagas.html">Vagas</a>
-                <a class="nav-link" href="#empresas">Para empresas</a>
+                <a class="nav-link" href="src/pages/para-empresas.html">Para empresas</a>
                 <a class="nav-link" href="#dicas">Dicas</a>
                 <a class="nav-link" href="#sobre">Sobre nós</a>
             </nav>
@@ -328,11 +327,11 @@
                 <p>Cadastre-se agora e encontre oportunidades<br>que combinam com você.</p>
                 <a href="#" class="btn btn-primary">Criar meu perfil &rarr;</a>
             </div>
-            
+
             <!-- Substitua o src pela imagem exportada da menina do Figma -->
             <div class="cta-image">
                 <div class="stars-decoration">✦ ✧ ✦</div>
-                <img src="https://via.placeholder.com/400x300/1E1E2C/FFFFFF?text=Imagem+da+Menina+Aqui" alt="Jovem sorrindo com mochila">
+                <img src="./src/assets/images/hero/curriculum.png" alt="Jovem sorrindo com mochila">
                 <span class="handwritten-note">Mais oportunidades<br>para um futuro real!</span>
             </div>
         </div>
@@ -355,7 +354,7 @@
             <ul>
                 <li><a href="#">Início</a></li>
                 <li><a href="#">Vagas</a></li>
-                <li><a href="#">Para empresas</a></li>
+                <li><a href="src/pages/para-empresas.html">Para empresas</a></li>
                 <li><a href="#">Dicas</a></li>
                 <li><a href="#">Sobre nós</a></li>
             </ul>

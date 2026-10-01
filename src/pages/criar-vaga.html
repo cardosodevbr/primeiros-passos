@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Primeiros Passos — Publique uma nova vaga para jovens talentos." />
+    <!-- RemixIcon CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <title>Publicar Vaga | Primeiros Passos</title>
+  </head>
+  <body>
+    <!-- App Outer Shell: Sidebar + Main Content Layout -->
+    <div class="app-shell">
+      <!-- Mobile Sidebar Backdrop Overlay -->
+      <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+      <!-- Left Fixed Sidebar Navigation -->
+      <aside class="app-sidebar" id="app-sidebar" aria-label="Navegação Principal">
+        <!-- Official Brand Logo -->
+        <a href="../../index.html" class="sidebar-logo">
+          <img
+            src="../assets/logos/logo.png"
+            alt="Logo Primeiros Passos"
+            class="sidebar-logo-icon"
+          />
+          <span class="logo-text">Primeiros<br /><span>Passos</span></span>
+        </a>
+
+        <!-- Main Navigation Links -->
+        <nav class="sidebar-nav">
+          <a href="../../index.html" class="sidebar-link">
+            <span class="sidebar-icon"><i class="ri-home-4-line"></i></span>
+            <span>Início</span>
+          </a>
+
+          <a href="vagas.html" class="sidebar-link">
+            <span class="sidebar-icon"><i class="ri-briefcase-line"></i></span>
+            <span>Vagas</span>
+          </a>
+
+          <a href="para-empresas.html" class="sidebar-link">
+            <span class="sidebar-icon"><i class="ri-building-4-line"></i></span>
+            <span>Para empresas</span>
+          </a>
+
+          <a href="#" class="sidebar-link">
+            <span class="sidebar-icon"><i class="ri-lightbulb-line"></i></span>
+            <span>Dicas</span>
+          </a>
+
+          <a href="#" class="sidebar-link">
+            <span class="sidebar-icon"><i class="ri-group-line"></i></span>
+            <span>Sobre nós</span>
+          </a>
+
+          <hr class="sidebar-divider" />
+
+          <a href="#" class="sidebar-link">
+            <span class="sidebar-icon"><i class="ri-star-line"></i></span>
+            <span>Candidaturas</span>
+          </a>
+
+          <a href="#" class="sidebar-link">
+            <span class="sidebar-icon"><i class="ri-notification-3-line"></i></span>
+            <span>Notificações</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content Wrapper -->
+      <div class="app-main">
+        <!-- Top App Header -->
+        <header class="app-header">
+          <!-- Mobile Menu Trigger -->
+          <button
+            class="mobile-menu-toggle"
+            id="btn-toggle-sidebar"
+            aria-label="Abrir menu lateral"
+          >
+            <i class="ri-menu-line"></i>
+          </button>
+
+          <!-- Top Search Bar Input -->
+          <div class="header-search-form">
+            <div class="search-input-wrapper">
+              <span class="search-input-icon"><i class="ri-search-line"></i></span>
+              <input
+                type="text"
+                id="global-search-input"
+                class="header-search-input"
+                placeholder="Buscar por vaga, empresa ou palavra-chave..."
+                aria-label="Buscar vagas"
+              />
+            </div>
+          </div>
+
+          <!-- User Controls -->
+          <div class="header-user-controls">
+            <button class="icon-button" aria-label="Notificações">
+              <i class="ri-notification-3-line"></i>
+              <span class="notification-dot"></span>
+            </button>
+
+            <div class="user-profile-menu">
+              <div class="user-avatar">A</div>
+              <span class="user-name">Ana Silva</span>
+              <i class="ri-arrow-down-s-line user-chevron"></i>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Page Body -->
+        <main class="main-content">
+
+          <!-- Page Header: back link + title -->
+          <div class="criar-vaga-header">
+            <a href="para-empresas.html" class="page-back-link">
+              <i class="ri-arrow-left-line"></i> Voltar para Para Empresas
+            </a>
+            <h1 class="criar-vaga-title">Publicar nova vaga</h1>
+            <p class="criar-vaga-subtitle">
+              Preencha os campos abaixo para cadastrar uma oportunidade para jovens talentos.
+            </p>
+          </div>
+
+          <!-- Two-column layout: form + preview -->
+          <div class="criar-vaga-layout">
+
+            <!-- ── LEFT: FORM COLUMN ── -->
+            <div class="criar-vaga-form-col">
+              <form id="criar-vaga-form" novalidate>
+
+                <!-- ─ Section 1: Informações básicas ─ -->
+                <section class="criar-vaga-form-section" aria-labelledby="section-basico-title">
+                  <h2 class="form-section-title" id="section-basico-title">
+                    <i class="ri-file-text-line" aria-hidden="true"></i>
+                    Informações básicas
+                  </h2>
+
+                  <!-- Título da vaga (full width) -->
+                  <div class="form-row full-width">
+                    <div class="form-group">
+                      <label class="form-label" for="vaga-titulo">
+                        Título da vaga <span aria-hidden="true" style="color:var(--color-error)">*</span>
+                      </label>
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-briefcase-line"></i></span>
+                        <input
+                          type="text"
+                          id="vaga-titulo"
+                          name="titulo"
+                          class="form-input has-icon"
+                          placeholder="Ex: Jovem Aprendiz em Tecnologia"
+                          maxlength="100"
+                          required
+                          aria-required="true"
+                          aria-describedby="vaga-titulo-error"
+                        />
+                      </div>
+                      <span class="field-error-msg" id="vaga-titulo-error" role="alert">
+                        O título da vaga é obrigatório.
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Empresa + Localização -->
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label" for="vaga-empresa">
+                        Empresa <span aria-hidden="true" style="color:var(--color-error)">*</span>
+                      </label>
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-building-line"></i></span>
+                        <input
+                          type="text"
+                          id="vaga-empresa"
+                          name="empresa"
+                          class="form-input has-icon"
+                          value="Tech Solutions"
+                          placeholder="Nome da empresa"
+                          maxlength="80"
+                          required
+                          aria-required="true"
+                          aria-describedby="vaga-empresa-error"
+                        />
+                      </div>
+                      <span class="field-error-msg" id="vaga-empresa-error" role="alert">
+                        O nome da empresa é obrigatório.
+                      </span>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="vaga-localizacao">
+                        Localização
+                      </label>
+                      <div class="input-with-icon">
+                        <span class="input-icon"><i class="ri-map-pin-line"></i></span>
+                        <input
+                          type="text"
+                          id="vaga-localizacao"
+                          name="localizacao"
+                          class="form-input has-icon"
+                          placeholder="Cidade - UF"
+                          maxlength="60"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- ─ Section 2: Detalhes da vaga ─ -->
+                <section class="criar-vaga-form-section" aria-labelledby="section-detalhes-title">
+                  <h2 class="form-section-title" id="section-detalhes-title">
+                    <i class="ri-list-check-2" aria-hidden="true"></i>
+                    Detalhes da vaga
+                  </h2>
+
+                  <!-- Tipo + Área -->
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label" for="vaga-tipo">
+                        Tipo de vaga <span aria-hidden="true" style="color:var(--color-error)">*</span>
+                      </label>
+                      <select
+                        id="vaga-tipo"
+                        name="tipo"
+                        class="form-select"
+                        required
+                        aria-required="true"
+                        aria-describedby="vaga-tipo-error"
+                      >
+                        <option value="" disabled selected>Selecione o tipo</option>
+                        <option value="Aprendiz">Jovem Aprendiz</option>
+                        <option value="Estágio">Estágio</option>
+                        <option value="Primeiro Emprego">Primeiro Emprego</option>
+                      </select>
+                      <span class="field-error-msg" id="vaga-tipo-error" role="alert">
+                        Selecione o tipo de vaga.
+                      </span>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="vaga-area">
+                        Área <span aria-hidden="true" style="color:var(--color-error)">*</span>
+                      </label>
+                      <select
+                        id="vaga-area"
+                        name="area"
+                        class="form-select"
+                        required
+                        aria-required="true"
+                        aria-describedby="vaga-area-error"
+                      >
+                        <option value="" disabled selected>Selecione a área</option>
+                        <option value="Tecnologia">Tecnologia</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Atendimento">Atendimento</option>
+                        <option value="Operacional">Operacional</option>
+                      </select>
+                      <span class="field-error-msg" id="vaga-area-error" role="alert">
+                        Selecione a área da vaga.
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Modalidade + Carga horária -->
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label" for="vaga-modalidade">Modalidade</label>
+                      <select id="vaga-modalidade" name="modalidade" class="form-select">
+                        <option value="" disabled selected>Selecione a modalidade</option>
+                        <option value="Presencial">Presencial</option>
+                        <option value="Híbrido">Híbrido</option>
+                        <option value="Remoto">Remoto</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="vaga-carga">Carga horária</label>
+                      <select id="vaga-carga" name="carga" class="form-select">
+                        <option value="" disabled selected>Selecione a carga</option>
+                        <option value="4h por dia">4 horas por dia</option>
+                        <option value="6h por dia">6 horas por dia</option>
+                        <option value="8h por dia">8 horas por dia</option>
+                      </select>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- ─ Section 3: Descrição e requisitos ─ -->
+                <section class="criar-vaga-form-section" aria-labelledby="section-descricao-title">
+                  <h2 class="form-section-title" id="section-descricao-title">
+                    <i class="ri-align-left" aria-hidden="true"></i>
+                    Descrição e requisitos
+                  </h2>
+
+                  <!-- Descrição (full width) -->
+                  <div class="form-row full-width">
+                    <div class="form-group">
+                      <label class="form-label" for="vaga-descricao">Descrição da vaga</label>
+                      <textarea
+                        id="vaga-descricao"
+                        name="descricao"
+                        class="form-textarea"
+                        placeholder="Descreva as atividades, responsabilidades e o dia a dia da função..."
+                        maxlength="2000"
+                        aria-label="Descrição da vaga"
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <!-- Requisitos (full width) -->
+                  <div class="form-row full-width">
+                    <div class="form-group">
+                      <label class="form-label" for="vaga-requisitos">Requisitos</label>
+                      <textarea
+                        id="vaga-requisitos"
+                        name="requisitos"
+                        class="form-textarea"
+                        placeholder="Liste os requisitos desejados: escolaridade, habilidades, conhecimentos..."
+                        maxlength="1500"
+                        aria-label="Requisitos da vaga"
+                      ></textarea>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- ─ Action buttons ─ -->
+                <div class="criar-vaga-actions">
+                  <button type="submit" class="btn-publicar" id="btn-publicar-vaga">
+                    <i class="ri-send-plane-fill"></i>
+                    Publicar vaga
+                  </button>
+                  <a href="para-empresas.html" class="btn-cancelar">
+                    Cancelar
+                  </a>
+                </div>
+
+              </form>
+            </div>
+            <!-- END FORM COLUMN -->
+
+            <!-- ── RIGHT: PREVIEW COLUMN ── -->
+            <aside class="criar-vaga-preview-col" aria-label="Pré-visualização da vaga">
+
+              <div class="criar-vaga-preview-card">
+                <p class="preview-card-label">
+                  <i class="ri-eye-line" aria-hidden="true"></i>
+                  Pré-visualização
+                </p>
+
+                <!-- Live preview that mirrors the job-card component -->
+                <div class="preview-job-card" id="preview-job-card" aria-live="polite" aria-label="Preview da vaga">
+                  <div class="preview-job-header">
+                    <div class="preview-icon-box" aria-hidden="true">
+                      <i class="ri-code-s-slash-line" id="preview-icon"></i>
+                    </div>
+                    <div class="preview-job-info">
+                      <span class="preview-job-title" id="preview-titulo">
+                        <span class="preview-placeholder medium"></span>
+                      </span>
+                      <span class="preview-job-company" id="preview-empresa">
+                        <span class="preview-placeholder short"></span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="preview-job-meta" id="preview-meta">
+                    <span class="preview-placeholder short" style="height:20px;border-radius:var(--radius-full);width:80px;"></span>
+                    <span class="preview-placeholder short" style="height:20px;border-radius:var(--radius-full);width:72px;"></span>
+                  </div>
+                </div>
+
+                <p class="preview-tip">
+                  <i class="ri-information-line" aria-hidden="true"></i>
+                  O preview atualiza conforme você preenche o formulário.
+                </p>
+              </div>
+
+            </aside>
+            <!-- END PREVIEW COLUMN -->
+
+          </div>
+          <!-- END criar-vaga-layout -->
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+          <div class="footer-container">
+
+            <!-- Coluna 1: Logo -->
+            <div class="footer-brand">
+              <a href="../../index.html" class="footer-logo-link">
+                <img
+                  src="../assets/logos/logo.png"
+                  alt="Primeiros Passos Icon"
+                  class="footer-logo-icon"
+                />
+                <span class="logo-text">Primeiros<br /><span>Passos</span></span>
+              </a>
+            </div>
+
+            <div class="footer-vertical-divider"></div>
+
+            <!-- Coluna 2: Navegação -->
+            <div class="footer-column">
+              <h3 class="footer-column-title">Navegação</h3>
+              <ul class="footer-links-list">
+                <li><a href="../../index.html" class="footer-link">Início</a></li>
+                <li><a href="vagas.html" class="footer-link">Vagas</a></li>
+                <li><a href="para-empresas.html" class="footer-link">Para empresas</a></li>
+                <li><a href="#" class="footer-link">Dicas</a></li>
+                <li><a href="#" class="footer-link">Sobre nós</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-vertical-divider"></div>
+
+            <!-- Coluna 3: Ajuda -->
+            <div class="footer-column">
+              <h3 class="footer-column-title">Ajuda</h3>
+              <ul class="footer-links-list">
+                <li><a href="#" class="footer-link">Perguntas frequentes</a></li>
+                <li><a href="#" class="footer-link">Como Funciona</a></li>
+                <li><a href="#" class="footer-link">Suporte</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-vertical-divider"></div>
+
+            <!-- Coluna 4: Legal -->
+            <div class="footer-column">
+              <h3 class="footer-column-title">Legal</h3>
+              <ul class="footer-links-list">
+                <li><a href="#" class="footer-link">Termos de uso</a></li>
+                <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+                <li><a href="#" class="footer-link">Acessibilidade</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-vertical-divider"></div>
+
+            <!-- Coluna 5: Siga-nos & Contatos -->
+            <div class="footer-social-column">
+              <h3 class="footer-column-title">Siga-nos</h3>
+              <div class="footer-social-icons">
+                <a href="#" class="social-icon-btn" aria-label="Instagram">
+                  <i class="ri-instagram-line"></i>
+                </a>
+                <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+                <a href="#" class="social-icon-btn" aria-label="YouTube">
+                  <i class="ri-youtube-fill"></i>
+                </a>
+              </div>
+              <p class="footer-social-desc">
+                Acompanhe nossas novidades e faça parte dessa jornada!
+              </p>
+
+              <hr class="footer-horizontal-divider" />
+
+              <div class="footer-contact-list">
+                <div class="footer-contact-item">
+                  <span class="footer-contact-icon"><i class="ri-mail-line"></i></span>
+                  <span>primeirospassos@gmail.com</span>
+                </div>
+                <div class="footer-contact-item">
+                  <span class="footer-contact-icon"><i class="ri-phone-line"></i></span>
+                  <span>(11) 91111-0000</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="footer-bottom-copyright">
+            <p>&copy; 2026 Primeiros Passos. Todos os direitos reservados.</p>
+          </div>
+        </footer>
+
+      </div>
+    </div>
+
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>
