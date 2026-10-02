@@ -290,6 +290,7 @@ button {
 
 .hero h1 span {
     color: var(--purple);
+    font-family: var(--font-family-display);
 }
 
 .hero-description {
@@ -343,6 +344,8 @@ button {
     background: transparent;
     color: #ffffff;
     font-size: 14px;
+    border: none;
+    outline: none;
 }
 
 .search-box input::placeholder {
@@ -383,132 +386,6 @@ button {
     transform: translateY(-1px);
 }
 
-/* CSS illustration refinada para manter o brilho e proporção */
-
-.hero-visual {
-    position: relative;
-    height: 400px;
-    isolation: isolate;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.hero-glow {
-    position: absolute;
-    width: 350px;
-    height: 250px;
-    top: 50%;
-    right: 50px;
-    transform: translateY(-50%);
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(162, 50, 255, 0.4), transparent 60%);
-    filter: blur(40px);
-    z-index: -1;
-}
-
-/* O resto da ilustração CSS original foi mantido e dimensionado
-   para preencher o lado direito harmoniosamente. */
-.door {
-    position: relative;
-    top: 30px;
-    right: 40px;
-    width: 220px;
-    height: 250px;
-    perspective: 800px;
-}
-
-.door-frame {
-    position: absolute;
-    inset: 0 40px 0 0;
-    display: grid;
-    place-items: center;
-    border: 2px solid var(--cyan);
-    /* Porta mais iluminada */
-    border-right: 0;
-    background:
-        linear-gradient(180deg, rgba(97, 47, 212, 0.5), rgba(55, 24, 133, 0.3)),
-        #0b1236;
-    box-shadow:
-        0 0 0 1px rgba(110, 72, 255, 0.3) inset,
-        0 0 40px rgba(108, 49, 255, 0.4);
-    overflow: hidden;
-}
-
-.door-panel {
-    width: 150px;
-    height: 200px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
-    align-content: center;
-    justify-content: center;
-    padding: 16px;
-}
-
-.door-panel span {
-    height: 10px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, #d255ff, #6733ff);
-    box-shadow: 0 0 12px rgba(183, 76, 255, 0.8);
-}
-
-.door-side {
-    position: absolute;
-    top: 9px;
-    right: 0;
-    width: 50px;
-    height: 231px;
-    transform-origin: left center;
-    transform: skewY(-31deg);
-    border: 2px solid #a650ff;
-    border-left: 0;
-    background: linear-gradient(145deg, #1d1968, #0a0d2e);
-}
-
-.stairs {
-    position: absolute;
-    bottom: -10px;
-    right: 15px;
-    width: 320px;
-    height: 120px;
-    transform: skewX(-27deg);
-}
-
-.stairs span {
-    position: absolute;
-    left: calc(var(--i, 0) * 22px);
-    bottom: calc(var(--i, 0) * 14px);
-    width: 100px;
-    height: 16px;
-    border-radius: 4px;
-    background: linear-gradient(90deg, #8430ff, #e36eff);
-    box-shadow: 0 0 20px rgba(193, 70, 255, 0.7);
-}
-
-.stairs span:nth-child(1) {
-    --i: 0;
-}
-
-.stairs span:nth-child(2) {
-    --i: 1;
-}
-
-.stairs span:nth-child(3) {
-    --i: 2;
-}
-
-.stairs span:nth-child(4) {
-    --i: 3;
-}
-
-.stairs span:nth-child(5) {
-    --i: 4;
-}
-
-.stairs span:nth-child(6) {
-    --i: 5;
-}
 
 /* ---------------- STATS ---------------- */
 
@@ -557,7 +434,7 @@ button {
     min-width: 0;
 }
 
-/* Tamanhos corrigidos baseados na imagem */
+
 .stat-card strong {
     display: block;
     font-size: 32px;
@@ -575,44 +452,44 @@ button {
     font-weight: 500;
 }
 
-/* Cores específicas para cada estatística conforme a imagem */
+/* Cores específicas para cada estatística*/
 .stat-card:nth-child(1) strong {
-    color: #bd8cff;
+    color: #9B4DFF;
 }
 
 /* Roxo claro */
 .stat-card:nth-child(1) .stat-icon {
-    border-color: #553b8f;
+    border-color: #713CFF;
     background: rgba(189, 140, 255, 0.08);
 }
 
 .stat-card:nth-child(2) strong {
-    color: #5ea8ff;
+    color: #3984FF;
 }
 
 /* Azul */
 .stat-card:nth-child(2) .stat-icon {
-    border-color: #31588f;
+    border-color: #713CFF;
     background: rgba(94, 168, 255, 0.08);
 }
 
 .stat-card:nth-child(3) strong {
-    color: #ff85d8;
+    color: #E85CFF;
 }
 
 /* Rosa */
 .stat-card:nth-child(3) .stat-icon {
-    border-color: #8f3b76;
+    border-color: #713CFF;
     background: rgba(255, 133, 216, 0.08);
 }
 
 .stat-card:nth-child(4) strong {
-    color: #00e0ff;
+    color: #24BFFF;
 }
 
 /* Ciano */
 .stat-card:nth-child(4) .stat-icon {
-    border-color: #1e6c80;
+    border-color: #713CFF;
     background: rgba(0, 224, 255, 0.08);
 }
 
@@ -692,6 +569,8 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
+    /* Adicionado: Espaçamento entre o ícone e o texto */
     height: 34px;
     margin-top: 24px;
     padding: 0 20px;
@@ -702,12 +581,21 @@ button {
     font-size: 13px;
     font-weight: 500;
     transition: all 0.2s ease;
+    text-decoration: none;
+    /* Adicionado para garantir que o link não tenha sublinhado */
 }
 
 .step-button:hover {
     background: rgba(80, 37, 154, 0.3);
     border-color: #8648ff;
     color: #fff;
+}
+
+/* Nova classe: Estilo específico para o ícone dentro do botão */
+.btn-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
 }
 
 /* ---------------- BOTTOM WAVE / FOOTER ---------------- */
