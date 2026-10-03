@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Minhas candidaturas - Primeiros Passos" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/pages/candidaturas.css" />
+    <title>Candidaturas | Primeiros Passos</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+      <aside class="app-sidebar" id="app-sidebar" aria-label="Navegação Principal">
+        <a href="vagas.html" class="sidebar-logo">
+          <img src="../assets/logos/img_Primeiros passos.png" alt="Logo Primeiros Passos" class="sidebar-logo-icon" />
+          <span class="logo-text">Primeiros<br /><span>Passos</span></span>
+        </a>
+        <nav class="sidebar-nav">
+          <a href="../../index.html" class="sidebar-link"><span class="sidebar-icon"><i class="ri-home-4-line"></i></span><span>Início</span></a>
+          <a href="vagas.html" class="sidebar-link"><span class="sidebar-icon"><i class="ri-briefcase-line"></i></span><span>Vagas</span></a>
+          <a href="publicar-vaga.html" class="sidebar-link"><span class="sidebar-icon"><i class="ri-building-4-line"></i></span><span>Para empresas</span></a>
+          <a href="#" class="sidebar-link"><span class="sidebar-icon"><i class="ri-lightbulb-line"></i></span><span>Dicas</span></a>
+          <a href="#" class="sidebar-link"><span class="sidebar-icon"><i class="ri-group-line"></i></span><span>Sobre nós</span></a>
+          <hr class="sidebar-divider" />
+          <a href="candidaturas.html" class="sidebar-link active" aria-current="page"><span class="sidebar-icon"><i class="ri-file-user-line"></i></span><span>Candidaturas</span></a>
+          <a href="#" class="sidebar-link"><span class="sidebar-icon"><i class="ri-notification-3-line"></i></span><span>Notificações</span></a>
+          <a href="curriculo.html" class="sidebar-link"><span class="sidebar-icon"><i class="ri-user-line"></i></span><span>Perfil</span></a>
+        </nav>
+      </aside>
+
+      <div class="app-main">
+        <header class="app-header">
+          <button class="mobile-menu-toggle" id="btn-toggle-sidebar" aria-label="Abrir menu lateral"><i class="ri-menu-line"></i></button>
+          <div class="header-search-form">
+            <div class="search-input-wrapper">
+              <span class="search-input-icon"><i class="ri-search-line"></i></span>
+              <input type="text" id="global-search-input" class="header-search-input" placeholder="Buscar vagas, áreas ou empresas..." />
+            </div>
+          </div>
+          <div class="header-user-controls">
+            <button class="icon-button" aria-label="Notificações"><i class="ri-notification-3-line"></i><span class="notification-dot"></span></button>
+            <div class="user-profile-menu">
+              <div class="user-avatar">A</div>
+              <span class="user-name">Ana Silva</span>
+              <i class="ri-arrow-down-s-line user-chevron"></i>
+            </div>
+          </div>
+        </header>
+
+        <main class="main-content">
+          <div class="candidaturas-header">
+            <a href="curriculo.html" class="back-link"><i class="ri-arrow-left-line"></i> Voltar para o perfil</a>
+            <div class="candidaturas-title-wrapper">
+              <div class="candidaturas-icon-box"><i class="ri-file-user-line"></i></div>
+              <div>
+                <h1 class="candidaturas-title">Minhas candidaturas</h1>
+                <p class="candidaturas-subtitle">Acompanhe o status das vagas em que você se candidatou e veja o andamento de cada processo seletivo.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="candidaturas-search-wrapper">
+            <span class="candidaturas-search-icon"><i class="ri-search-line"></i></span>
+            <input type="text" class="candidaturas-search-input" id="candidatura-search" placeholder="Buscar por vaga, empresa ou local..." />
+            <button type="button" class="candidaturas-search-clear" id="candidatura-search-clear" aria-label="Limpar busca">
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
+
+          <nav class="candidaturas-filter-bar" aria-label="Filtro por status">
+            <button class="candidaturas-pill active" data-status="todas">
+              <i class="ri-list-check-2"></i> Todas (<span data-count="todas">0</span>)
+            </button>
+            <button class="candidaturas-pill" data-status="analise">
+              <i class="ri-search-eye-line"></i> Em análise (<span data-count="analise">0</span>)
+            </button>
+            <button class="candidaturas-pill" data-status="andamento">
+              <i class="ri-loader-4-line"></i> Em andamento (<span data-count="andamento">0</span>)
+            </button>
+            <button class="candidaturas-pill" data-status="entrevista">
+              <i class="ri-chat-3-line"></i> Entrevista (<span data-count="entrevista">0</span>)
+            </button>
+            <button class="candidaturas-pill" data-status="reprovada">
+              <i class="ri-close-circle-line"></i> Reprovadas (<span data-count="reprovada">0</span>)
+            </button>
+            <button class="candidaturas-pill" data-status="encerrada">
+              <i class="ri-archive-line"></i> Encerradas (<span data-count="encerrada">0</span>)
+            </button>
+            
+          </nav>
+
+          <div class="candidaturas-toggle-bar">
+            <button class="candidaturas-toggle active" data-ativa="todas">
+              <i class="ri-apps-2-line"></i> Todas
+            </button>
+            <button class="candidaturas-toggle" data-ativa="ativa">
+              <i class="ri-play-circle-line"></i> Apenas ativas
+            </button>
+            <button class="candidaturas-toggle" data-ativa="encerrada">
+              <i class="ri-stop-circle-line"></i> Apenas encerradas
+            </button>
+          </div>
+          <div class="candidaturas-help">
+  <button type="button" class="candidaturas-help-btn" aria-label="Ajuda sobre os status" aria-describedby="status-help-popover">
+    <i class="ri-question-line"></i>
+  </button>
+<div class="candidaturas-help-popover" id="status-help-popover" role="tooltip">
+    <h4>O que significa cada status?</h4>
+    <ul>
+        <li>
+            <span class="help-dot dot-analise"></span>
+            <span><strong>Em análise</strong> — sua candidatura foi recebida e está sendo avaliada pela empresa.</span>
+        </li>
+        <li>
+            <span class="help-dot dot-andamento"></span>
+            <span><strong>Em andamento</strong> — você avançou no processo seletivo.</span>
+        </li>
+        <li>
+            <span class="help-dot dot-entrevista"></span>
+            <span><strong>Entrevista</strong> — você foi convidado para uma conversa com a empresa.</span>
+        </li>
+        <li>
+            <span class="help-dot dot-contratado"></span>
+            <span><strong>Contratado</strong> — parabéns! Você foi aprovado na vaga.</span>
+        </li>
+        <li>
+            <span class="help-dot dot-reprovada"></span>
+            <span><strong>Reprovada</strong> — sua candidatura não seguiu nessa etapa.</span>
+        </li>
+        <li>
+            <span class="help-dot dot-cancelada"></span>
+            <span><strong>Cancelada</strong> — a vaga foi cancelada pela empresa.</span>
+        </li>
+        <li>
+            <span class="help-dot dot-encerrada"></span>
+            <span><strong>Encerrada</strong> — processo finalizado (contratado, reprovado ou cancelado).</span>
+        </li>
+    </ul>
+</div>
+</div>
+          <div class="candidaturas-layout-grid">
+            <div class="candidaturas-list-column">
+              <div class="candidaturas-list" id="candidaturas-container">
+
+                <article class="candidatura-card" data-status="analise" data-ativa="ativa" data-search="jovem aprendiz tecnologia techsolutions são paulo sp">
+                  <div class="candidatura-icon-box"><i class="ri-code-s-slash-line"></i></div>
+                  <div class="candidatura-info">
+                    <h3 class="candidatura-titulo">Jovem Aprendiz em Tecnologia</h3>
+                    <span class="candidatura-empresa">TechSolutions</span>
+                    <div class="candidatura-meta-row">
+                      <span class="candidatura-meta-item"><i class="ri-map-pin-line"></i> São Paulo - SP</span>
+                      <span class="candidatura-dot">•</span>
+                      <span class="candidatura-meta-item"><i class="ri-calendar-line"></i> Candidatura em 12/09/2025</span>
+                    </div>
+                  </div>
+                  <div class="candidatura-actions">
+                    <span class="status-badge status-analise"><i class="ri-search-eye-line"></i> Em análise</span>
+                    <span class="candidatura-active-pill ativa"><i class="ri-checkbox-blank-circle-fill"></i> Ativa</span>
+                    <button class="candidatura-arrow-btn" aria-label="Ver detalhes"><i class="ri-arrow-right-s-line"></i></button>
+                  </div>
+                </article>
+
+                <article class="candidatura-card" data-status="andamento" data-ativa="ativa" data-search="assistente administrativo novatech campinas sp">
+                  <div class="candidatura-icon-box"><i class="ri-folder-2-line"></i></div>
+                  <div class="candidatura-info">
+                    <h3 class="candidatura-titulo">Assistente Administrativo</h3>
+                    <span class="candidatura-empresa">NovaTech</span>
+                    <div class="candidatura-meta-row">
+                      <span class="candidatura-meta-item"><i class="ri-map-pin-line"></i> Campinas - SP</span>
+                      <span class="candidatura-dot">•</span>
+                      <span class="candidatura-meta-item"><i class="ri-calendar-line"></i> Candidatura em 10/09/2025</span>
+                    </div>
+                  </div>
+                  <div class="candidatura-actions">
+                    <span class="status-badge status-andamento"><i class="ri-loader-4-line"></i> Em andamento</span>
+                    <span class="candidatura-active-pill ativa"><i class="ri-checkbox-blank-circle-fill"></i> Ativa</span>
+                    <button class="candidatura-arrow-btn" aria-label="Ver detalhes"><i class="ri-arrow-right-s-line"></i></button>
+                  </div>
+                </article>
+
+                <article class="candidatura-card" data-status="andamento" data-ativa="ativa" data-search="estagiário marketing creative digital ribeirão preto sp">
+                  <div class="candidatura-icon-box"><i class="ri-megaphone-line"></i></div>
+                  <div class="candidatura-info">
+                    <h3 class="candidatura-titulo">Estagiário de Marketing</h3>
+                    <span class="candidatura-empresa">Creative Digital</span>
+                    <div class="candidatura-meta-row">
+                      <span class="candidatura-meta-item"><i class="ri-map-pin-line"></i> Ribeirão Preto - SP</span>
+                      <span class="candidatura-dot">•</span>
+                      <span class="candidatura-meta-item"><i class="ri-calendar-line"></i> Candidatura em 09/09/2025</span>
+                    </div>
+                  </div>
+                  <div class="candidatura-actions">
+                    <span class="status-badge status-andamento"><i class="ri-loader-4-line"></i> Em andamento</span>
+                    <span class="candidatura-active-pill ativa"><i class="ri-checkbox-blank-circle-fill"></i> Ativa</span>
+                    <button class="candidatura-arrow-btn" aria-label="Ver detalhes"><i class="ri-arrow-right-s-line"></i></button>
+                  </div>
+                </article>
+
+                <article class="candidatura-card" data-status="entrevista" data-ativa="ativa" data-search="auxiliar informática infocenter são paulo sp">
+                  <div class="candidatura-icon-box"><i class="ri-computer-line"></i></div>
+                  <div class="candidatura-info">
+                    <h3 class="candidatura-titulo">Auxiliar de Informática</h3>
+                    <span class="candidatura-empresa">InfoCenter</span>
+                    <div class="candidatura-meta-row">
+                      <span class="candidatura-meta-item"><i class="ri-map-pin-line"></i> São Paulo - SP</span>
+                      <span class="candidatura-dot">•</span>
+                      <span class="candidatura-meta-item"><i class="ri-calendar-line"></i> Candidatura em 05/09/2025</span>
+                    </div>
+                  </div>
+                  <div class="candidatura-actions">
+                    <span class="status-badge status-entrevista"><i class="ri-chat-3-line"></i> Entrevista</span>
+                    <span class="candidatura-active-pill ativa"><i class="ri-checkbox-blank-circle-fill"></i> Ativa</span>
+                    <button class="candidatura-arrow-btn" aria-label="Ver detalhes"><i class="ri-arrow-right-s-line"></i></button>
+                  </div>
+                </article>
+
+                <article class="candidatura-card" data-status="reprovada" data-ativa="encerrada" data-search="jovem aprendiz tecnologia verdemais são paulo sp">
+                  <div class="candidatura-icon-box"><i class="ri-briefcase-4-line"></i></div>
+                  <div class="candidatura-info">
+                    <h3 class="candidatura-titulo">Jovem Aprendiz em Tecnologia</h3>
+                    <span class="candidatura-empresa">VerdeMais</span>
+                    <div class="candidatura-meta-row">
+                      <span class="candidatura-meta-item"><i class="ri-map-pin-line"></i> São Paulo - SP</span>
+                      <span class="candidatura-dot">•</span>
+                      <span class="candidatura-meta-item"><i class="ri-calendar-line"></i> Candidatura em 02/09/2025</span>
+                    </div>
+                  </div>
+                  <div class="candidatura-actions">
+                    <span class="status-badge status-reprovada"><i class="ri-close-circle-line"></i> Reprovada</span>
+                    <span class="candidatura-active-pill encerrada"><i class="ri-checkbox-blank-circle-fill"></i> Encerrada</span>
+                    <button class="candidatura-arrow-btn" aria-label="Ver detalhes"><i class="ri-arrow-right-s-line"></i></button>
+                  </div>
+                </article>
+
+                <article class="candidatura-card" data-status="analise" data-ativa="ativa" data-search="designer gráfico artevisual são carlos sp">
+                  <div class="candidatura-icon-box"><i class="ri-palette-line"></i></div>
+                  <div class="candidatura-info">
+                    <h3 class="candidatura-titulo">Designer Gráfico</h3>
+                    <span class="candidatura-empresa">ArteVisual</span>
+                    <div class="candidatura-meta-row">
+                      <span class="candidatura-meta-item"><i class="ri-map-pin-line"></i> São Carlos - SP</span>
+                      <span class="candidatura-dot">•</span>
+                      <span class="candidatura-meta-item"><i class="ri-calendar-line"></i> Candidatura em 28/08/2025</span>
+                    </div>
+                  </div>
+                  <div class="candidatura-actions">
+                    <span class="status-badge status-analise"><i class="ri-search-eye-line"></i> Em análise</span>
+                    <span class="candidatura-active-pill ativa"><i class="ri-checkbox-blank-circle-fill"></i> Ativa</span>
+                    <button class="candidatura-arrow-btn" aria-label="Ver detalhes"><i class="ri-arrow-right-s-line"></i></button>
+                  </div>
+                </article>
+
+                <article class="candidatura-card" data-status="andamento" data-ativa="ativa" data-search="estágio recursos humanos rhmax belo horizonte mg">
+                  <div class="candidatura-icon-box"><i class="ri-team-line"></i></div>
+                  <div class="candidatura-info">
+                    <h3 class="candidatura-titulo">Estágio em Recursos Humanos</h3>
+                    <span class="candidatura-empresa">RHMax</span>
+                    <div class="candidatura-meta-row">
+                      <span class="candidatura-meta-item"><i class="ri-map-pin-line"></i> Belo Horizonte - MG</span>
+                      <span class="candidatura-dot">•</span>
+                      <span class="candidatura-meta-item"><i class="ri-calendar-line"></i> Candidatura em 25/08/2025</span>
+                    </div>
+                  </div>
+                  <div class="candidatura-actions">
+                    <span class="status-badge status-andamento"><i class="ri-loader-4-line"></i> Em andamento</span>
+                    <span class="candidatura-active-pill ativa"><i class="ri-checkbox-blank-circle-fill"></i> Ativa</span>
+                    <button class="candidatura-arrow-btn" aria-label="Ver detalhes"><i class="ri-arrow-right-s-line"></i></button>
+                  </div>
+                </article>
+
+                <article class="candidatura-card" data-status="entrevista" data-ativa="ativa" data-search="jovem aprendiz logística logfast curitiba pr">
+                  <div class="candidatura-icon-box"><i class="ri-truck-line"></i></div>
+                  <div class="candidatura-info">
+                    <h3 class="candidatura-titulo">Jovem Aprendiz em Logística</h3>
+                    <span class="candidatura-empresa">LogFast</span>
+                    <div class="candidatura-meta-row">
+                      <span class="candidatura-meta-item"><i class="ri-map-pin-line"></i> Curitiba - PR</span>
+                      <span class="candidatura-dot">•</span>
+                      <span class="candidatura-meta-item"><i class="ri-calendar-line"></i> Candidatura em 22/08/2025</span>
+                    </div>
+                  </div>
+                  <div class="candidatura-actions">
+                    <span class="status-badge status-entrevista"><i class="ri-chat-3-line"></i> Entrevista</span>
+                    <span class="candidatura-active-pill ativa"><i class="ri-checkbox-blank-circle-fill"></i> Ativa</span>
+                    <button class="candidatura-arrow-btn" aria-label="Ver detalhes"><i class="ri-arrow-right-s-line"></i></button>
+                  </div>
+                </article>
+
+                <article class="candidatura-card" data-status="contratado" data-ativa="encerrada" data-search="auxiliar atendimento sorriso saúde salvador ba">
+                  <div class="candidatura-icon-box"><i class="ri-customer-service-2-line"></i></div>
+                  <div class="candidatura-info">
+                    <h3 class="candidatura-titulo">Auxiliar de Atendimento</h3>
+                    <span class="candidatura-empresa">Sorriso Saúde</span>
+                    <div class="candidatura-meta-row">
+                      <span class="candidatura-meta-item"><i class="ri-map-pin-line"></i> Salvador - BA</span>
+                      <span class="candidatura-dot">•</span>
+                      <span class="candidatura-meta-item"><i class="ri-calendar-line"></i> Candidatura em 18/08/2025</span>
+                    </div>
+                  </div>
+                  <div class="candidatura-actions">
+                    <span class="status-badge status-contratado"><i class="ri-trophy-line"></i> Contratado</span>
+                    <span class="candidatura-active-pill encerrada"><i class="ri-checkbox-blank-circle-fill"></i> Encerrada</span>
+                    <button class="candidatura-arrow-btn" aria-label="Ver detalhes"><i class="ri-arrow-right-s-line"></i></button>
+                  </div>
+                </article>
+
+                <article class="candidatura-card" data-status="analise" data-ativa="ativa" data-search="jovem aprendiz banco dados datacore porto alegre rs">
+                  <div class="candidatura-icon-box"><i class="ri-database-2-line"></i></div>
+                  <div class="candidatura-info">
+                    <h3 class="candidatura-titulo">Jovem Aprendiz em Banco de Dados</h3>
+                    <span class="candidatura-empresa">DataCore</span>
+                    <div class="candidatura-meta-row">
+                      <span class="candidatura-meta-item"><i class="ri-map-pin-line"></i> Porto Alegre - RS</span>
+                      <span class="candidatura-dot">•</span>
+                      <span class="candidatura-meta-item"><i class="ri-calendar-line"></i> Candidatura em 15/08/2025</span>
+                    </div>
+                  </div>
+                  <div class="candidatura-actions">
+                    <span class="status-badge status-analise"><i class="ri-search-eye-line"></i> Em análise</span>
+                    <span class="candidatura-active-pill ativa"><i class="ri-checkbox-blank-circle-fill"></i> Ativa</span>
+                    <button class="candidatura-arrow-btn" aria-label="Ver detalhes"><i class="ri-arrow-right-s-line"></i></button>
+                  </div>
+                </article>
+
+                <article class="candidatura-card" data-status="cancelada" data-ativa="encerrada" data-search="estágio design ux pixel lab são paulo sp">
+                  <div class="candidatura-icon-box"><i class="ri-pen-nib-line"></i></div>
+                  <div class="candidatura-info">
+                    <h3 class="candidatura-titulo">Estágio em Design UX</h3>
+                    <span class="candidatura-empresa">PixelLab</span>
+                    <div class="candidatura-meta-row">
+                      <span class="candidatura-meta-item"><i class="ri-map-pin-line"></i> São Paulo - SP</span>
+                      <span class="candidatura-dot">•</span>
+                      <span class="candidatura-meta-item"><i class="ri-calendar-line"></i> Candidatura em 12/08/2025</span>
+                    </div>
+                  </div>
+                  <div class="candidatura-actions">
+                    <span class="status-badge status-cancelada"><i class="ri-forbid-2-line"></i> Cancelada</span>
+                    <span class="candidatura-active-pill encerrada"><i class="ri-checkbox-blank-circle-fill"></i> Encerrada</span>
+                    <button class="candidatura-arrow-btn" aria-label="Ver detalhes"><i class="ri-arrow-right-s-line"></i></button>
+                  </div>
+                </article>
+
+                <article class="candidatura-card" data-status="andamento" data-ativa="ativa" data-search="jovem aprendiz marketing digitalgrowth florianópolis sc">
+                  <div class="candidatura-icon-box"><i class="ri-line-chart-line"></i></div>
+                  <div class="candidatura-info">
+                    <h3 class="candidatura-titulo">Jovem Aprendiz em Marketing Digital</h3>
+                    <span class="candidatura-empresa">GrowthLab</span>
+                    <div class="candidatura-meta-row">
+                      <span class="candidatura-meta-item"><i class="ri-map-pin-line"></i> Florianópolis - SC</span>
+                      <span class="candidatura-dot">•</span>
+                      <span class="candidatura-meta-item"><i class="ri-calendar-line"></i> Candidatura em 08/08/2025</span>
+                    </div>
+                  </div>
+                  <div class="candidatura-actions">
+                    <span class="status-badge status-andamento"><i class="ri-loader-4-line"></i> Em andamento</span>
+                    <span class="candidatura-active-pill ativa"><i class="ri-checkbox-blank-circle-fill"></i> Ativa</span>
+                    <button class="candidatura-arrow-btn" aria-label="Ver detalhes"><i class="ri-arrow-right-s-line"></i></button>
+                  </div>
+                </article>
+
+              </div>
+
+              <div class="candidaturas-empty" id="candidaturas-empty" hidden>
+                <i class="ri-inbox-line"></i>
+                <h3>Nenhuma candidatura encontrada</h3>
+                <p>Tente ajustar seus filtros ou limpar a busca para ver mais resultados.</p>
+                <button type="button" class="btn-primary" id="btn-limpar-filtros">
+                  <i class="ri-refresh-line"></i> Limpar filtros
+                </button>
+              </div>
+
+              <div class="candidaturas-pagination">
+                <button class="pagination-btn" aria-label="Página anterior" disabled><i class="ri-arrow-left-s-line"></i></button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn" aria-label="Próxima página"><i class="ri-arrow-right-s-line"></i></button>
+              </div>
+            </div>
+
+            <aside class="candidaturas-sidebar-column">
+
+              <div class="motivation-card">
+                <div class="motivation-illustration">
+                  <i class="ri-award-line"></i>
+                  <i class="ri-checkbox-circle-fill motivation-check"></i>
+                </div>
+                <h3 class="motivation-title">Seu esforço hoje constrói o seu amanhã!</h3>
+                <p class="motivation-desc">Continue se candidatando e acompanhe os seus processos. Grandes oportunidades estão mais perto do que você imagina!</p>
+              </div>
+
+              <div class="summary-card">
+                <h3 class="summary-title">Resumo das candidaturas</h3>
+                <ul class="summary-list">
+                  <li class="summary-item">
+                    <i class="ri-send-plane-line summary-icon icon-total"></i>
+                    <span class="summary-label">Total de candidaturas</span>
+                    <span class="summary-value" data-summary="total">0</span>
+                  </li>
+                  <li class="summary-item">
+                    <i class="ri-play-circle-line summary-icon icon-andamento"></i>
+                    <span class="summary-label">Ativas</span>
+                    <span class="summary-value" data-summary="ativas">0</span>
+                  </li>
+                  <li class="summary-item">
+                    <i class="ri-chat-3-line summary-icon icon-analise"></i>
+                    <span class="summary-label">Em entrevista</span>
+                    <span class="summary-value" data-summary="entrevista">0</span>
+                  </li>
+                  <li class="summary-item">
+                    <i class="ri-trophy-line summary-icon icon-total"></i>
+                    <span class="summary-label">Contratado</span>
+                    <span class="summary-value" data-summary="contratado">0</span>
+                  </li>
+                  <li class="summary-item">
+                    <i class="ri-stop-circle-line summary-icon icon-reprovada"></i>
+                    <span class="summary-label">Encerradas</span>
+                    <span class="summary-value" data-summary="encerradas">0</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="tip-card">
+                <div class="tip-header">
+                  <i class="ri-lightbulb-line"></i>
+                  <h4>Dica do dia</h4>
+                </div>
+                <p class="tip-text">"Não desista! Cada candidatura é uma nova oportunidade de aprendizado e crescimento."</p>
+              </div>
+
+            </aside>
+          </div>
+        </main>
+
+        <footer class="app-footer">
+          <div class="footer-container">
+            <div class="footer-brand">
+              <a href="vagas.html" class="footer-logo-link">
+                <img src="../assets/logos/img_Primeiros passos.png" alt="Logo" class="footer-logo-icon" />
+                <span class="logo-text">Primeiros<br /><span>Passos</span></span>
+              </a>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-column">
+              <h3 class="footer-column-title">Navegação</h3>
+              <ul class="footer-links-list">
+                <li><a href="../../index.html" class="footer-link">Inicio</a></li>
+                <li><a href="vagas.html" class="footer-link">Vagas</a></li>
+                <li><a href="#" class="footer-link">Para empresas</a></li>
+                <li><a href="#" class="footer-link">Dicas</a></li>
+                <li><a href="#" class="footer-link">Sobre nós</a></li>
+              </ul>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-column">
+              <h3 class="footer-column-title">Ajuda</h3>
+              <ul class="footer-links-list">
+                <li><a href="#" class="footer-link">Perguntas frequentes</a></li>
+                <li><a href="#" class="footer-link">Como Funciona</a></li>
+                <li><a href="#" class="footer-link">Suporte</a></li>
+              </ul>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-column">
+              <h3 class="footer-column-title">Legal</h3>
+              <ul class="footer-links-list">
+                <li><a href="#" class="footer-link">Termos de uso</a></li>
+                <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+                <li><a href="#" class="footer-link">Acessibilidade</a></li>
+              </ul>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-social-column">
+              <h3 class="footer-column-title">Siga-nos</h3>
+              <div class="footer-social-icons">
+                <a href="#" class="social-icon-btn"><i class="ri-instagram-line"></i></a>
+                <a href="#" class="social-icon-btn"><i class="ri-linkedin-fill"></i></a>
+                <a href="#" class="social-icon-btn"><i class="ri-tiktok-fill"></i></a>
+                <a href="#" class="social-icon-btn"><i class="ri-youtube-fill"></i></a>
+              </div>
+              <p class="footer-social-desc">Acompanhe nossas novidades e faça parte dessa jornada!</p>
+              <hr class="footer-horizontal-divider" />
+              <div class="footer-contact-list">
+                <div class="footer-contact-item"><span class="footer-contact-icon"><i class="ri-mail-line"></i></span><span>primeirospassos@gmail.com</span></div>
+                <div class="footer-contact-item"><span class="footer-contact-icon"><i class="ri-phone-line"></i></span><span>(11) 91111-0000</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom-copyright">
+            <p>&copy; 2026 Primeiros Passos. Todos os direitos reservados.</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>
