@@ -7,51 +7,47 @@
    4. Pages
    =========================================================*/
 
-
 /* =========================================================
    0. TOKENS
    ========================================================= */
 
-@import url("./tokens/colors.css");
-@import url("./tokens/semantic.css");
-@import url("./tokens/tokens.css");
-
+@import url('./tokens/colors.css');
+@import url('./tokens/semantic.css');
+@import url('./tokens/tokens.css');
 
 /* =========================================================
    1. BASE
    ========================================================= */
 
-@import url("./base/reset.css");
-@import url("./base/typography.css");
-@import url("./base/accessibility.css");
-
+@import url('./base/reset.css');
+@import url('./base/typography.css');
+@import url('./base/accessibility.css');
 
 /* =========================================================
    2. LAYOUT
    ========================================================= */
 
-@import url("./layout/container.css");
-@import url("./layout/grid.css");
-@import url("./layout/sections.css");
-
+@import url('./layout/container.css');
+@import url('./layout/grid.css');
+@import url('./layout/sections.css');
 
 /* =========================================================
    3. COMPONENTS
    ========================================================= */
 
-@import url("./components/sidebar.css");
-@import url("./components/header.css");
-@import url("./components/button.css");
-@import url("./components/card.css");
-@import url("./components/input.css");
-@import url("./components/badge.css");
-@import url("./components/footer.css");
-
+@import url('./components/sidebar.css');
+@import url('./components/header.css');
+@import url('./components/button.css');
+@import url('./components/card.css');
+@import url('./components/input.css');
+@import url('./components/badge.css');
+@import url('./components/footer.css');
 
 /* =========================================================
    4. PAGES
    ========================================================= */
-@import url("./pages/vagas.css");
-@import url("./pages/home.css");
-@import url("./pages/para-empresas.css");
-@import url("./pages/criar-vaga.css");
+@import url('./pages/vagas.css');
+@import url('./pages/home.css');
+@import url('./pages/para-empresas.css');
+@import url('./pages/criar-vaga.css');
+@import url('./pages/accounts.css');
