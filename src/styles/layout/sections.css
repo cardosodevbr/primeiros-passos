@@ -36,7 +36,8 @@
   align-items: center;
   gap: var(--space-3);
   overflow-x: auto;
-  padding-bottom: var(--space-2);
+  padding-top: 16px; /* Adicionado para evitar corte no hover */
+  padding-bottom: 16px; /* Aumentado para não cortar o box-shadow embaixo */
   margin-bottom: var(--space-6);
   scrollbar-width: none;
 }

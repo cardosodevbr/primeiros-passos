@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Cadastro Empresa | Primeiros Passos</title>
+    <meta
+      name="description"
+      content="Cadastre sua empresa no Primeiros Passos e comece a conectar-se com jovens talentos."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="../styles/global.css" />
+  </head>
+
+  <body>
+    <div class="auth-page auth-page--empresa">
+      <!-- HEADER — Apenas logo -->
+      <header class="auth-header">
+        <a href="../../index.html" class="auth-logo" aria-label="Voltar para a página inicial">
+          <img src="../assets/logos/logo.png" alt="Primeiros Passos" />
+        </a>
+      </header>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="auth-container">
+        <div class="auth-wrapper auth-wrapper--reversed">
+          <!-- ═══ LADO DIREITO — FORMULÁRIO ═══ -->
+          <section class="auth-form-side" aria-labelledby="auth-title">
+            <h1 id="auth-title">Cadastre sua <br />empresa</h1>
+            <p class="auth-subtitle">
+              Junte-se à plataforma e encontre os jovens talentos<br />
+              ideais para compor sua equipe.
+            </p>
+
+            <form class="auth-form" id="register-empresa-form" novalidate>
+              <!-- CNPJ + Nome fantasia -->
+              <div class="auth-field-row">
+                <div class="auth-field">
+                  <div class="auth-input-wrapper">
+                    <span class="auth-input-icon">
+                      <svg viewBox="0 0 24 24">
+                        <path
+                          d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"
+                        />
+                        <rect x="9" y="3" width="6" height="4" rx="1" />
+                      </svg>
+                    </span>
+                    <input
+                      class="auth-input"
+                      type="text"
+                      id="empresa-cnpj"
+                      name="cnpj"
+                      placeholder="CNPJ"
+                      autocomplete="off"
+                      required
+                      maxlength="18"
+                    />
+                  </div>
+                </div>
+                <div class="auth-field">
+                  <div class="auth-input-wrapper">
+                    <span class="auth-input-icon">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" />
+                      </svg>
+                    </span>
+                    <input
+                      class="auth-input"
+                      type="text"
+                      id="empresa-nome-fantasia"
+                      name="nome_fantasia"
+                      placeholder="Nome fantasia"
+                      autocomplete="organization"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- E-mail empresarial -->
+              <div class="auth-field">
+                <div class="auth-input-wrapper">
+                  <span class="auth-input-icon">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="2" y="4" width="20" height="16" rx="3" />
+                      <path d="M2 7l10 7 10-7" />
+                    </svg>
+                  </span>
+                  <input
+                    class="auth-input"
+                    type="email"
+                    id="empresa-email"
+                    name="email"
+                    placeholder="E-mail empresarial"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Tipo empresarial -->
+              <div class="auth-field">
+                <div class="auth-input-wrapper">
+                  <span class="auth-input-icon">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                      />
+                      <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                    </svg>
+                  </span>
+                  <select
+                    class="auth-input"
+                    id="empresa-tipo"
+                    name="tipo_empresarial"
+                    required
+                    style="
+                      appearance: none;
+                      cursor: pointer;
+                      padding-right: 40px;
+                      background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E&quot;);
+                      background-repeat: no-repeat;
+                      background-position: right 14px center;
+                      background-size: 16px;
+                    "
+                  >
+                    <option value="" disabled selected>Tipo empresarial</option>
+                    <option value="mei">MEI</option>
+                    <option value="me">ME — Microempresa</option>
+                    <option value="epp">EPP — Empresa de Pequeno Porte</option>
+                    <option value="ltda">LTDA</option>
+                    <option value="sa">S.A.</option>
+                    <option value="eireli">EIRELI</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Senha -->
+              <div class="auth-field">
+                <div class="auth-input-wrapper">
+                  <span class="auth-input-icon">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="3" y="11" width="18" height="11" rx="3" />
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                  </span>
+                  <input
+                    class="auth-input"
+                    type="password"
+                    id="empresa-password"
+                    name="password"
+                    placeholder="Senha"
+                    autocomplete="new-password"
+                    required
+                  />
+                  <button
+                    type="button"
+                    class="auth-toggle-password"
+                    aria-label="Mostrar ou esconder senha"
+                  >
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"
+                      />
+                      <path
+                        d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"
+                      />
+                      <path d="M14.12 14.12a3 3 0 1 1-4.24-4.24" />
+                      <line x1="1" y1="1" x2="23" y2="23" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Botão Cadastrar -->
+              <button type="submit" class="auth-submit" id="btn-register-empresa">
+                Cadastrar empresa <span class="arrow">→</span>
+              </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="auth-divider">
+              <span>ou</span>
+            </div>
+
+            <!-- Social Login -->
+            <p class="auth-social-label">Cadastre-se com suas redes sociais</p>
+            <div class="auth-social-buttons">
+              <a href="#" class="auth-social-btn" id="btn-google-empresa-register">
+                <img
+                  src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                  alt="Google"
+                />
+                Continuar com o Google
+              </a>
+              <a href="#" class="auth-social-btn" id="btn-linkedin-empresa-register">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A66C2">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+                Continuar com o Linkedin
+              </a>
+            </div>
+
+            <!-- Link para login -->
+            <p class="auth-switch">
+              Já possui uma conta? <a href="login-empresa.html">Fazer login →</a>
+            </p>
+          </section>
+
+          <!-- ═══ LADO ESQUERDO — ILUSTRAÇÃO ═══ -->
+          <aside class="auth-illustration-side" aria-hidden="true">
+            <div class="auth-illustration-bg"></div>
+
+            <!-- Estrelas decorativas -->
+            <div class="auth-star auth-star--1">
+              <img src="../assets/images/accounts/star.png" alt="" />
+            </div>
+            <div class="auth-star auth-star--2">
+              <img src="../assets/images/accounts/star.png" alt="" />
+            </div>
+            <div class="auth-star auth-star--3">
+              <img src="../assets/images/accounts/star.png" alt="" />
+            </div>
+            <div class="auth-star auth-star--4">
+              <img src="../assets/images/accounts/star.png" alt="" />
+            </div>
+            <div class="auth-star auth-star--5">
+              <img src="../assets/images/accounts/star.png" alt="" />
+            </div>
+            <div class="auth-star auth-star--6">
+              <img src="../assets/images/accounts/star.png" alt="" />
+            </div>
+
+            <div class="auth-illustration-content">
+              <h2>Cresça com a<br />gente! <span>🚀</span></h2>
+              <p>
+                Cadastre sua empresa e tenha acesso a milhares de jovens talentos prontos para
+                transformar o mercado.
+              </p>
+              <img
+                class="auth-illustration-image"
+                src="../assets/images/business/business.png"
+                alt="Parceria entre empresa e candidato"
+              />
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="../js/pages/accounts.js"></script>
+  </body>
+</html>
