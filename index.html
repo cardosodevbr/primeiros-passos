@@ -4,15 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Primeiros Passos | Seu primeiro emprego começa aqui</title>
     <meta name="description" content="Conectamos jovens talentos a oportunidades que abrem caminhos para o futuro.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="src/styles/pages/home.css">
     <link rel="stylesheet" href="src/styles/global.css">
 </head>
 
@@ -77,6 +70,11 @@
                         <button type="button" class="search-tag" data-search="Administração">Administração</button>
                         <button type="button" class="search-tag" data-search="Marketing">Marketing</button>
                     </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="./src/assets/images/hero/img-hero.png"
+                        alt="Jovem caminhando em direção a uma porta iluminada representando o futuro"
+                        class="hero-image" />
                 </div>
 
 
@@ -344,82 +342,71 @@
             <div class="container footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <!-- SVG logo simples baseado no mockup -->
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#7C3AED">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                        </svg>
-                        <span class="logo-text">PRIMEIROS<br><span class="text-blue">PASSOS</span></span>
+                        
+                        
                     </div>
                 </div>
 
-                <div class="footer-nav">
-                    <h4>Navegação</h4>
-                    <ul>
-                        <li><a href="#">Início</a></li>
-                        <li><a href="#">Vagas</a></li>
-                        <li><a href="src/pages/para-empresas.html">Para empresas</a></li>
-                        <li><a href="#">Dicas</a></li>
-                        <li><a href="#">Sobre nós</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-nav">
-                    <h4>Ajuda</h4>
-                    <ul>
-                        <li><a href="#">Perguntas frequentes</a></li>
-                        <li><a href="#">Como funciona</a></li>
-                        <li><a href="#">Suporte</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-nav">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Termos de uso</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                        <li><a href="#">Acessibilidade</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-social">
-                    <h4>Siga-nos</h4>
-                    <div class="social-icons">
-                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg></a>
-                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg></a>
-                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-                            </svg></a>
-                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z">
-                                </path>
-                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                            </svg></a>
+                <footer class="app-footer">
+                    <div class="footer-container">
+                        <div class="footer-brand">
+                            <a href="vagas.html" class="footer-logo-link">
+                                <img src="./src/assets/logos/logo.png" alt="Logo" class="footer-logo-icon" />
+                                <span class="logo-text">Primeiros<br /><span>Passos</span></span>
+                            </a>
+                        </div>
+                        <div class="footer-vertical-divider"></div>
+                        <div class="footer-column">
+                            <h3 class="footer-column-title">Navegação</h3>
+                            <ul class="footer-links-list">
+                                <li><a href="../../index.html" class="footer-link">Inicio</a></li>
+                                <li><a href="vagas.html" class="footer-link">Vagas</a></li>
+                                <li><a href="para-empresas.html" class="footer-link">Para empresas</a></li>
+                                <li><a href="dicas.html" class="footer-link">Dicas</a></li>
+                                <li><a href="#" class="footer-link">Sobre nós</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-vertical-divider"></div>
+                        <div class="footer-column">
+                            <h3 class="footer-column-title">Ajuda</h3>
+                            <ul class="footer-links-list">
+                                <li><a href="#" class="footer-link">Perguntas frequentes</a></li>
+                                <li><a href="#" class="footer-link">Como Funciona</a></li>
+                                <li><a href="#" class="footer-link">Suporte</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-vertical-divider"></div>
+                        <div class="footer-column">
+                            <h3 class="footer-column-title">Legal</h3>
+                            <ul class="footer-links-list">
+                                <li><a href="#" class="footer-link">Termos de uso</a></li>
+                                <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+                                <li><a href="#" class="footer-link">Acessibilidade</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-vertical-divider"></div>
+                        <div class="footer-social-column">
+                            <h3 class="footer-column-title">Siga-nos</h3>
+                            <div class="footer-social-icons">
+                                <a href="#" class="social-icon-btn"><i class="ri-instagram-line"></i></a>
+                                <a href="#" class="social-icon-btn"><i class="ri-linkedin-fill"></i></a>
+                                <a href="#" class="social-icon-btn"><i class="ri-tiktok-fill"></i></a>
+                                <a href="#" class="social-icon-btn"><i class="ri-youtube-fill"></i></a>
+                            </div>
+                            <p class="footer-social-desc">Acompanhe nossas novidades e faça parte dessa jornada!</p>
+                            <hr class="footer-horizontal-divider" />
+                            <div class="footer-contact-list">
+                                <div class="footer-contact-item"><span class="footer-contact-icon"><i
+                                            class="ri-mail-line"></i></span><span>primeirospassos@gmail.com</span></div>
+                                <div class="footer-contact-item"><span class="footer-contact-icon"><i
+                                            class="ri-phone-line"></i></span><span>(11) 91111-0000</span></div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="social-text">Acompanhe nossas novidades e faça parte dessa jornada!</p>
-                    <hr class="footer-divider">
-                    <div class="contact-info">
-                        <p>✉ primeiros.passos@gmail.com</p>
-                        <p>✆ (11) 91111-0000</p>
+                    <div class="footer-bottom-copyright">
+                        <p>&copy; 2026 Primeiros Passos. Todos os direitos reservados.</p>
                     </div>
-                </div>
-            </div>
-        </footer>
+                </footer>
     </main>
     <script type="module" src="src/js/pages/home.js"></script>
 </body>
