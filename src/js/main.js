@@ -10,6 +10,8 @@ import { initCurriculoPage } from './pages/curriculo.js'
 import { initModalCandidatura } from './components/modal-candidatura.js'
 import { initParaEmpresasPage } from './pages/para-empresas.js'
 import { initCriarVagaPage } from './pages/criar-vaga.js'
+import { initCandidaturasPage } from './pages/candidaturas.js'
+import { initDicasPage } from './pages/dicas.js'
 
 function init() {
   // Componentes globais (presentes em todas as páginas do app-shell)
@@ -23,6 +25,8 @@ function init() {
   initCurriculoPage()
   initParaEmpresasPage()
   initCriarVagaPage()
+  initCandidaturasPage()
+  initDicasPage()
 }
 
 if (document.readyState === 'loading') {

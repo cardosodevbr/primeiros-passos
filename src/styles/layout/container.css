@@ -9,6 +9,8 @@
   color: var(--color-foreground);
   overflow-x: hidden;
   position: relative;
+
+  padding-left: 250px;
 }
 
 .app-main {
@@ -29,5 +31,11 @@
 @media (max-width: 1024px) {
   .main-content {
     padding: var(--space-4);
+  }
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    padding-left: 0;
   }
 }
