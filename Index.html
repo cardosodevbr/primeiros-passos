@@ -6,18 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primeiros Passos | Seu primeiro emprego começa aqui</title>
     <meta name="description" content="Conectamos jovens talentos a oportunidades que abrem caminhos para o futuro.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
     <link rel="stylesheet" href="src/styles/global.css">
 </head>
 
 <body>
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+    <aside class="app-sidebar landing-sidebar" id="app-sidebar" aria-label="Navegação principal">
+        <a href="index.html" class="sidebar-logo">
+            <img src="src/assets/logos/logo.png" alt="Logo Primeiros Passos" class="sidebar-logo-icon">
+            <span class="logo-text">Primeiros<br><span>Passos</span></span>
+        </a>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link active" aria-current="page">
+                <span class="sidebar-icon"><i class="ri-home-4-line"></i></span>
+                <span>Início</span>
+            </a>
+            <a href="src/pages/vagas.html" class="sidebar-link">
+                <span class="sidebar-icon"><i class="ri-briefcase-line"></i></span>
+                <span>Vagas</span>
+            </a>
+            <a href="src/pages/para-empresas.html" class="sidebar-link">
+                <span class="sidebar-icon"><i class="ri-building-4-line"></i></span>
+                <span>Para empresas</span>
+            </a>
+            <a href="src/pages/dicas.html" class="sidebar-link">
+                <span class="sidebar-icon"><i class="ri-lightbulb-line"></i></span>
+                <span>Dicas</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <span class="sidebar-icon"><i class="ri-group-line"></i></span>
+                <span>Sobre nós</span>
+            </a>
+            <hr class="sidebar-divider">
+            <a href="src/pages/candidaturas.html" class="sidebar-link">
+                <span class="sidebar-icon"><i class="ri-file-user-line"></i></span>
+                <span>Candidaturas</span>
+            </a>
+        </nav>
+    </aside>
+
     <header class="site-header">
         <div class="container header-content">
-            <img src="./src/assets/logos/logo.png" alt="">
+            <a class="brand" href="index.html" aria-label="Primeiros Passos - início">
+                <img class="brand-logo" src="./src/assets/logos/logo.png" alt="Primeiros Passos">
+            </a>
 
-            <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="mobile-menu-toggle" id="btn-toggle-sidebar" type="button" aria-label="Abrir menu lateral">
+                <i class="ri-menu-line"></i>
             </button>
 
             <nav class="main-nav" aria-label="Navegação principal">
@@ -324,7 +360,7 @@
                     <div class="cta-content">
                         <h2>Seu futuro começa<br>com o <span class="text-purple-light">primeiro passo.</span></h2>
                         <p>Cadastre-se agora e encontre oportunidades<br>que combinam com você.</p>
-                        <a href="#" class="btn btn-primary">Criar meu perfil &rarr;</a>
+                        <a href="src/pages/cadastro.html" class="btn btn-primary">Criar meu perfil &rarr;</a>
                     </div>
 
                     <!-- Substitua o src pela imagem exportada da menina do Figma -->
@@ -338,28 +374,18 @@
         </section>
 
         <!-- FOOTER -->
-        <footer class="site-footer">
-            <div class="container footer-grid">
-                <div class="footer-brand">
-                    <div class="logo">
-                        
-                        
-                    </div>
-                </div>
-
-                <footer class="app-footer">
+        <footer class="app-footer">
                     <div class="footer-container">
                         <div class="footer-brand">
-                            <a href="vagas.html" class="footer-logo-link">
-                                <img src="./src/assets/logos/logo.png" alt="Logo" class="footer-logo-icon" />
-                                <span class="logo-text">Primeiros<br /><span>Passos</span></span>
+                            <a href="index.html" class="footer-logo-link">
+                                <img src="./src/assets/logos/logo.png" alt="Logo Primeiros Passos" class="footer-logo-icon" />
                             </a>
                         </div>
                         <div class="footer-vertical-divider"></div>
                         <div class="footer-column">
                             <h3 class="footer-column-title">Navegação</h3>
                             <ul class="footer-links-list">
-                                <li><a href="../../index.html" class="footer-link">Inicio</a></li>
+                                <li><a href="index.html" class="footer-link">Inicio</a></li>
                                 <li><a href="vagas.html" class="footer-link">Vagas</a></li>
                                 <li><a href="para-empresas.html" class="footer-link">Para empresas</a></li>
                                 <li><a href="dicas.html" class="footer-link">Dicas</a></li>
@@ -406,7 +432,7 @@
                     <div class="footer-bottom-copyright">
                         <p>&copy; 2026 Primeiros Passos. Todos os direitos reservados.</p>
                     </div>
-                </footer>
+            </footer>
     </main>
     <script type="module" src="src/js/pages/home.js"></script>
 </body>
