@@ -247,27 +247,11 @@
   height: var(--card-height-application);
 }
 
-.candidatura-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--color-primary-gradient);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
 .candidatura-card:hover {
   border-color: var(--color-outline-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
-.candidatura-card:hover::before {
-  opacity: 1;
-}
-
 .candidatura-icon-box {
   width: 44px;
   height: 44px;

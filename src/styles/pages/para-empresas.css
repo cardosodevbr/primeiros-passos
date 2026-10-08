@@ -175,18 +175,6 @@
   overflow: hidden;
 }
 
-.empresa-feature-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--color-primary-gradient);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
 .empresa-feature-card:hover {
   background: linear-gradient(135deg, #0e1224 0%, #131932 100%);
   border-color: rgba(168, 85, 247, 0.45);
@@ -194,10 +182,6 @@
   box-shadow:
     0 10px 28px rgba(0, 0, 0, 0.4),
     0 0 20px rgba(168, 85, 247, 0.15);
-}
-
-.empresa-feature-card:hover::before {
-  opacity: 1;
 }
 
 .empresa-feature-icon {
@@ -336,29 +320,12 @@
   height: var(--card-height-company);
 }
 
-.empresa-job-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--color-primary-gradient);
-  opacity: 0;
-  border-radius: var(--radius-xs) 0 0 var(--radius-xs);
-  transition: opacity var(--transition-fast);
-}
-
 .empresa-job-card:hover {
   background: linear-gradient(135deg, #0e1224 0%, #131932 100%);
   border-color: rgba(168, 85, 247, 0.4);
   box-shadow:
     0 8px 24px rgba(0, 0, 0, 0.4),
     0 0 16px rgba(168, 85, 247, 0.15);
-}
-
-.empresa-job-card:hover::before {
-  opacity: 1;
 }
 
 .empresa-job-card-main {

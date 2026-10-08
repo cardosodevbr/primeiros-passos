@@ -139,18 +139,6 @@
   }
 }
 
-.job-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--color-primary-gradient);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
 .job-card:hover {
   background: linear-gradient(135deg, #0e1224 0%, #131932 100%);
   border-color: rgba(168, 85, 247, 0.45);
@@ -160,17 +148,13 @@
     0 0 20px rgba(168, 85, 247, 0.2);
 }
 
-.job-card:hover::before {
-  opacity: 1;
-}
-
 .job-card-main {
   display: flex;
   align-items: center;
   gap: var(--space-4);
   flex: 1;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* Category Icon Box com Imagens PNG de src/assets/icons/ui */

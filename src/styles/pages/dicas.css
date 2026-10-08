@@ -21,7 +21,9 @@
   margin-bottom: var(--space-4);
   transition: color var(--transition-fast);
 }
-.back-link:hover { color: var(--color-brand-neon); }
+.back-link:hover {
+  color: var(--color-brand-neon);
+}
 
 .dicas-title-wrapper {
   display: flex;
@@ -150,23 +152,11 @@
   overflow: hidden;
 }
 
-.dica-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 4px; height: 100%;
-  background: var(--color-primary-gradient);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
 .dica-card:hover {
   border-color: var(--color-outline-hover);
   transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
 }
-.dica-card:hover::before { opacity: 1; }
-
 .dica-badge {
   display: inline-flex;
   align-items: center;
@@ -227,10 +217,18 @@
     align-items: center;
     gap: var(--space-4);
   }
-  .dicas-icon-box { width: 52px; height: 52px; font-size: 1.5rem; }
-  .dicas-title { font-size: var(--text-2xl); }
+  .dicas-icon-box {
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
+  }
+  .dicas-title {
+    font-size: var(--text-2xl);
+  }
 
-  .dicas-decoration { display: block; }
+  .dicas-decoration {
+    display: block;
+  }
 
   .dicas-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

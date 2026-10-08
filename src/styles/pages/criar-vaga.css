@@ -276,17 +276,6 @@
   overflow: hidden;
 }
 
-.preview-job-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--color-primary-gradient);
-  border-radius: var(--radius-xs) 0 0 var(--radius-xs);
-}
-
 .preview-job-header {
   display: flex;
   align-items: center;
@@ -342,7 +331,12 @@
 .preview-placeholder {
   height: 12px;
   border-radius: var(--radius-full);
-  background: linear-gradient(90deg, var(--color-surface-active) 25%, rgba(255, 255, 255, 0.06) 50%, var(--color-surface-active) 75%);
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-active) 25%,
+    rgba(255, 255, 255, 0.06) 50%,
+    var(--color-surface-active) 75%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.6s infinite;
 }
