@@ -7,36 +7,34 @@
    As cores são def. em colors.css e a semantica é mapeada em semantic.css
    ========================================================= */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700&family=Caveat:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700&family=Caveat:wght@400;600;700&display=swap');
 
 /* =======================================================
    TYPOGRAPHY
    ======================================================= */
 :root {
-
   --font-family-primary:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
     sans-serif;
 
-  --font-family-base:
-    var(--font-family-primary);
+  --font-family-base: var(--font-family-primary);
 
   /* Fonte display — usada no logo e headline da Home */
-  --font-family-display: "Orbitron", sans-serif;
+  --font-family-display: 'Orbitron', sans-serif;
 
   /* Fonte manuscrita — usada no banner CTA da Home */
-  --font-family-handwritten: "Caveat", cursive;
+  --font-family-handwritten: 'Caveat', cursive;
 
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  --letter-spacing-label: 0.08em;
+  --letter-spacing-display: -0.02em;
 
   /* Font size scale */
   --text-xs: 0.75rem;
@@ -64,6 +62,16 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
 
+  --border-width-thin: 1px;
+  --border-width-focus: 3px;
+
+  --control-height-sm: 36px;
+  --control-height-md: 42px;
+  --control-height-lg: 48px;
+  --icon-size-sm: 18px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 32px;
+
   /* Shadows & Glows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -76,6 +84,17 @@
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  --motion-hover-y: -2px;
+  --motion-hover-scale: 1.02;
+
+  --z-base: 0;
+  --z-content: 1;
+  --z-header: 50;
+  --z-sidebar: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
 }
 
 /* =======================================================
@@ -94,4 +113,9 @@
   --space-16: 4rem;
   --space-20: 5rem;
   --space-24: 6rem;
+
+  --layout-sidebar-width: 250px;
+  --layout-content-max: 1360px;
+  --layout-content-gutter: var(--space-8);
+  --layout-grid-gap: var(--space-6);
 }

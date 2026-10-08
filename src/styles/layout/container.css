@@ -10,7 +10,7 @@
   overflow-x: hidden;
   position: relative;
 
-  padding-left: 250px;
+  padding-left: var(--layout-sidebar-width);
 }
 
 .app-main {
@@ -21,8 +21,8 @@
 }
 
 .main-content {
-  padding: var(--space-6) var(--space-8);
-  max-width: 1360px;
+  padding: var(--space-6) var(--layout-content-gutter);
+  max-width: var(--layout-content-max);
   width: 100%;
   margin: 0 auto;
   flex: 1;

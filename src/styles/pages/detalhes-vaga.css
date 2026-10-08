@@ -1,31 +1,20 @@
 /* =========================================
-   IMPORTAÇÃO DA FONTE (Inter)
-========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-/* =========================================
-   VARIÁVEIS DE CORES E TEMA
+  COMPATIBILIDADE COM TOKENS GLOBAIS
 ========================================= */
 :root {
-  --bg-dark: #0a0a10; /* Fundo principal da página */
-  --bg-sidebar: #05050a; /* Fundo do menu lateral */
-  --bg-card: #12121c; /* Fundo dos cards principais */
-
-  --border-color: rgba(255, 255, 255, 0.08); /* Bordas sutis */
-
-  --purple-main: #8b5cf6;
-  --purple-light: #a78bfa;
-  --purple-dark: rgba(139, 92, 246, 0.15); /* Fundo com opacidade para badges/menu */
-
-  --pink-main: #d946ef;
-
-  --text-white: #f8fafc;
-  --text-muted: #9ca3af; /* Textos descritivos em cinza */
-
-  --danger: #ef4444; /* Vermelho para botão excluir */
-  --success: #22c55e; /* Verde para status ativo */
-
-  --font-main: 'Inter', sans-serif;
+  --bg-dark: var(--color-background);
+  --bg-sidebar: var(--color-sidebar-bg);
+  --bg-card: var(--color-surface);
+  --border-color: var(--color-outline-subtle);
+  --purple-main: var(--color-brand-primary);
+  --purple-light: var(--color-purple-400);
+  --purple-dark: var(--color-surface-tag);
+  --pink-main: var(--color-brand-secondary);
+  --text-white: var(--color-content-primary);
+  --text-muted: var(--color-content-secondary);
+  --danger: var(--color-error);
+  --success: var(--color-success);
+  --font-main: var(--font-family-primary);
 }
 
 /* =========================================

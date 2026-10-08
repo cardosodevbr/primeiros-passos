@@ -3,17 +3,32 @@
    ========================================================= */
 
 :root {
-
   /* =======================================================
      BRAND & ACCENTS
      ======================================================= */
 
   --color-primary: var(--color-purple-600);
   --color-primary-hover: var(--color-purple-500);
-  --color-primary-gradient: linear-gradient(135deg, #a855f7 0%, #d946ef 100%);
-  --color-brand-neon: #d946ef;
-  --color-brand-cyan: #38bdf8;
-
+  --color-primary-gradient: linear-gradient(
+    135deg,
+    var(--color-purple-500) 0%,
+    var(--color-fuchsia-500) 100%
+  );
+  --gradient-brand-text: linear-gradient(
+    135deg,
+    var(--color-purple-400) 0%,
+    var(--color-fuchsia-300) 50%,
+    var(--color-fuchsia-500) 100%
+  );
+  --gradient-cool-text: linear-gradient(
+    135deg,
+    var(--color-sky-400) 0%,
+    var(--color-indigo-400) 100%
+  );
+  --color-brand-primary: var(--color-purple-500);
+  --color-brand-secondary: var(--color-fuchsia-500);
+  --color-brand-neon: var(--color-fuchsia-500);
+  --color-brand-cyan: var(--color-sky-400);
 
   /* =======================================================
      PAGE & LAYOUT
@@ -22,8 +37,7 @@
   --color-background: #070913;
   --color-sidebar-bg: #090c1a;
   --color-header-bg: #070913;
-  --color-foreground: #f8fafc;
-
+  --color-foreground: var(--color-slate-50);
 
   /* =======================================================
      SURFACES & CARDS
@@ -36,17 +50,15 @@
   --color-surface-muted: rgba(255, 255, 255, 0.02);
   --color-surface-tag: rgba(139, 92, 246, 0.12);
 
-
   /* =======================================================
      CONTENT / TEXT
      ======================================================= */
 
-  --color-content-primary: #f8fafc;
-  --color-content-secondary: #94a3b8;
-  --color-content-tertiary: #64748b;
-  --color-content-muted: #475569;
-  --color-content-active: #c084fc;
-
+  --color-content-primary: var(--color-slate-50);
+  --color-content-secondary: var(--color-slate-400);
+  --color-content-tertiary: var(--color-slate-500);
+  --color-content-muted: var(--color-slate-600);
+  --color-content-active: var(--color-purple-400);
 
   /* =======================================================
      OUTLINES & BORDERS
@@ -55,8 +67,7 @@
   --color-outline: rgba(56, 189, 248, 0.18);
   --color-outline-subtle: rgba(255, 255, 255, 0.08);
   --color-outline-hover: rgba(168, 85, 247, 0.5);
-  --color-outline-active: #a855f7;
-
+  --color-outline-active: var(--color-purple-500);
 
   /* =======================================================
      FEEDBACK

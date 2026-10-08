@@ -3,7 +3,7 @@
    ========================================================= */
 
 .app-sidebar {
-  width: 250px;
+  width: var(--layout-sidebar-width);
   background-color: var(--color-sidebar-bg);
   border-right: 1px solid var(--color-outline-subtle);
   display: flex;
@@ -11,7 +11,7 @@
   padding: var(--space-6) var(--space-4);
   flex-shrink: 0;
   transition: transform var(--transition-smooth);
-  z-index: 100;
+  z-index: var(--z-sidebar);
 
   position: fixed;
   top: 0;
@@ -125,7 +125,7 @@
   inset: 0;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
-  z-index: 99;
+  z-index: calc(var(--z-sidebar) - 1);
   opacity: 0;
   transition: opacity var(--transition-normal);
 }

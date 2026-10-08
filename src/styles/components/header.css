@@ -13,7 +13,7 @@
   background-color: var(--color-header-bg);
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: var(--z-header);
   backdrop-filter: blur(8px);
 }
 
@@ -161,7 +161,9 @@
   height: 9px;
   background-color: #d946ef;
   border-radius: var(--radius-full);
-  box-shadow: 0 0 10px #d946ef, 0 0 4px #ffffff;
+  box-shadow:
+    0 0 10px #d946ef,
+    0 0 4px #ffffff;
   transition: transform var(--transition-fast);
 }
 
@@ -201,7 +203,9 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .user-profile-menu:hover .user-avatar {
@@ -223,7 +227,9 @@
 .user-chevron {
   color: var(--color-content-secondary);
   font-size: 1.1rem;
-  transition: transform var(--transition-fast), color var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    color var(--transition-fast);
 }
 
 .user-profile-menu:hover .user-chevron {
