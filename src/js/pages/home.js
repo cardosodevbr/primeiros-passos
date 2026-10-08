@@ -5,8 +5,10 @@
 import { $, $$ } from '../core/dom.js'
 import { initSidebar } from '../components/sidebar.js'
 import { normalizeString, debounce } from '../core/utils.js'
+import { initAccessibility } from '../core/accessibility.js'
 
 export function initHomePage() {
+  initAccessibility()
   // Initialize sidebar functionality
   initSidebar()
 

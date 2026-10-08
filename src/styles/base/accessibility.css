@@ -1,6 +1,30 @@
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 3px solid var(--color-brand-neon, #e879f9);
   outline-offset: 3px;
+}
+
+main:focus {
+  outline: none;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface, #0e1224);
+  border: 2px solid var(--color-brand-neon, #e879f9);
+  border-radius: var(--radius-md, 0.75rem);
+  color: var(--color-content-primary, #f8fafc);
+  font-weight: var(--font-weight-semibold, 600);
+  text-decoration: none;
+  transform: translateY(-150%);
+  transition: transform var(--transition-fast, 150ms ease);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(1rem);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -12,16 +36,6 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-a:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
-}
-
-button:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
 }
 
 /* Visualmente oculto mas acessível a leitores de tela */

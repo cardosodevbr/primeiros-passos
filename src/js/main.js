@@ -12,8 +12,10 @@ import { initParaEmpresasPage } from './pages/para-empresas.js'
 import { initCriarVagaPage } from './pages/criar-vaga.js'
 import { initCandidaturasPage } from './pages/candidaturas.js'
 import { initDicasPage } from './pages/dicas.js'
+import { initAccessibility } from './core/accessibility.js'
 
 function init() {
+  initAccessibility()
   // Componentes globais (presentes em todas as páginas do app-shell)
   initSidebar()
   initHeader()
