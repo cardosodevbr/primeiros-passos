@@ -16,9 +16,11 @@ import { initHomePage } from './pages/home.js'
 import { initAccountsPage } from './pages/accounts.js'
 import { initDetalhesVagaPage } from './pages/detalhes-vaga.js'
 import { initAccessibility } from './core/accessibility.js'
+import { initPageTransitions } from './core/page-transitions.js'
 
 function init() {
   initAccessibility()
+  initPageTransitions()
   // Componentes globais (presentes em todas as páginas do app-shell)
   initSidebar()
   initHeader()

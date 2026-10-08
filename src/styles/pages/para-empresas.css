@@ -333,6 +333,7 @@
   transition: all var(--transition-normal);
   position: relative;
   overflow: visible;
+  height: var(--card-height-company);
 }
 
 .empresa-job-card::before {
@@ -387,13 +388,15 @@
   flex-direction: column;
   gap: 4px;
   min-width: 0;
+  overflow: hidden;
 }
 
 .empresa-job-title-row {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .empresa-job-title {
@@ -401,6 +404,9 @@
   font-weight: var(--font-weight-bold);
   color: var(--color-content-primary);
   line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .empresa-job-company {
@@ -417,6 +423,11 @@
   font-size: var(--text-xs);
   color: var(--color-content-tertiary);
   margin-top: 2px;
+  min-height: 18px;
+  max-height: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  flex-wrap: nowrap;
 }
 
 /* Status Badges */
@@ -430,6 +441,7 @@
   font-weight: var(--font-weight-semibold);
   white-space: nowrap;
   border: 1px solid transparent;
+  flex-shrink: 0;
 }
 
 .badge-status::before {
@@ -481,6 +493,8 @@
   align-items: center;
   gap: var(--space-5);
   flex-shrink: 0;
+  min-width: 280px;
+  justify-content: flex-end;
 }
 
 .empresa-job-stats {
@@ -738,6 +752,37 @@
 
   .empresa-hero-image {
     display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .empresa-job-card {
+    height: auto;
+    min-height: var(--card-height-mobile);
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .empresa-job-card-main,
+  .empresa-job-info {
+    width: 100%;
+  }
+
+  .empresa-job-right {
+    width: 100%;
+    min-width: 0;
+    justify-content: space-between;
+  }
+
+  .empresa-job-stats {
+    min-width: 0;
+  }
+
+  .empresa-job-meta-row {
+    max-height: none;
+    white-space: normal;
+    flex-wrap: wrap;
+    overflow: visible;
   }
 }
 

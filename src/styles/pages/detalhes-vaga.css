@@ -62,11 +62,11 @@ a {
   flex-direction: column;
 }
 
-.sidebar-logo {
+.dashboard-layout .sidebar-logo {
   padding: 0 16px 40px;
 }
 
-.sidebar-logo img {
+.dashboard-layout .sidebar-logo img {
   height: 32px; /* Ajuste conforme o tamanho real da sua logo */
 }
 
@@ -221,7 +221,7 @@ a {
   padding: 40px;
 }
 
-.badge {
+.job-main-details > .badge {
   display: inline-block;
   background-color: var(--purple-dark);
   color: var(--purple-light);

@@ -72,6 +72,16 @@
   --icon-size-md: 24px;
   --icon-size-lg: 32px;
 
+  --logo-header-width: 148px;
+  --logo-header-height: 44px;
+  --logo-sidebar-width: var(--logo-header-width);
+  --logo-sidebar-height: var(--logo-header-height);
+
+  --card-height-job: 112px;
+  --card-height-company: 136px;
+  --card-height-application: 100px;
+  --card-height-mobile: 180px;
+
   /* Shadows & Glows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);

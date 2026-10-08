@@ -145,8 +145,8 @@ button {
 
 .brand-logo {
   display: block;
-  width: 118px;
-  height: auto;
+  width: var(--logo-header-width);
+  height: var(--logo-header-height);
   object-fit: contain;
 }
 

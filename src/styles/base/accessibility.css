@@ -27,6 +27,33 @@ main:focus {
   transform: translateY(1rem);
 }
 
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-leave {
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+body.page-transition-enter main {
+  animation: page-enter var(--transition-normal) both;
+}
+
+body.page-transition-leave main {
+  animation: page-leave var(--transition-fast) both;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

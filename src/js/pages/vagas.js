@@ -112,7 +112,7 @@ export async function initVagasPage() {
   window.setTimeout(() => {
     jobContainer.classList.remove('is-loading')
     jobContainer.querySelectorAll('.job-card-skeleton').forEach((item) => item.remove())
-  }, 450)
+  }, 160)
 
   // Inputs do formulário de filtro
   const keywordInput = $('#filter-keyword')
