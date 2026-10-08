@@ -20,25 +20,27 @@
   overflow-y: auto;
 }
 
-/* Sidebar Official Project Logo: Icon PNG + Text */
+/* Sidebar Official Project Logo: Icon PNG only */
 .sidebar-logo {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
   padding: 0 var(--space-2) var(--space-6);
   text-decoration: none;
+  margin-bottom: var(--space-2);
 }
 
 .sidebar-logo-icon {
-  width: 36px;
-  height: 36px;
+  width: 180px;
+  height: 180px;
   object-fit: contain;
   flex-shrink: 0;
-  transition: transform var(--transition-fast);
+  transition: all var(--transition-fast);
+  filter: drop-shadow(0 0 12px rgba(124, 58, 237, 0.5));
 }
 
 .sidebar-logo:hover .sidebar-logo-icon {
-  transform: scale(1.1) rotate(-3deg);
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 16px rgba(124, 58, 237, 0.6));
 }
 
 .logo-text {
