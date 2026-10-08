@@ -12,6 +12,9 @@ import { initParaEmpresasPage } from './pages/para-empresas.js'
 import { initCriarVagaPage } from './pages/criar-vaga.js'
 import { initCandidaturasPage } from './pages/candidaturas.js'
 import { initDicasPage } from './pages/dicas.js'
+import { initHomePage } from './pages/home.js'
+import { initAccountsPage } from './pages/accounts.js'
+import { initDetalhesVagaPage } from './pages/detalhes-vaga.js'
 import { initAccessibility } from './core/accessibility.js'
 
 function init() {
@@ -23,12 +26,15 @@ function init() {
   initModalCandidatura()
 
   // Páginas específicas — cada função faz guard no elemento root da página
+  initHomePage()
   initVagasPage()
   initCurriculoPage()
   initParaEmpresasPage()
   initCriarVagaPage()
   initCandidaturasPage()
   initDicasPage()
+  initAccountsPage()
+  initDetalhesVagaPage()
 }
 
 if (document.readyState === 'loading') {
@@ -36,27 +42,3 @@ if (document.readyState === 'loading') {
 } else {
   init()
 }
-
-// Landing-page only: busca + tags clicáveis
-// Guard prevents null errors on inner app-shell pages
-document.addEventListener('DOMContentLoaded', () => {
-  const buscarBtn = document.querySelector('.buscar')
-  const input = document.querySelector('.search-bar input')
-
-  if (buscarBtn && input) {
-    buscarBtn.addEventListener('click', () => {
-      const termo = input.value.trim()
-      if (termo) {
-        window.location.href = `pages/vagas.html?search=${encodeURIComponent(termo)}`
-      }
-    })
-  }
-
-  // Tags clicáveis
-  document.querySelectorAll('.tags span').forEach((tag) => {
-    tag.addEventListener('click', () => {
-      const termo = tag.textContent
-      window.location.href = `pages/vagas.html?search=${encodeURIComponent(termo)}`
-    })
-  })
-})

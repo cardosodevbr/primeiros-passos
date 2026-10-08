@@ -1,6 +1,5 @@
 import { $, $$ } from '../core/dom.js'
 import { deleteVaga, getVaga } from '../services/vagas-repository.js'
-import { initAccessibility } from '../core/accessibility.js'
 
 function splitItems(value) {
   return value
@@ -10,7 +9,6 @@ function splitItems(value) {
 }
 
 export async function initDetalhesVagaPage() {
-  initAccessibility()
   const id = new URLSearchParams(window.location.search).get('id')
   const title = $('.job-main-details .job-title')
   if (!title || !id) return
@@ -81,7 +79,3 @@ export async function initDetalhesVagaPage() {
     })
   }
 }
-
-initDetalhesVagaPage().catch((error) =>
-  console.error('Não foi possível carregar os detalhes.', error),
-)

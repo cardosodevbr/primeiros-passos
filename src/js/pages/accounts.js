@@ -2,7 +2,7 @@
    PRIMEIROS PASSOS — ACCOUNTS (Login & Cadastro)
    ========================================================= */
 
-document.addEventListener('DOMContentLoaded', () => {
+export function initAccountsPage() {
   /* ─────────────────────────────────────────────────────
      HELPERS
   ───────────────────────────────────────────────────── */
@@ -328,4 +328,4 @@ document.addEventListener('DOMContentLoaded', () => {
       e.target.value = v
     })
   }
-})
+}
