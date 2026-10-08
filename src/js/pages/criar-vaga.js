@@ -9,6 +9,7 @@
    ========================================================= */
 
 import { $ } from '../core/dom.js'
+import { createVaga, getVaga, updateVaga } from '../services/vagas-repository.js'
 
 /* ---------------------------------------------------------
    Mapeamento área -> ícone RemixIcon
@@ -34,6 +35,11 @@ export function initCriarVagaPage() {
   const tipoSelect = $('#vaga-tipo', form)
   const areaSelect = $('#vaga-area', form)
   const modalidadeSelect = $('#vaga-modalidade', form)
+  const cargaSelect = $('#vaga-carga', form)
+  const descricaoInput = $('#vaga-descricao', form)
+  const requisitosInput = $('#vaga-requisitos', form)
+  const editId = new URLSearchParams(window.location.search).get('id')
+  const submitButton = $('#btn-publicar-vaga', form)
 
   /* ---------------------------------------------------------
      2. REFERÊNCIAS AOS ELEMENTOS DO PREVIEW
@@ -44,6 +50,32 @@ export function initCriarVagaPage() {
   const previewIcon = $('#preview-icon')
 
   if (!previewTitulo || !previewEmpresa || !previewMeta || !previewIcon) return
+
+  async function loadEditVaga() {
+    if (!editId) return
+    const vaga = await getVaga(editId)
+    if (!vaga) return
+
+    const values = {
+      '#vaga-titulo': vaga.titulo,
+      '#vaga-empresa': vaga.empresa,
+      '#vaga-localizacao': vaga.localizacao,
+      '#vaga-tipo': vaga.tipo,
+      '#vaga-area': vaga.area,
+      '#vaga-modalidade': vaga.modalidade,
+      '#vaga-carga': vaga.carga,
+      '#vaga-descricao': vaga.descricao,
+      '#vaga-requisitos': vaga.requisitos,
+    }
+    Object.entries(values).forEach(([selector, value]) => {
+      const field = $(selector, form)
+      if (field) field.value = value || ''
+    })
+    if (submitButton) {
+      submitButton.innerHTML = '<i class="ri-save-line"></i> Salvar alterações'
+    }
+    refreshPreview()
+  }
 
   /* ---------------------------------------------------------
      3. FUNÇÕES DE ATUALIZAÇÃO DO PREVIEW
@@ -187,7 +219,7 @@ export function initCriarVagaPage() {
     return isValid
   }
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault()
 
     if (!validateForm()) {
@@ -200,7 +232,31 @@ export function initCriarVagaPage() {
       return
     }
 
-    // Submissão válida -> navega de volta ao dashboard da empresa
-    window.location.href = 'para-empresas.html'
+    const payload = {
+      titulo: tituloInput.value.trim(),
+      empresa: empresaInput.value.trim(),
+      localizacao: localizacaoInput?.value.trim() || '',
+      tipo: tipoSelect.value,
+      area: areaSelect.value,
+      modalidade: modalidadeSelect?.value || '',
+      carga: cargaSelect?.value || '',
+      descricao: descricaoInput?.value.trim() || '',
+      requisitos: requisitosInput?.value.trim() || '',
+    }
+
+    if (submitButton) submitButton.disabled = true
+    try {
+      if (editId) {
+        await updateVaga(editId, payload)
+      } else {
+        await createVaga(payload)
+      }
+      window.location.href = 'para-empresas.html'
+    } catch (error) {
+      console.error('Não foi possível salvar a vaga.', error)
+      if (submitButton) submitButton.disabled = false
+    }
   })
+
+  loadEditVaga().catch((error) => console.error('Não foi possível carregar a vaga.', error))
 }

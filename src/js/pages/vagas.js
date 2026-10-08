@@ -4,10 +4,72 @@
 
 import { $, $$ } from '../core/dom.js'
 import { normalizeString, debounce } from '../core/utils.js'
+import { listVagas, seedVagasFromCards } from '../services/vagas-repository.js'
 
-export function initVagasPage() {
+const AREA_ICONS = {
+  tecnologia: 'ri-code-s-slash-line',
+  administrativo: 'ri-folder-2-line',
+  marketing: 'ri-megaphone-line',
+  atendimento: 'ri-customer-service-2-line',
+  operacional: 'ri-truck-line',
+}
+
+function renderVagaCard(vaga) {
+  const card = document.createElement('article')
+  card.className = 'job-card'
+  card.dataset.category = vaga.area.toLowerCase()
+  card.dataset.type = vaga.tipo
+  card.dataset.modality = vaga.modalidade
+  card.dataset.location = vaga.localizacao
+
+  const areaIcon = AREA_ICONS[vaga.area.toLowerCase()] || 'ri-briefcase-line'
+  card.innerHTML = `
+    <div class="job-card-main">
+      <div class="job-icon-box"><i class="${areaIcon}"></i></div>
+      <div class="job-info">
+        <a href="detalhes-vaga.html?id=${encodeURIComponent(vaga.id)}" class="job-title"></a>
+        <span class="job-company"></span>
+        <div class="job-meta-row">
+          <span class="job-location-item"></span>
+          <span>•</span>
+          <span class="job-modality"></span>
+          <span class="badge badge-tag job-type"></span>
+          <span class="badge badge-tag-alt job-area"></span>
+          <span class="time-info"></span>
+        </div>
+      </div>
+    </div>
+    <div class="job-card-actions">
+      <button class="bookmark-btn" aria-label="Salvar vaga"><i class="ri-bookmark-line"></i></button>
+      <a href="detalhes-vaga.html?id=${encodeURIComponent(vaga.id)}" class="btn-details">Ver detalhes <i class="ri-arrow-right-line btn-details-arrow"></i></a>
+    </div>
+  `
+
+  $('.job-title', card).textContent = vaga.titulo
+  $('.job-company', card).textContent = vaga.empresa
+  $('.job-location-item', card).textContent = vaga.localizacao
+  $('.job-modality', card).textContent = vaga.modalidade
+  $('.job-type', card).textContent = vaga.tipo
+  $('.job-area', card).textContent = vaga.area
+  $('.time-info', card).textContent = vaga.carga ? `⏱ ${vaga.carga}` : ''
+  return card
+}
+
+export async function initVagasPage() {
   const jobContainer = $('#job-cards-container')
   if (!jobContainer) return
+
+  const legacyCards = $$('.job-card', jobContainer)
+  seedVagasFromCards(legacyCards)
+  try {
+    const vagas = await listVagas()
+    if (vagas.length) {
+      jobContainer.innerHTML = ''
+      vagas.forEach((vaga) => jobContainer.appendChild(renderVagaCard(vaga)))
+    }
+  } catch (error) {
+    console.error('Não foi possível carregar as vagas.', error)
+  }
 
   const cards = $$('.job-card', jobContainer)
   const categoryPills = $$('.category-pill')
