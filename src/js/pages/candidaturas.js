@@ -12,7 +12,7 @@ const STATUS_GROUP = {
   reprovada: 'encerrada',
   contratado: 'encerrada',
   cancelada: 'encerrada',
-  encerrada: 'encerrada'
+  encerrada: 'encerrada',
 }
 
 export function initCandidaturasPage() {
@@ -26,19 +26,40 @@ export function initCandidaturasPage() {
   const searchClear = $('#candidatura-search-clear')
   const emptyState = $('#candidaturas-empty')
   const btnLimpar = $('#btn-limpar-filtros')
-  const pagination = $('.candidaturas-pagination')
+  const pagination = $('.pagination-container')
+  const pageSize = 6
+  let currentPage = 1
 
   const state = {
     status: 'todas',
     ativa: 'todas',
-    search: ''
+    search: '',
+  }
+
+  function updatePagination(totalItems) {
+    if (!pagination) return
+
+    const totalPages = Math.ceil(totalItems / pageSize)
+    const pageButtons = $$('.pagination-page', pagination)
+    const previousButton = pagination.querySelector('[aria-label="Página anterior"]')
+    const nextButton = pagination.querySelector('[aria-label="Próxima página"]')
+
+    pagination.style.display = totalPages > 1 ? 'flex' : 'none'
+    pageButtons.forEach((button) => {
+      const page = Number(button.dataset.page)
+      button.hidden = page > totalPages
+      button.classList.toggle('active', page === currentPage)
+    })
+
+    if (previousButton) previousButton.disabled = currentPage === 1
+    if (nextButton) nextButton.disabled = currentPage === totalPages || totalPages === 0
   }
 
   /* ---------------------------------------------------------
      FILTRO PRINCIPAL
      --------------------------------------------------------- */
   function applyFilters() {
-    let visibleCount = 0
+    const matchingCards = []
     const normSearch = normalizeString(state.search)
 
     cards.forEach((card) => {
@@ -56,19 +77,33 @@ export function initCandidaturasPage() {
       const matchesSearch =
         !normSearch ||
         normalizeString(cardSearch).includes(normSearch) ||
-        normalizeString(card.querySelector('.candidatura-titulo')?.textContent || '').includes(normSearch) ||
-        normalizeString(card.querySelector('.candidatura-empresa')?.textContent || '').includes(normSearch)
+        normalizeString(card.querySelector('.candidatura-titulo')?.textContent || '').includes(
+          normSearch,
+        ) ||
+        normalizeString(card.querySelector('.candidatura-empresa')?.textContent || '').includes(
+          normSearch,
+        )
 
       const isVisible = matchesStatus && matchesAtiva && matchesSearch
 
-      card.style.display = isVisible ? 'flex' : 'none'
-      if (isVisible) visibleCount++
+      if (isVisible) matchingCards.push(card)
+    })
+
+    const totalPages = Math.ceil(matchingCards.length / pageSize)
+    if (totalPages > 0 && currentPage > totalPages) currentPage = totalPages
+
+    cards.forEach((card) => {
+      const matchingIndex = matchingCards.indexOf(card)
+      const isOnCurrentPage =
+        matchingIndex >= (currentPage - 1) * pageSize && matchingIndex < currentPage * pageSize
+      card.style.display = isOnCurrentPage ? 'flex' : 'none'
     })
 
     if (emptyState) {
-      emptyState.hidden = visibleCount > 0
-      if (pagination) pagination.style.display = visibleCount > 0 ? 'flex' : 'none'
+      emptyState.hidden = matchingCards.length > 0
     }
+
+    updatePagination(matchingCards.length)
 
     updateCounts()
   }
@@ -85,7 +120,7 @@ export function initCandidaturasPage() {
       reprovada: 0,
       encerrada: 0,
       contratado: 0,
-      ativas: 0
+      ativas: 0,
     }
 
     cards.forEach((card) => {
@@ -106,7 +141,7 @@ export function initCandidaturasPage() {
       ativas: counts.ativas,
       entrevista: counts.entrevista,
       contratado: counts.contratado,
-      encerradas: counts.encerrada
+      encerradas: counts.encerrada,
     }
     Object.entries(summaryMap).forEach(([key, value]) => {
       const el = document.querySelector(`[data-summary="${key}"]`)
@@ -153,6 +188,7 @@ export function initCandidaturasPage() {
       statusPills.forEach((p) => p.classList.remove('active'))
       pill.classList.add('active')
       state.status = pill.dataset.status || 'todas'
+      currentPage = 1
 
       syncToggleWithStatus()
       applyFilters()
@@ -167,6 +203,7 @@ export function initCandidaturasPage() {
       toggleBtns.forEach((b) => b.classList.remove('active'))
       btn.classList.add('active')
       state.ativa = btn.dataset.ativa || 'todas'
+      currentPage = 1
 
       syncStatusWithToggle()
       applyFilters()
@@ -179,6 +216,7 @@ export function initCandidaturasPage() {
   if (searchInput) {
     const handleSearch = debounce((value) => {
       state.search = value
+      currentPage = 1
       applyFilters()
       if (searchClear) searchClear.classList.toggle('visible', value.length > 0)
     }, 250)
@@ -190,6 +228,7 @@ export function initCandidaturasPage() {
     searchClear.addEventListener('click', () => {
       if (searchInput) searchInput.value = ''
       state.search = ''
+      currentPage = 1
       searchClear.classList.remove('visible')
       applyFilters()
     })
@@ -203,12 +242,26 @@ export function initCandidaturasPage() {
       state.status = 'todas'
       state.ativa = 'todas'
       state.search = ''
+      currentPage = 1
 
       if (searchInput) searchInput.value = ''
       if (searchClear) searchClear.classList.remove('visible')
 
       statusPills.forEach((p) => p.classList.toggle('active', p.dataset.status === 'todas'))
       toggleBtns.forEach((t) => t.classList.toggle('active', t.dataset.ativa === 'todas'))
+
+      applyFilters()
+    })
+  }
+
+  if (pagination) {
+    pagination.addEventListener('click', (event) => {
+      const button = event.target.closest('.pagination-btn')
+      if (!button || button.disabled) return
+
+      if (button.matches('[aria-label="Página anterior"]')) currentPage--
+      if (button.matches('[aria-label="Próxima página"]')) currentPage++
+      if (button.classList.contains('pagination-page')) currentPage = Number(button.dataset.page)
 
       applyFilters()
     })

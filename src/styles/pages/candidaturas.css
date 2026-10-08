@@ -150,16 +150,16 @@
 .candidaturas-filter-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-3);
+  gap: 6px;
+  margin-bottom: var(--space-2);
 }
 
 .candidaturas-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 14px;
-  background-color: var(--color-surface);
+  padding: 7px 11px;
+  background-color: transparent;
   border: 1px solid var(--color-outline-subtle);
   border-radius: var(--radius-full);
   color: var(--color-content-secondary);
@@ -183,7 +183,7 @@
   background: var(--color-primary-gradient);
   border-color: transparent;
   color: var(--color-white);
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.22);
 }
 
 /* ---------------------------------------------------------
@@ -191,19 +191,20 @@
    --------------------------------------------------------- */
 .candidaturas-toggle-bar {
   display: inline-flex;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-outline);
+  align-self: flex-start;
+  background-color: transparent;
+  border: 1px solid var(--color-outline-subtle);
   border-radius: var(--radius-full);
-  padding: 4px;
-  gap: 4px;
-  margin-bottom: var(--space-5);
+  padding: 3px;
+  gap: 2px;
+  margin-bottom: var(--space-4);
 }
 
 .candidaturas-toggle {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 6px 14px;
+  padding: 5px 10px;
   background: transparent;
   border: none;
   border-radius: var(--radius-full);
@@ -220,6 +221,7 @@
 .candidaturas-toggle.active {
   background-color: var(--color-surface-tag);
   color: var(--color-content-active);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
 }
 
 /* ---------------------------------------------------------

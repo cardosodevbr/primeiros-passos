@@ -11,6 +11,9 @@ export function initVagasPage() {
 
   const cards = $$('.job-card', jobContainer)
   const categoryPills = $$('.category-pill')
+  const pagination = $('.pagination-container')
+  const pageSize = 6
+  let currentPage = 1
 
   const skeleton = document.createDocumentFragment()
   for (let index = 0; index < 4; index += 1) {
@@ -136,8 +139,29 @@ export function initVagasPage() {
   /* ---------------------------------------------------------
      2. LÓGICA DE FILTRAGEM DINÂMICA
      --------------------------------------------------------- */
-  function applyFilters() {
-    let visibleCount = 0
+  function updatePagination(totalItems) {
+    if (!pagination) return
+
+    const totalPages = Math.ceil(totalItems / pageSize)
+    const pageButtons = $$('.pagination-page', pagination)
+    const previousButton = pagination.querySelector('[aria-label="Página anterior"]')
+    const nextButton = pagination.querySelector('[aria-label="Próxima página"]')
+
+    pagination.style.display = totalPages > 1 ? 'flex' : 'none'
+    pageButtons.forEach((button) => {
+      const page = Number(button.dataset.page)
+      button.hidden = page > totalPages
+      button.classList.toggle('active', page === currentPage)
+    })
+
+    if (previousButton) previousButton.disabled = currentPage === 1
+    if (nextButton) nextButton.disabled = currentPage === totalPages || totalPages === 0
+  }
+
+  function applyFilters(resetPage = false) {
+    if (resetPage) currentPage = 1
+
+    const matchingCards = []
 
     cards.forEach((card) => {
       const cardCategory = card.dataset.category ? card.dataset.category.toLowerCase() : ''
@@ -182,18 +206,27 @@ export function initVagasPage() {
         matchesLocation
 
       if (isVisible) {
-        card.style.display = 'flex'
+        matchingCards.push(card)
         card.classList.remove('filtering-out')
         card.classList.add('filtering-in')
-        visibleCount++
       } else {
-        card.style.display = 'none'
         card.classList.remove('filtering-in')
       }
     })
 
+    const totalPages = Math.ceil(matchingCards.length / pageSize)
+    if (totalPages > 0 && currentPage > totalPages) currentPage = totalPages
+
+    cards.forEach((card) => {
+      const matchingIndex = matchingCards.indexOf(card)
+      const isOnCurrentPage =
+        matchingIndex >= (currentPage - 1) * pageSize && matchingIndex < currentPage * pageSize
+      card.style.display = isOnCurrentPage ? 'flex' : 'none'
+    })
+
     // Renderiza Empty State se nenhuma vaga corresponder aos filtros
-    renderEmptyState(visibleCount)
+    renderEmptyState(matchingCards.length)
+    updatePagination(matchingCards.length)
   }
 
   function renderEmptyState(count) {
@@ -226,7 +259,7 @@ export function initVagasPage() {
       categoryPills.forEach((p) => p.classList.remove('active'))
       pill.classList.add('active')
       state.activeCategory = pill.dataset.category || 'todas'
-      applyFilters()
+      applyFilters(true)
     })
   })
 
@@ -234,7 +267,7 @@ export function initVagasPage() {
   if (keywordInput) {
     keywordInput.addEventListener('input', (e) => {
       state.keyword = e.target.value
-      applyFilters()
+      applyFilters(true)
     })
   }
 
@@ -242,7 +275,7 @@ export function initVagasPage() {
   if (areaSelect) {
     areaSelect.addEventListener('change', (e) => {
       state.area = e.target.value
-      applyFilters()
+      applyFilters(true)
     })
   }
 
@@ -250,7 +283,7 @@ export function initVagasPage() {
   if (typeSelect) {
     typeSelect.addEventListener('change', (e) => {
       state.type = e.target.value
-      applyFilters()
+      applyFilters(true)
     })
   }
 
@@ -260,7 +293,7 @@ export function initVagasPage() {
       'input',
       debounce((e) => {
         state.location = e.target.value
-        applyFilters()
+        applyFilters(true)
       }, 200),
     )
   }
@@ -270,7 +303,7 @@ export function initVagasPage() {
   modalityCheckboxes.forEach((cb) => {
     cb.addEventListener('change', () => {
       state.modalities = modalityCheckboxes.filter((c) => c.checked).map((c) => c.value)
-      applyFilters()
+      applyFilters(true)
     })
   })
 
@@ -278,7 +311,7 @@ export function initVagasPage() {
   if (filterForm) {
     filterForm.addEventListener('submit', (e) => {
       e.preventDefault()
-      applyFilters()
+      applyFilters(true)
     })
   }
 
@@ -308,7 +341,22 @@ export function initVagasPage() {
       const defaultPill = $('.category-pill[data-category="todas"]')
       if (defaultPill) defaultPill.classList.add('active')
 
+      applyFilters(true)
+    })
+  }
+
+  if (pagination) {
+    pagination.addEventListener('click', (event) => {
+      const button = event.target.closest('.pagination-btn')
+      if (!button || button.disabled) return
+
+      if (button.matches('[aria-label="Página anterior"]')) currentPage--
+      if (button.matches('[aria-label="Próxima página"]')) currentPage++
+      if (button.classList.contains('pagination-page')) currentPage = Number(button.dataset.page)
+
       applyFilters()
     })
   }
+
+  applyFilters()
 }
