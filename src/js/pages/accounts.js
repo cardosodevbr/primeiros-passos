@@ -2,6 +2,8 @@
    PRIMEIROS PASSOS — ACCOUNTS (Login & Cadastro)
    ========================================================= */
 
+import { createAccount, loginAccount } from '../services/account-service.js'
+
 export function initAccountsPage() {
   /* ─────────────────────────────────────────────────────
      HELPERS
@@ -212,7 +214,12 @@ export function initAccountsPage() {
         markSuccess(pwdInput)
       }
 
-      if (valid) submitWithLoading(loginForm, 'btn-login', 'Entrando…')
+      if (valid) {
+        submitWithLoading(loginForm, 'btn-login', 'Entrando...', async () => {
+          await loginAccount(emailInput.value, pwdInput.value)
+          window.location.href = '../../index.html'
+        })
+      }
     })
   }
 
@@ -286,7 +293,60 @@ export function initAccountsPage() {
         clearError(termsInput, 'register-terms-error')
       }
 
-      if (valid) submitWithLoading(registerForm, 'btn-register', 'Criando conta…')
+      if (valid) {
+        submitWithLoading(registerForm, 'btn-register', 'Criando conta...', async () => {
+          await createAccount({
+            name: nameInput.value,
+            email: emailInput.value,
+            password: pwdInput.value,
+            type:
+              document.querySelector('input[name="account-type"]:checked')?.value || 'candidato',
+          })
+          window.location.href = '../../index.html'
+        })
+      }
+    })
+  }
+
+  const companyLoginForm = document.getElementById('login-empresa-form')
+  if (companyLoginForm) {
+    companyLoginForm.addEventListener('submit', (e) => {
+      e.preventDefault()
+      const email = document.getElementById('empresa-login-email')
+      const password = document.getElementById('empresa-login-password')
+      if (!email?.value.trim() || !password?.value) return
+      submitWithLoading(companyLoginForm, 'btn-login-empresa', 'Entrando...', async () => {
+        await loginAccount(email.value, password.value, 'empresa')
+        window.location.href = 'para-empresas.html'
+      })
+    })
+  }
+
+  const companyRegisterForm = document.getElementById('register-empresa-form')
+  if (companyRegisterForm) {
+    companyRegisterForm.addEventListener('submit', (e) => {
+      e.preventDefault()
+      const name = document.getElementById('empresa-nome-fantasia')
+      const email = document.getElementById('empresa-email')
+      const password = document.getElementById('empresa-password')
+      if (!name?.value.trim() || !email?.value.trim() || !password?.value) return
+      submitWithLoading(
+        companyRegisterForm,
+        'btn-register-empresa',
+        'Criando conta...',
+        async () => {
+          await createAccount({
+            name: name.value,
+            company: name.value,
+            email: email.value,
+            password: password.value,
+            type: 'empresa',
+            cnpj: document.getElementById('empresa-cnpj')?.value || '',
+            companyType: document.getElementById('empresa-tipo')?.value || '',
+          })
+          window.location.href = 'para-empresas.html'
+        },
+      )
     })
   }
 
@@ -298,7 +358,7 @@ export function initAccountsPage() {
    * Desabilita o botão e mostra um spinner enquanto "processa".
    * Em produção, remova o setTimeout e conecte ao backend.
    */
-  function submitWithLoading(form, btnId, loadingText) {
+  async function submitWithLoading(form, btnId, loadingText, action) {
     const btn = document.getElementById(btnId)
     if (!btn) return
 
@@ -306,11 +366,18 @@ export function initAccountsPage() {
     btn.innerHTML = `<span class="btn-spinner"></span> ${loadingText}`
     btn.disabled = true
 
-    // Simulação — remover quando houver backend
-    setTimeout(() => {
+    try {
+      await action?.()
+    } catch (error) {
+      console.error(error)
       btn.innerHTML = original
       btn.disabled = false
-    }, 2000)
+      const feedback = form.querySelector('.auth-error-msg')
+      if (feedback) {
+        feedback.textContent = error.message
+        feedback.classList.add('visible')
+      }
+    }
   }
 
   /* ─────────────────────────────────────────────────────
