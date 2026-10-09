@@ -4,45 +4,32 @@
 primeiros-passos/
 │
 ├── index.html                         # Entrada da aplicação
+├── ARCHITECTURE.md                    # Documentação da arquitetura
+├── CODE_OF_CONDUCT.md                 # Código de conduta
+├── LICENSE                            # Licença do projeto
+├── README.md                          # Documentação do projeto
+├── SUPABASE_SETUP.md                  # Instruções de configuração do banco Supabase
 └── src/
-      ├── assets/                        # recursos estáticos da aplicação
-      │   ├── icons/                     # ícones organizados por contexto
-      │   │   ├── navigation/
-      │   │   ├── social/
-      │   │   └── ui/
-      │   ├── images/                    # imagens organizadas por finalidade
-      │   │   ├── app/
-      │   │   ├── hero/
-      │   │   └── products/
-      │   └── logos/                     # logotipos
-      ├── components/                    # estrutura para componentes reutilizáveis
-      │   ├── buttons/                   # botões
-      │   ├── navbar/                    # navegação principal
-      │   └── ui/                        # componentes visuais compartilhados
-      ├── icons/                         # espaço reservado para ícones da interface
-      ├── images/                        # espaço reservado para imagens da interface
-      ├── js/                            # código JavaScript da aplicação
-      │   ├── components/
-      │   │   └── modal.js               # comportamento de modais
-      │   ├── core/
-      │   │   ├── dom.js                 # utilitários de manipulação do DOM
-      │   │   └── utils.js               # utilitários gerais
-      │   └── main.js                    # inicialização da aplicação
-      ├── pages/                         # páginas e telas da aplicação
-      ├── services/                      # serviços, regras de negócio e integrações
-      └── styles/                        # estilos globais e tokens de design
-            ├── base/
-            │   ├── accessibility.css      # acessibilidade
-            │   ├── reset.css              # reset de estilos
-            │   └── typography.css         # tipografia base
-            ├── components/                # estilos dos componentes
-            ├── layout/                    # container, grid e seções
-            ├── pages/                     # estilos específicos de páginas
-            ├── tokens/
-            │   ├── colors.css             # paletas primitivas e cores da marca
-            │   ├── semantic.css           # cores com significado de uso
-            │   └── tokens.css             # tipografia e demais tokens
-            └── global.css                 # ponto de entrada dos estilos globais
+      ├── assets/                        # Recursos estáticos da aplicação
+      │   ├── icons/                     # Ícones organizados por contexto
+      │   ├── images/                    # Imagens organizadas por finalidade
+      │   └── logos/                     # Logotipos da marca
+      ├── js/                            # Código JavaScript da aplicação
+      │   ├── components/                # Componentes utilitários de JS (header, sidebar, modais)
+      │   ├── config/                    # Configurações gerais e clientes de API (ex: Supabase)
+      │   ├── core/                      # Utilitários core (DOM, helpers)
+      │   ├── pages/                     # Scripts específicos por página
+      │   ├── services/                  # Camada de integração com serviços/dados
+      │   ├── main.js                    # Inicialização global dos componentes JS
+      │   └── vlibras.js                 # Widget de acessibilidade Vlibras
+      ├── pages/                         # Páginas HTML da aplicação (kebab-case)
+      └── styles/                        # Estilos CSS modulares
+            ├── base/                    # Estilos base (reset, acessibilidade, tipografia)
+            ├── components/              # Estilos de componentes visuais reutilizáveis
+            ├── layout/                  # Estilos de estrutura/layout (grid, container, seções)
+            ├── pages/                   # Estilos específicos por página
+            ├── tokens/                  # Tokens de design (colors, semantic, tokens)
+            └── global.css               # Ponto de entrada dos estilos CSS
 ```
 
 <br/>
