@@ -14,6 +14,11 @@
     var(--color-purple-500) 0%,
     var(--color-fuchsia-500) 100%
   );
+  --gradient-hover: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.35) 0%,
+    rgba(217, 70, 239, 0.35) 100%
+  );
   --gradient-brand-text: linear-gradient(
     135deg,
     var(--color-purple-400) 0%,

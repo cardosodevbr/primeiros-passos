@@ -1,36 +1,12 @@
 /* =========================================
-  COMPATIBILIDADE COM TOKENS GLOBAIS
+   ESTILOS DE DETALHES DA VAGA
 ========================================= */
-:root {
-  --bg-dark: var(--color-background);
-  --bg-sidebar: var(--color-sidebar-bg);
-  --bg-card: var(--color-surface);
-  --border-color: var(--color-outline-subtle);
-  --purple-main: var(--color-brand-primary);
-  --purple-light: var(--color-purple-400);
-  --purple-dark: var(--color-surface-tag);
-  --pink-main: var(--color-brand-secondary);
-  --text-white: var(--color-content-primary);
-  --text-muted: var(--color-content-secondary);
-  --danger: var(--color-error);
-  --success: var(--color-success);
-  --font-main: var(--font-family-primary);
-}
-
-/* =========================================
-   RESET GERAL
-========================================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
-  background-color: var(--bg-dark);
-  color: var(--text-white);
-  font-family: var(--font-main);
-  line-height: 1.5;
+  background-color: var(--color-background);
+  color: var(--color-content-primary);
+  font-family: var(--font-family-primary);
+  line-height: var(--line-height-normal);
 }
 
 ul {

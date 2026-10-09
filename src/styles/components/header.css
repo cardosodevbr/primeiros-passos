@@ -20,22 +20,22 @@
 /* Mobile Toggle Hamburger */
 .mobile-menu-toggle {
   display: none;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-outline-subtle);
   border-radius: var(--radius-md);
   color: var(--color-content-primary);
-  font-size: 1.3rem;
+  font-size: var(--text-xl);
   cursor: pointer;
-  padding: 8px 12px;
+  padding: var(--space-2) var(--space-3);
   transition: all var(--transition-fast);
 }
 
 .mobile-menu-toggle:hover {
-  background: rgba(139, 92, 246, 0.2);
-  border-color: rgba(168, 85, 247, 0.5);
-  color: #c084fc;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
-  transform: translateY(-1px);
+  background: var(--color-surface-tag);
+  border-color: var(--color-outline-hover);
+  color: var(--color-purple-400);
+  box-shadow: var(--glow-purple);
+  transform: translateY(var(--motion-hover-y));
 }
 
 /* Main Top Search Bar */

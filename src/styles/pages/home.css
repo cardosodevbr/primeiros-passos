@@ -1,19 +1,19 @@
 :root {
-  --bg: #030610;
-  --bg-soft: #080d1c;
-  --surface: #0a1020;
-  --surface-2: #121930;
-  --border: #1e2d4a;
-  --border-strong: #2a3f66;
-  --text: #f4f5ff;
-  --muted: #a4adc1;
-  --muted-2: #7b859e;
-  --purple: #6b32ff;
-  --purple-2: #5a26e0;
-  --purple-bright: #b36cff;
-  --cyan: #00e0ff;
-  --pink: #ff5de0;
-  --shadow-purple: rgba(107, 50, 255, 0.32);
+  --bg: var(--color-background);
+  --bg-soft: var(--color-footer-bg);
+  --surface: var(--color-surface);
+  --surface-2: var(--color-surface-hover);
+  --border: var(--color-outline-subtle);
+  --border-strong: var(--color-outline);
+  --text: var(--color-content-primary);
+  --muted: var(--color-content-secondary);
+  --muted-2: var(--color-content-tertiary);
+  --purple: var(--color-primary);
+  --purple-2: var(--color-violet-700);
+  --purple-bright: var(--color-purple-400);
+  --cyan: var(--color-brand-cyan);
+  --pink: var(--color-brand-secondary);
+  --shadow-purple: var(--glow-purple);
 }
 
 * {

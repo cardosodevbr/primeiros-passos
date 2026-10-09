@@ -11,12 +11,12 @@ button {
 .btn-details {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-md);
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.4);
-  color: #f8fafc;
+  background: var(--color-surface-tag);
+  border: 1px solid var(--color-outline);
+  color: var(--color-content-primary);
   font-size: var(--text-xs);
   font-weight: var(--font-weight-semibold);
   text-decoration: none;
@@ -25,11 +25,11 @@ button {
 }
 
 .btn-details:hover {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(217, 70, 239, 0.3) 100%);
-  border-color: #d946ef;
-  color: #ffffff;
-  box-shadow: 0 0 14px rgba(217, 70, 239, 0.4);
-  transform: translateY(-2px) scale(1.02);
+  background: var(--gradient-hover);
+  border-color: var(--color-brand-secondary);
+  color: var(--color-white);
+  box-shadow: var(--glow-pink);
+  transform: translateY(var(--motion-hover-y)) scale(var(--motion-hover-scale));
 }
 
 .btn-details-arrow {
@@ -37,7 +37,7 @@ button {
 }
 
 .btn-details:hover .btn-details-arrow {
-  transform: translateX(4px);
+  transform: translateX(var(--space-1));
 }
 
 .btn-details:active {
@@ -47,22 +47,22 @@ button {
 /* 2. Apply Filters Button com Glow Violeta */
 .btn-apply-filter {
   width: 100%;
-  padding: 12px 20px;
+  padding: var(--space-3) var(--space-5);
   border-radius: var(--radius-md);
-  background: #0d1226;
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  color: #ffffff;
+  background: var(--color-surface);
+  border: 1px solid var(--color-outline);
+  color: var(--color-content-primary);
   font-size: var(--text-sm);
   font-weight: var(--font-weight-bold);
   transition: all var(--transition-fast);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-apply-filter:hover {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.35) 0%, rgba(217, 70, 239, 0.35) 100%);
-  border-color: #d946ef;
-  box-shadow: 0 0 20px rgba(217, 70, 239, 0.45);
-  transform: translateY(-2px);
+  background: var(--gradient-hover);
+  border-color: var(--color-brand-secondary);
+  box-shadow: var(--glow-pink);
+  transform: translateY(var(--motion-hover-y));
 }
 
 .btn-apply-filter:active {
@@ -73,26 +73,26 @@ button {
 .btn-primary {
   background: var(--color-primary-gradient);
   border: none;
-  color: #ffffff;
-  padding: 10px 20px;
+  color: var(--color-white);
+  padding: var(--space-3) var(--space-5);
   border-radius: var(--radius-md);
   font-weight: var(--font-weight-semibold);
   font-size: var(--text-sm);
-  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+  box-shadow: var(--glow-purple);
   transition: all var(--transition-fast);
 }
 
 .btn-primary:hover {
   opacity: 0.95;
-  box-shadow: 0 6px 20px rgba(217, 70, 239, 0.5);
-  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--glow-pink);
+  transform: translateY(var(--motion-hover-y)) scale(var(--motion-hover-scale));
 }
 
 .btn-outline {
   background: transparent;
   border: 1px solid var(--color-outline);
   color: var(--color-content-primary);
-  padding: 10px 20px;
+  padding: var(--space-3) var(--space-5);
   border-radius: var(--radius-md);
   font-weight: var(--font-weight-medium);
   font-size: var(--text-sm);
@@ -102,5 +102,5 @@ button {
 .btn-outline:hover {
   border-color: var(--color-outline-hover);
   background-color: var(--color-surface-hover);
-  transform: translateY(-1px);
+  transform: translateY(var(--motion-hover-y));
 }
