@@ -245,3 +245,13 @@
     gap: var(--space-5);
   }
 }
+
+.dica-image-wrapper {
+  width: 100%;
+  height: 150px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  aspect-ratio: 4 / 3;
+}
+
