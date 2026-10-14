@@ -4,7 +4,7 @@
 
 import { $, $$ } from '../core/dom.js'
 import { normalizeString, debounce } from '../core/utils.js'
-import { listVagas, seedVagasFromCards } from '../services/vagas-repository.js'
+import { listVagas } from '../services/vagas-repository.js'
 import { initGlobalSearch, syncSearchInputs } from '../services/search-service.js'
 
 const AREA_ICONS = {
@@ -15,11 +15,17 @@ const AREA_ICONS = {
   operacional: 'ri-truck-line',
 }
 
+function formatCarga(carga) {
+  if (!carga) return ''
+  const value = String(carga).trim()
+  return /\b(horas?|h)\b/i.test(value) ? value : `${value} horas`
+}
+
 function renderVagaCard(vaga) {
   const card = document.createElement('article')
   card.className = 'job-card'
   card.dataset.category = vaga.area.toLowerCase()
-  card.dataset.type = vaga.tipo
+  card.dataset.type = vaga.tipo || vaga.modalidade
   card.dataset.modality = vaga.modalidade
   card.dataset.location = vaga.localizacao
 
@@ -50,9 +56,9 @@ function renderVagaCard(vaga) {
   $('.job-company', card).textContent = vaga.empresa
   $('.job-location-item', card).textContent = vaga.localizacao
   $('.job-modality', card).textContent = vaga.modalidade
-  $('.job-type', card).textContent = vaga.tipo
+  $('.job-type', card).textContent = vaga.tipo || vaga.modalidade
   $('.job-area', card).textContent = vaga.area
-  $('.time-info', card).textContent = vaga.carga ? `⏱ ${vaga.carga}` : ''
+  $('.time-info', card).textContent = vaga.carga ? `⏱ ${formatCarga(vaga.carga)}` : ''
   return card
 }
 
@@ -60,8 +66,6 @@ export async function initVagasPage() {
   const jobContainer = $('#job-cards-container')
   if (!jobContainer) return
 
-  const legacyCards = $$('.job-card', jobContainer)
-  seedVagasFromCards(legacyCards)
   try {
     const vagas = await listVagas()
     if (vagas.length) {

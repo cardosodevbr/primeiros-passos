@@ -8,6 +8,12 @@ function splitItems(value) {
     .filter(Boolean)
 }
 
+function formatCarga(carga) {
+  if (!carga) return 'Não informado'
+  const value = String(carga).trim()
+  return /\b(horas?|h)\b/i.test(value) ? value : `${value} horas`
+}
+
 export async function initDetalhesVagaPage() {
   const id = new URLSearchParams(window.location.search).get('id')
   const title = $('.job-main-details .job-title')
@@ -20,13 +26,15 @@ export async function initDetalhesVagaPage() {
   }
 
   title.textContent = vaga.titulo
+  const typeBadge = $('.job-main-details > .badge')
+  if (typeBadge) typeBadge.textContent = vaga.tipo || vaga.modalidade || 'Vaga'
   $('.company-name').textContent = vaga.empresa
   $('.job-intro').textContent = vaga.descricao || 'Confira os detalhes desta oportunidade.'
 
   const tags = $$('.job-tags .tag')
   if (tags[0]) tags[0].lastChild.textContent = ` ${vaga.localizacao}`
   if (tags[1]) tags[1].lastChild.textContent = ` ${vaga.modalidade}`
-  if (tags[2]) tags[2].lastChild.textContent = ` ${vaga.carga}`
+  if (tags[2]) tags[2].lastChild.textContent = ` ${formatCarga(vaga.carga)}`
 
   const sections = $$('.job-main-details .job-section')
   const description = sections[0]?.querySelector('p')
@@ -35,7 +43,7 @@ export async function initDetalhesVagaPage() {
   const activities = sections[1]?.querySelector('ul')
   if (activities) {
     activities.innerHTML = ''
-    splitItems(vaga.descricao || 'Atividades da vaga serão informadas pela empresa.').forEach(
+    splitItems(vaga.atividades || 'Atividades da vaga serão informadas pela empresa.').forEach(
       (item) => {
         const li = document.createElement('li')
         li.textContent = item
@@ -54,12 +62,26 @@ export async function initDetalhesVagaPage() {
     })
   }
 
+  const differences = sections[3]?.querySelector('ul')
+  if (differences) {
+    differences.innerHTML = ''
+    splitItems(vaga.diferenciais || 'Diferenciais não informados.').forEach((item) => {
+      const li = document.createElement('li')
+      li.textContent = item
+      differences.appendChild(li)
+    })
+  }
+
   const infoValues = $$('.info-card .info-value')
-  ;[vaga.tipo, vaga.area, vaga.carga, vaga.modalidade, vaga.beneficios || 'A combinar'].forEach(
-    (value, index) => {
-      if (infoValues[index]) infoValues[index].textContent = value || 'Não informado'
-    },
-  )
+  ;[
+    vaga.tipo || vaga.modalidade,
+    vaga.area,
+    formatCarga(vaga.carga),
+    vaga.modalidade,
+    vaga.beneficios || 'A combinar',
+  ].forEach((value, index) => {
+    if (infoValues[index]) infoValues[index].textContent = value || 'Não informado'
+  })
 
   const editButton = $('.btn-edit-vaga')
   if (editButton) editButton.href = `criar-vaga.html?id=${encodeURIComponent(vaga.id)}`

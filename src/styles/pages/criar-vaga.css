@@ -238,6 +238,35 @@
   transform: translateY(-1px);
 }
 
+.vaga-form-feedback {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-outline);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+}
+
+.vaga-form-feedback.is-loading {
+  color: var(--color-content-secondary);
+  background: var(--color-surface-hover);
+}
+
+.vaga-form-feedback.is-success {
+  color: #86efac;
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.vaga-form-feedback.is-error {
+  color: #fda4af;
+  background: rgba(244, 63, 94, 0.1);
+  border-color: rgba(244, 63, 94, 0.35);
+}
+
 /* =======================================================
    PREVIEW CARD (right sticky column)
    ======================================================= */
