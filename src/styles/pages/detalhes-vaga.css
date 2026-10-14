@@ -1,5 +1,5 @@
 /* =========================================
-   ESTILOS DE DETALHES DA VAGA
+   ESTILOS DE DETALHES DA VAGA  
 ========================================= */
 
 body {
@@ -27,73 +27,14 @@ a {
 }
 
 /* =========================================
-   MENU LATERAL (SIDEBAR)
-========================================= */
-.sidebar {
-  width: 260px;
-  background-color: var(--bg-sidebar);
-  border-right: 1px solid var(--border-color);
-  padding: 24px 16px;
-  display: flex;
-  flex-direction: column;
-}
-
-.dashboard-layout .sidebar-logo {
-  padding: 0 16px 40px;
-}
-
-.dashboard-layout .sidebar-logo img {
-  height: 32px; /* Ajuste conforme o tamanho real da sua logo */
-}
-
-.sidebar-nav {
-  margin-bottom: 32px;
-}
-
-.sidebar-nav ul {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.sidebar-nav a {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  border-radius: 12px;
-  color: var(--text-muted);
-  font-size: 15px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.sidebar-nav a:hover {
-  color: var(--text-white);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* Estado Ativo no Menu Lateral */
-.sidebar-nav li.active a {
-  background-color: var(--purple-dark);
-  border: 1px solid var(--purple-main);
-  color: var(--text-white);
-}
-
-.sidebar-nav img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
-
-/* =========================================
    CONTEÚDO PRINCIPAL (DIREITA)
 ========================================= */
 .main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Permite scroll se o conteúdo for maior que a tela */
+  overflow-y: auto;
+  min-width: 0; /* Evita estouro de flexbox no mobile */
 }
 
 /* =========================================
@@ -103,7 +44,7 @@ a {
   display: flex;
   justify-content: flex-end;
   padding: 20px 40px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
 }
 
 .topbar-actions {
@@ -121,8 +62,8 @@ a {
 }
 
 .btn-notification img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .user-profile {
@@ -135,7 +76,7 @@ a {
 .avatar {
   width: 36px;
   height: 36px;
-  background-color: var(--purple-main);
+  background-color: var(--purple-main, #8B5CF6);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -150,8 +91,9 @@ a {
 }
 
 .dropdown-icon {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
+  opacity: 0.8;
 }
 
 /* =========================================
@@ -165,13 +107,13 @@ a {
 }
 
 .back-link {
-  color: var(--pink-main);
+  color: var(--pink-main, #D946EF);
   font-size: 14px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   transition: opacity 0.2s;
 }
 
@@ -182,7 +124,7 @@ a {
 /* Grid principal: Detalhes na esquerda, Cards na direita */
 .job-layout-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
   gap: 24px;
   align-items: start;
 }
@@ -191,16 +133,16 @@ a {
    DETALHES DA VAGA (ESQUERDA)
 ========================================= */
 .job-main-details {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
+  background-color: var(--bg-card, #12121C);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 20px;
   padding: 40px;
 }
 
 .job-main-details > .badge {
   display: inline-block;
-  background-color: var(--purple-dark);
-  color: var(--purple-light);
+  background-color: rgba(139, 92, 246, 0.15);
+  color: var(--purple-light, #A78BFA);
   padding: 6px 16px;
   border-radius: 20px;
   font-size: 12px;
@@ -224,11 +166,11 @@ a {
 }
 
 .company-logo-small {
-  width: 48px;
-  height: 48px;
-  background: var(--purple-dark);
-  border-radius: 8px;
-  border: 1px solid var(--purple-main);
+  width: 44px;
+  height: 44px;
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
   padding: 8px;
   object-fit: contain;
 }
@@ -243,9 +185,9 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .tag {
@@ -253,29 +195,29 @@ a {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 14px;
-  color: var(--text-muted);
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--text-muted, #9CA3AF);
 }
 
 .tag img {
-  width: 16px;
-  height: 16px;
-  opacity: 0.7;
+  width: 15px;
+  height: 15px;
+  opacity: 0.8;
 }
 
 /* Textos e Listas da Vaga */
 .job-intro {
-  font-size: 16px;
-  color: var(--text-muted);
+  font-size: 15px;
+  color: var(--text-muted, #9CA3AF);
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 .job-section {
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .job-section:last-child {
@@ -283,41 +225,40 @@ a {
 }
 
 .job-section h2 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-  color: var(--text-white);
+  gap: 10px;
+  margin-bottom: 16px;
+  color: var(--text-white, #F8FAFC);
 }
 
 .job-section h2 img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .job-section p {
-  color: var(--text-muted);
+  color: var(--text-muted, #9CA3AF);
   line-height: 1.6;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .job-section ul {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  color: var(--text-muted);
-  font-size: 15px;
-  margin-left: 20px;
+  gap: 10px;
+  color: var(--text-muted, #9CA3AF);
+  font-size: 14px;
+  margin-left: 18px;
   list-style-type: disc;
 }
 
 .job-section li {
   line-height: 1.5;
-  padding-left: 8px;
 }
 
 /* =========================================
@@ -326,13 +267,13 @@ a {
 .job-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
+  background-color: var(--bg-card, #12121C);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 20px;
   padding: 24px;
 }
 
@@ -345,9 +286,10 @@ a {
 }
 
 .action-icon-wrapper {
-  width: 72px;
-  height: 72px;
-  background-color: var(--purple-dark);
+  width: 64px;
+  height: 64px;
+  background-color: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -356,15 +298,16 @@ a {
 }
 
 .action-icon-wrapper img {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
 }
 
 .action-card p {
   font-size: 15px;
-  color: var(--text-white);
-  margin-bottom: 24px;
+  color: var(--text-white, #F8FAFC);
+  margin-bottom: 20px;
   line-height: 1.4;
+  font-weight: 500;
 }
 
 /* Estilos de Botões */
@@ -373,89 +316,91 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 14px;
-  border-radius: 8px;
-  font-size: 15px;
+  gap: 10px;
+  padding: 13px 20px;
+  border-radius: 12px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .btn:last-child {
   margin-bottom: 0;
 }
 
-/* Botão com Gradiente (Primário) */
 .btn-primary {
-  background: linear-gradient(135deg, var(--purple-main), var(--pink-main));
+  background: linear-gradient(135deg, #7C3AED 0%, #D946EF 100%);
   border: none;
   color: white;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+  opacity: 0.95;
+  transform: translateY(-1px);
 }
 
 .btn-primary img {
-  width: 20px;
-  height: 20px;
-  filter: brightness(0) invert(1); /* Deixa o ícone branco caso seja escuro */
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
 }
 
-/* Botão Vermelho (Excluir) */
 .btn-danger {
   background-color: transparent;
-  border: 1px solid rgba(239, 68, 68, 0.4);
-  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #EF4444;
 }
 
 .btn-danger:hover {
-  background-color: rgba(239, 68, 68, 0.1);
+  background-color: rgba(239, 68, 68, 0.08);
 }
 
 .btn-danger img {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
-/* Card de Informações Técnicas e Sobre a Empresa */
+/* Card de Informações Técnicas */
 .info-card h3,
 .company-card h3 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  color: var(--text-white, #F8FAFC);
 }
 
 .info-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .info-list li {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 14px;
+  font-size: 13.5px;
 }
 
 .info-list li img {
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  opacity: 0.85;
+  flex-shrink: 0;
 }
 
 .info-label {
-  width: 110px;
-  color: var(--text-muted);
+  width: 105px;
+  color: var(--text-muted, #9CA3AF);
   flex-shrink: 0;
 }
 
 .info-value {
-  color: var(--text-white);
+  color: var(--text-white, #F8FAFC);
   flex: 1;
 }
 
@@ -463,23 +408,23 @@ a {
 .company-card-content {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 14px;
 }
 
 .company-logo-large {
-  width: 56px;
-  height: 56px;
-  background: var(--purple-dark);
+  width: 48px;
+  height: 48px;
+  background: rgba(139, 92, 246, 0.15);
   border-radius: 12px;
-  border: 1px solid var(--purple-main);
-  padding: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 10px;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .company-card-content p {
-  font-size: 14px;
-  color: var(--text-muted);
+  font-size: 13.5px;
+  color: var(--text-muted, #9CA3AF);
   line-height: 1.5;
 }
 
@@ -487,9 +432,9 @@ a {
 .status-card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  border: 1px solid rgba(34, 197, 94, 0.2);
-  background: rgba(34, 197, 94, 0.05); /* Fundo verdinho super transparente */
+  gap: 6px;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  background: rgba(34, 197, 94, 0.04);
 }
 
 .status-header {
@@ -499,17 +444,72 @@ a {
 }
 
 .status-header img {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 .status-header h4 {
-  color: var(--success);
-  font-size: 16px;
+  color: #22C55E;
+  font-size: 15px;
   font-weight: 600;
 }
 
 .status-card p {
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--text-muted, #9CA3AF);
+}
+
+/* =========================================
+   RESPONSIVIDADE (MOBILE E TABLETS)
+========================================= */
+
+/* Tablets e Telas Médias (Abaixo de 1024px) */
+@media (max-width: 1024px) {
+  .job-layout-grid {
+    grid-template-columns: 1fr; /* Empilha o conteúdo principal e os cards */
+  }
+
+  .page-content {
+    padding: 24px;
+  }
+}
+
+/* Celulares (Abaixo de 768px) */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 16px 20px;
+  }
+
+  .page-content {
+    padding: 16px;
+  }
+
+  .job-main-details {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .job-main-details .job-title {
+    font-size: 24px; /* Título menor para caber bem em telas mobile */
+  }
+
+  .job-tags {
+    gap: 8px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
+
+  .tag {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .user-name {
+    display: none; /* Oculta o nome de usuário no topo se faltar espaço no mobile */
+  }
 }
