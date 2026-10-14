@@ -37,9 +37,20 @@ export function initCriarVagaPage() {
   const modalidadeSelect = $('#vaga-modalidade', form)
   const cargaSelect = $('#vaga-carga', form)
   const descricaoInput = $('#vaga-descricao', form)
+  const atividadesInput = $('#vaga-atividades', form)
   const requisitosInput = $('#vaga-requisitos', form)
+  const beneficiosInput = $('#vaga-beneficios', form)
+  const diferenciaisInput = $('#vaga-diferenciais', form)
   const editId = new URLSearchParams(window.location.search).get('id')
   const submitButton = $('#btn-publicar-vaga', form)
+  const feedback = $('#vaga-form-feedback', form)
+
+  function showFeedback(message, state) {
+    if (!feedback) return
+    feedback.hidden = false
+    feedback.className = `vaga-form-feedback is-${state}`
+    feedback.innerHTML = `<i class="${state === 'success' ? 'ri-checkbox-circle-line' : state === 'error' ? 'ri-error-warning-line' : 'ri-loader-4-line ri-spin'}" aria-hidden="true"></i><span>${message}</span>`
+  }
 
   /* ---------------------------------------------------------
      2. REFERÊNCIAS AOS ELEMENTOS DO PREVIEW
@@ -60,12 +71,15 @@ export function initCriarVagaPage() {
       '#vaga-titulo': vaga.titulo,
       '#vaga-empresa': vaga.empresa,
       '#vaga-localizacao': vaga.localizacao,
-      '#vaga-tipo': vaga.tipo,
+      '#vaga-tipo': vaga.tipo || vaga.modalidade,
       '#vaga-area': vaga.area,
       '#vaga-modalidade': vaga.modalidade,
       '#vaga-carga': vaga.carga,
       '#vaga-descricao': vaga.descricao,
+      '#vaga-atividades': vaga.atividades,
       '#vaga-requisitos': vaga.requisitos,
+      '#vaga-beneficios': vaga.beneficios,
+      '#vaga-diferenciais': vaga.diferenciais,
     }
     Object.entries(values).forEach(([selector, value]) => {
       const field = $(selector, form)
@@ -238,23 +252,34 @@ export function initCriarVagaPage() {
       localizacao: localizacaoInput?.value.trim() || '',
       tipo: tipoSelect.value,
       area: areaSelect.value,
-      modalidade: modalidadeSelect?.value || '',
-      carga: cargaSelect?.value || '',
+      modalidade: tipoSelect?.value || modalidadeSelect?.value || '',
+      carga: cargaSelect?.value ? Number(cargaSelect.value) : null,
       descricao: descricaoInput?.value.trim() || '',
+      atividades: atividadesInput?.value.trim() || '',
       requisitos: requisitosInput?.value.trim() || '',
+      beneficios: beneficiosInput?.value.trim() || '',
+      diferenciais: diferenciaisInput?.value.trim() || '',
     }
 
     if (submitButton) submitButton.disabled = true
+    showFeedback(editId ? 'Salvando alterações...' : 'Publicando sua vaga...', 'loading')
     try {
       if (editId) {
         await updateVaga(editId, payload)
       } else {
         await createVaga(payload)
       }
-      window.location.href = 'para-empresas.html'
+      showFeedback(
+        editId ? 'Vaga atualizada com sucesso.' : 'Vaga publicada com sucesso.',
+        'success',
+      )
+      window.setTimeout(() => {
+        window.location.href = 'vagas.html'
+      }, 1200)
     } catch (error) {
       console.error('Não foi possível salvar a vaga.', error)
       if (submitButton) submitButton.disabled = false
+      showFeedback('Não foi possível salvar a vaga. Verifique os dados e tente novamente.', 'error')
     }
   })
 

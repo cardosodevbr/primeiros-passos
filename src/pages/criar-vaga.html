@@ -284,9 +284,9 @@
                       <label class="form-label" for="vaga-carga">Carga horária</label>
                       <select id="vaga-carga" name="carga" class="form-select">
                         <option value="" disabled selected>Selecione a carga</option>
-                        <option value="4h por dia">4 horas por dia</option>
-                        <option value="6h por dia">6 horas por dia</option>
-                        <option value="8h por dia">8 horas por dia</option>
+                        <option value="4">4 horas por dia</option>
+                        <option value="6">6 horas por dia</option>
+                        <option value="8">8 horas por dia</option>
                       </select>
                     </div>
                   </div>
@@ -328,6 +328,46 @@
                       ></textarea>
                     </div>
                   </div>
+
+                  <div class="form-row full-width">
+                    <div class="form-group">
+                      <label class="form-label" for="vaga-atividades">Atividades</label>
+                      <textarea
+                        id="vaga-atividades"
+                        name="atividades"
+                        class="form-textarea"
+                        placeholder="Liste as principais atividades da vaga..."
+                        maxlength="2000"
+                        aria-label="Atividades da vaga"
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label" for="vaga-beneficios">Benefícios</label>
+                      <textarea
+                        id="vaga-beneficios"
+                        name="beneficios"
+                        class="form-textarea"
+                        placeholder="Ex: Vale-transporte, vale-refeição..."
+                        maxlength="1000"
+                        aria-label="Benefícios da vaga"
+                      ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="vaga-diferenciais">Diferenciais</label>
+                      <textarea
+                        id="vaga-diferenciais"
+                        name="diferenciais"
+                        class="form-textarea"
+                        placeholder="Liste os diferenciais desejados..."
+                        maxlength="1000"
+                        aria-label="Diferenciais da vaga"
+                      ></textarea>
+                    </div>
+                  </div>
                 </section>
 
                 <!-- ─ Action buttons ─ -->
@@ -338,6 +378,13 @@
                   </button>
                   <a href="para-empresas.html" class="btn-cancelar"> Cancelar </a>
                 </div>
+                <p
+                  class="vaga-form-feedback"
+                  id="vaga-form-feedback"
+                  role="status"
+                  aria-live="polite"
+                  hidden
+                ></p>
               </form>
             </div>
             <!-- END FORM COLUMN -->
