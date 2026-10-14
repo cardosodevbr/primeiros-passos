@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #03050d;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Deixa o texto principal bem visível e preenchido */
+h1 {
+  font-size: 2.5rem !important;
+  line-height: 1.2 !important;
+}
+
+/* Estilização suave para a barra de acessibilidade lateral */
+#btn-acessibilidade {
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+}
