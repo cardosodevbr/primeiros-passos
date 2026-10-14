@@ -1,0 +1,823 @@
+/* =========================================================
+   PÁGINA: CURRÍCULO (Wizard Multi-Step) — MOBILE FIRST
+   ========================================================= */
+
+/* =========================================================
+   BASE (MOBILE — 0 a 639px)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. LAYOUT PRINCIPAL
+   --------------------------------------------------------- */
+.curriculo-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  align-items: start;
+}
+
+/* ---------------------------------------------------------
+   2. HEADER DA PÁGINA
+   --------------------------------------------------------- */
+.curriculo-header {
+  margin-bottom: var(--space-4);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-content-active);
+  text-decoration: none;
+  margin-bottom: var(--space-4);
+  transition: color var(--transition-fast);
+}
+.back-link:hover { color: var(--color-brand-neon); }
+
+.curriculo-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.curriculo-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  color: var(--color-content-active);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.curriculo-title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+  background: var(--color-primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.curriculo-subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-content-secondary);
+  margin: 0;
+}
+
+/* ---------------------------------------------------------
+   3. STEPPER HORIZONTAL
+   --------------------------------------------------------- */
+.stepper-container {
+  position: relative;
+  margin: var(--space-5) 0;
+  padding: 0 var(--space-2);
+}
+
+.stepper-line-bg,
+.stepper-progress {
+  position: absolute;
+  top: 14px;
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+.stepper-line-bg {
+  left: 14px;
+  right: 14px;
+  background-color: var(--color-outline-subtle);
+  z-index: 1;
+}
+.stepper-progress {
+  left: 14px;
+  width: 25%; /* valor padrão antes do JS carregar */
+  background: var(--color-primary-gradient);
+  z-index: 2;
+  transition: width var(--transition-smooth);
+}
+
+.stepper-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 3;
+}
+
+.step {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-outline);
+  color: var(--color-content-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-xs);
+  transition: all var(--transition-normal);
+}
+
+.step.active {
+  background: var(--color-primary-gradient);
+  border-color: transparent;
+  color: var(--color-white);
+  box-shadow: var(--glow-purple);
+}
+
+.step.completed {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ---------------------------------------------------------
+   4. ETAPAS DO FORMULÁRIO
+   --------------------------------------------------------- */
+.form-step {
+  display: none;
+  animation: fadeInStep var(--transition-normal) ease-in-out;
+}
+.form-step.active { display: block; }
+
+@keyframes fadeInStep {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.form-section {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-outline);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.form-section:focus-within { z-index: 10; }
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-content-active);
+  margin: 0 0 var(--space-4) 0;
+}
+.section-title i { font-size: 1.2rem; }
+
+.section-desc {
+  font-size: var(--text-sm);
+  color: var(--color-content-secondary);
+  margin: calc(var(--space-2) * -1) 0 var(--space-3) 0;
+}
+
+/* ---------------------------------------------------------
+   5. GRID HELPERS + UTILITÁRIOS
+   --------------------------------------------------------- */
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: 1fr; }
+.grid-cols-3 { grid-template-columns: 1fr; }
+.gap-md { gap: var(--space-3); }
+
+.mt-4 { margin-top: var(--space-4); }
+
+/* ---------------------------------------------------------
+   6. FIX: Select com ícone
+   --------------------------------------------------------- */
+.form-select.has-icon {
+  padding-left: 36px;
+}
+
+.input-with-icon .input-icon {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.input-with-icon .form-select,
+.input-with-icon .form-input {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------------------------------------------------------
+   7. RADIO GROUP
+   --------------------------------------------------------- */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.custom-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-content-secondary);
+  cursor: pointer;
+  user-select: none;
+  transition: color var(--transition-fast);
+}
+.custom-radio:hover { color: var(--color-content-primary); }
+
+.custom-radio input[type="radio"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background-color: #080c1b;
+  border: 1px solid var(--color-outline);
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.custom-radio input[type="radio"]:checked {
+  border-color: var(--color-primary);
+  background-color: transparent;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+.custom-radio input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px; height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-gradient);
+}
+
+/* ---------------------------------------------------------
+   8. BOTÕES DE AÇÃO DO WIZARD
+   --------------------------------------------------------- */
+.form-actions {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding: var(--space-3) 0;
+}
+
+.form-actions .btn-primary,
+.form-actions .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 12px 24px;
+  font-size: var(--text-sm);
+  width: 100%;
+}
+
+#btn-prev,
+#btn-submit { display: none; }
+
+/* ---------------------------------------------------------
+   9. BOTÃO "ADICIONAR OUTRO"
+   --------------------------------------------------------- */
+.btn-add-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: 12px;
+  margin-top: var(--space-4);
+  background-color: transparent;
+  color: var(--color-content-active);
+  border: 1px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.btn-add-more:hover {
+  background-color: rgba(139, 92, 246, 0.1);
+  border-style: solid;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.25);
+}
+
+/* ---------------------------------------------------------
+   10. BOTÃO "REMOVER BLOCO"
+   Começa escondido. O JS revela quando há 2+ blocos iguais
+   ou quando o usuário adiciona uma nova formação/experiência.
+   --------------------------------------------------------- */
+.btn-remove-block {
+  display: none;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid var(--color-error, #f43f5e);
+  border-radius: var(--radius-sm);
+  color: var(--color-error, #f43f5e);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.btn-remove-block:hover {
+  background: rgba(244, 63, 94, 0.1);
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.repeatable-block {
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px dashed var(--color-outline-subtle);
+}
+.repeatable-block:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------
+   11. TAGS (Habilidades, Outras, Idiomas)
+   --------------------------------------------------------- */
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+.skills-tags:empty {
+  display: none;
+  margin: 0;
+}
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px 6px 12px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: var(--radius-full);
+  color: var(--color-content-active);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-fast);
+}
+.skill-tag:hover {
+  background: rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.6);
+}
+.skill-tag strong {
+  color: var(--color-content-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.skill-tag-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  color: currentColor;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.85rem;
+  transition: all var(--transition-fast);
+}
+.skill-tag-remove:hover {
+  background: rgba(139, 92, 246, 0.4);
+  color: #ffffff;
+}
+
+.skills-input-row {
+  display: flex;
+  gap: var(--space-2);
+  align-items: stretch;
+  margin-bottom: var(--space-3);
+}
+.skills-input-row .input-with-icon { flex: 1; }
+
+.btn-add-skill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  background: var(--color-primary-gradient);
+  border: none;
+  border-radius: var(--radius-md);
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+.btn-add-skill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+}
+.btn-add-skill:active { transform: scale(0.95); }
+
+/* ---------------------------------------------------------
+   12. DETALHES (contador, período, dica)
+   --------------------------------------------------------- */
+.char-counter {
+  text-align: right;
+  font-size: var(--text-xs);
+  color: var(--color-content-tertiary);
+  margin-top: var(--space-1);
+}
+
+.period-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: stretch;
+}
+.period-inputs .input-with-icon { flex: 1; }
+.period-inputs > span {
+  color: var(--color-content-tertiary);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.info-card-tip {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px dashed var(--color-outline);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+}
+.info-card-tip > i {
+  font-size: 1.5rem;
+  color: var(--color-content-active);
+}
+.info-card-tip h4 {
+  margin: 0 0 var(--space-1) 0;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-content-primary);
+}
+.info-card-tip p {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--color-content-secondary);
+  line-height: 1.5;
+}
+
+/* ---------------------------------------------------------
+   13. SIDEBAR DIREITA
+   --------------------------------------------------------- */
+.curriculo-sidebar-column { position: static; }
+
+.sidebar-curriculo-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-outline);
+}
+
+.sidebar-curriculo-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-content-primary);
+  margin: 0 0 var(--space-2) 0;
+  line-height: 1.3;
+}
+
+.sidebar-curriculo-title .text-gradient {
+  background: var(--color-primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sidebar-curriculo-desc {
+  font-size: var(--text-sm);
+  color: var(--color-content-secondary);
+  margin: 0 0 var(--space-4) 0;
+  line-height: 1.4;
+}
+
+.vertical-stepper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.vertical-stepper::before {
+  content: '';
+  position: absolute;
+  top: 14px; bottom: 14px; left: 13px;
+  width: 2px;
+  background-color: var(--color-outline-subtle);
+  z-index: 1;
+}
+
+.v-step {
+  display: flex;
+  gap: var(--space-3);
+  position: relative;
+  z-index: 2;
+  align-items: flex-start;
+}
+
+.v-step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-outline);
+  color: var(--color-content-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-xs);
+  flex-shrink: 0;
+  transition: all var(--transition-normal);
+}
+
+.v-step.active .v-step-number {
+  background: var(--color-primary-gradient);
+  border-color: transparent;
+  color: var(--color-white);
+  box-shadow: var(--glow-purple);
+}
+
+.v-step-content h4 {
+  margin: 4px 0;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-content-primary);
+}
+.v-step-content p {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--color-content-secondary);
+  line-height: 1.3;
+}
+.v-step:not(.active) .v-step-content h4 {
+  color: var(--color-content-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.sidebar-curriculo-footer {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-outline-subtle);
+  font-size: var(--text-xs);
+  font-style: italic;
+  color: var(--color-content-active);
+  line-height: 1.4;
+}
+.sidebar-curriculo-footer i {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.sidebar-curriculo-footer p { margin: 0; }
+
+/* ---------------------------------------------------------
+   14. SKILL PROGRESS BAR
+   --------------------------------------------------------- */
+.skill-progress-bar {
+  height: 6px;
+  background-color: var(--color-outline-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.skill-progress-fill {
+  height: 100%;
+  width: 0%; /* valor padrão antes do JS carregar */
+  background: var(--color-primary-gradient);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-smooth);
+}
+
+/* ---------------------------------------------------------
+   15. MODAL (prompt estilizado)
+   Bug que tivemos: `display: flex` sobrescrevia o [hidden]
+   Correção: usar visibility + pointer-events
+   --------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal-dialog {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-outline);
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  transform: scale(0.95);
+  transition: transform var(--transition-normal);
+  overflow: hidden;
+}
+.modal-overlay.active .modal-dialog {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-outline-subtle);
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-content-active);
+  margin: 0;
+}
+.modal-title i { font-size: 1.2rem; }
+
+.modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 1px solid var(--color-outline);
+  border-radius: var(--radius-md);
+  color: var(--color-content-secondary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.modal-close:hover {
+  border-color: var(--color-primary);
+  color: var(--color-content-active);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.modal-body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-outline-subtle);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.modal-actions .btn-outline,
+.modal-actions .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 20px;
+  font-size: var(--text-sm);
+}
+
+/* =========================================================
+   TABLET (≥ 640px)
+   ========================================================= */
+@media (min-width: 640px) {
+  .curriculo-layout-grid { gap: var(--space-5); margin-top: var(--space-5); }
+  .form-section { padding: var(--space-5); margin-bottom: var(--space-5); }
+
+  .section-title { font-size: var(--text-lg); }
+  .section-title i { font-size: 1.3rem; }
+
+  .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gap-md { gap: var(--space-4); }
+
+  .radio-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+  }
+
+  .form-actions {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .form-actions .btn-primary,
+  .form-actions .btn-outline { width: auto; }
+
+  .period-inputs {
+    flex-direction: row;
+    align-items: center;
+  }
+  .period-inputs > span { text-align: left; }
+
+  .info-card-tip {
+    flex-direction: row;
+    gap: var(--space-3);
+  }
+  .info-card-tip > i { flex-shrink: 0; }
+
+  .curriculo-title-wrapper {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  .curriculo-icon-box { width: 52px; height: 52px; font-size: 1.5rem; }
+  .curriculo-title { font-size: var(--text-2xl); }
+
+  .step {
+    width: 32px;
+    height: 32px;
+    font-size: var(--text-sm);
+  }
+  .stepper-line-bg,
+  .stepper-progress { top: 16px; }
+  .stepper-line-bg { left: 16px; right: 16px; }
+  .stepper-progress { left: 16px; }
+}
+
+/* =========================================================
+   DESKTOP (≥ 1024px)
+   ========================================================= */
+@media (min-width: 1024px) {
+  .curriculo-layout-grid {
+    grid-template-columns: 1fr 340px;
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+  }
+
+  .form-section { padding: var(--space-6); margin-bottom: var(--space-5); }
+
+  .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .curriculo-sidebar-column {
+    position: sticky;
+    top: var(--space-6);
+  }
+
+  .sidebar-curriculo-card { padding: var(--space-6); }
+  .sidebar-curriculo-title { font-size: var(--text-lg); }
+  .vertical-stepper { gap: var(--space-5); }
+  .vertical-stepper::before { top: 16px; bottom: 16px; left: 15px; }
+  .v-step-number { width: 32px; height: 32px; font-size: var(--text-sm); }
+}
+
+/* =========================================================
+   LARGE DESKTOP (≥ 1440px)
+   ========================================================= */
+@media (min-width: 1440px) {
+  .curriculo-layout-grid { grid-template-columns: 1fr 380px; }
+}

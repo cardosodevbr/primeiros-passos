@@ -1,193 +1,441 @@
-<!doctype html>
-<html lang="pt_br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/styles/global.css" />
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    <title>Primeiros Passos</title>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros Passos | Seu primeiro emprego começa aqui</title>
+    <link rel="icon" type="image/png" href="src/assets/logos/logo.png">
+    <meta name="description" content="Conectamos jovens talentos a oportunidades que abrem caminhos para o futuro.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="src/styles/global.css">
+</head>
 
-    <header class="cabecalho"> 
-    
-      <div class="container">
+<body>
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+    <aside class="app-sidebar landing-sidebar" id="app-sidebar" aria-label="Navegação principal">
+        <a href="index.html" class="sidebar-logo" aria-label="Primeiros Passos — Início">
+            <img src="src/assets/logos/logo.png" alt="Logo Primeiros Passos" class="sidebar-logo-icon">
+        </a>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link active" aria-current="page">
+                <span class="sidebar-icon"><i class="ri-home-4-line"></i></span>
+                <span>Início</span>
+            </a>
+            <a href="src/pages/vagas.html" class="sidebar-link">
+                <span class="sidebar-icon"><i class="ri-briefcase-line"></i></span>
+                <span>Vagas</span>
+            </a>
+            <a href="src/pages/para-empresas.html" class="sidebar-link">
+                <span class="sidebar-icon"><i class="ri-building-4-line"></i></span>
+                <span>Para empresas</span>
+            </a>
+            <a href="src/pages/dicas.html" class="sidebar-link">
+                <span class="sidebar-icon"><i class="ri-lightbulb-line"></i></span>
+                <span>Dicas</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <span class="sidebar-icon"><i class="ri-group-line"></i></span>
+                <span>Sobre nós</span>
+            </a>
+            <hr class="sidebar-divider">
+            <a href="src/pages/candidaturas.html" class="sidebar-link">
+                <span class="sidebar-icon"><i class="ri-file-user-line"></i></span>
+                <span>Candidaturas</span>
+            </a>
+        </nav>
+    </aside>
 
-      <div class="logo"> 
-        
-        <h1>logo</h1>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="index.html" aria-label="Primeiros Passos - início">
+                <img class="brand-logo" src="./src/assets/logos/logo.png" alt="Primeiros Passos">
+            </a>
 
-      </div>
+            <button class="mobile-menu-toggle" id="btn-toggle-sidebar" type="button" aria-label="Abrir menu lateral">
+                <i class="ri-menu-line"></i>
+            </button>
 
-      <div class="menu">
+            <nav class="main-nav" aria-label="Navegação principal">
+                <a class="nav-link nav-link--active" href="index.html">Início</a>
+                <a class="nav-link" href="src/pages/vagas.html">Vagas</a>
+                <a class="nav-link" href="src/pages/para-empresas.html">Para empresas</a>
+                <a class="nav-link" href="src/pages/dicas.html">Dicas</a>
+                <a class="nav-link" href="src/pages/sobre-nos.html">Sobre nós</a>
+            </nav>
 
-        <div class="inicio">
-
-          <h1>inicio</h1>
-
+            <div class="header-actions">
+                <a class="button button--ghost button--small" href="src/pages/login.html">Entrar</a>
+                <a class="button button--primary button--small" href="src/pages/cadastro.html">Cadastrar</a>
+            </div>
         </div>
-        <div class="vagas">
-
-          <h1>vagas</h1>
-
-        </div>
-        <div class="paraEmpresas">
-
-          <h1>Para Empresas</h1>
-
-        </div>
-        <div class="sobreNos">
-
-          <h1>Sobre Nós</h1>
-
-
-        </div>
-
-      </div>
-
-      <divd class="botoes-header">
-
-        <div class="btn-entrar">
-
-          <button>entrar</button>
-
-        </div>
-
-        <div class="btn-cadastrar">
-
-          <button>cadastrar</button>
-
-        </div>
-
-      </div>
-
-       </div>
-    
-    
     </header>
 
-    <section class="container">
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container hero-content">
+                <div class="hero-copy">
 
-      <div class="texto-pesquisa">
+                    <h1 id="hero-title">
+                        Seu primeiro passo<br>
+                        pode <span>mudar tudo.</span>
+                    </h1>
 
-        <div class="texto-home">
-        <h1>Seu primeiro passo pode mudar tudo.</h1>
-        <p>Conectamos jovens talentos à oportunidades que abre caminho para o futuro</p>
+                    <p class="hero-description">
+                        Conectamos jovens talentos a oportunidades<br class="desktop-only">
+                        que abrem caminhos para o futuro.
+                    </p>
+
+                    <form class="search-box" id="job-search-form">
+                        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="11" cy="11" r="6.5"></circle>
+                            <path d="M16 16l4 4"></path>
+                        </svg>
+
+                        <input id="job-search" name="busca" type="search" autocomplete="off"
+                            placeholder="Busque por cargo, área ou empresa..."
+                            aria-label="Buscar por cargo, área ou empresa">
+
+                    </form>
+
+                    <div class="popular-searches" aria-label="Buscas mais acessadas">
+                        <span>Mais buscadas:</span>
+                        <button type="button" class="search-tag" data-search="Jovem Aprendiz">Jovem Aprendiz</button>
+                        <button type="button" class="search-tag" data-search="Estágio">Estágio</button>
+                        <button type="button" class="search-tag" data-search="Atendimento">Atendimento</button>
+                        <button type="button" class="search-tag" data-search="Administração">Administração</button>
+                        <button type="button" class="search-tag" data-search="Marketing">Marketing</button>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="./src/assets/images/hero/img-hero.png"
+                        alt="Jovem caminhando em direção a uma porta iluminada representando o futuro"
+                        class="hero-image" />
+                </div>
+
+
+            </div>
+            </div>
+        </section>
+
+        <section class="stats container" aria-label="Números da plataforma">
+            <article class="stat-card">
+                <div class="stat-icon">
+                    <img src="./src/assets/icons/ui/pasta 1.png" alt="">
+                </div>
+                <div>
+                    <strong><span>1.250</span>+</strong>
+                    <span>Oportunidades<br>disponíveis</span>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon">
+                    <img src="./src/assets/icons/ui/brainstorm 1.png" alt="">
+                </div>
+                <div>
+                    <strong><span>860</span>+</strong>
+                    <span>Empresas<br>parceiras</span>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon">
+                    <img src="./src/assets/icons/ui/education 1.png" alt="">
+                </div>
+                <div>
+                    <strong><span>5430</span>+</strong>
+                    <span>Jovens conectados<br>a oportunidades</span>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon">
+                    <img src="./src/assets/icons/ui/graphic 1.png" alt="">
+                </div>
+                <div>
+                    <strong><span>98</span>%</strong>
+                    <span>De jovens recomendam<br>a plataforma</span>
+                </div>
+            </article>
+        </section>
+
+        <section class="how-it-works" id="sobre" aria-labelledby="how-title">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">COMO FUNCIONA</p>
+                    <h2 id="how-title">Começar sua carreira pode ser <span>mais simples</span></h2>
+                </div>
+
+                <div class="steps">
+                    <article class="step-card">
+                        <div class="step-icon step-icon--profile">
+                            <img src="./src/assets/images/hiw/hiw-perfil.png" alt="">
+                        </div>
+                        <h3>Crie seu perfil</h3>
+                        <p>Conte um pouco sobre você,<br>suas habilidades e interesses.</p>
+                        <a class="step-button" href="#cadastro">
+                            <img src="./src/assets/images/hiw/hiw-btn1.png" alt="" class="btn-icon">
+                            Rápido e gratuito
+                        </a>
+                    </article>
+
+                    <article class="step-card">
+                        <div class="step-icon">
+                            <img src="./src/assets/images/hiw/hiw-oport.png" alt="">
+                        </div>
+                        <h3>Encontre oportunidades</h3>
+                        <p>Veja vagas que combinam<br>com seu perfil e objetivos.</p>
+                        <a class="step-button" href="src/pages/vagas.html">
+                            <img src="./src/assets/images/hiw/hiw-btn2.png" alt="" class="btn-icon">
+                            Vagas para o seu momento
+                        </a>
+                    </article>
+
+                    <article class="step-card">
+                        <div class="step-icon">
+                            <img src="./src/assets/images/hiw/hiw-candit.png" alt="">
+                        </div>
+                        <h3>Candidate-se</h3>
+                        <p>Envie seu perfil e dê o<br>próximo passo para o seu futuro.</p>
+                        <a class="step-button" href="src/pages/vagas.html">
+                            <img src="./src/assets/images/hiw/hiw-btn3.png" alt="" class="btn-icon">
+                            Mais perto dos seus sonhos
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+
+        <div class="bottom-wave" aria-hidden="true">
+            <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
+                <path class="wave wave--back"
+                    d="M0 92C150 28 188 160 348 142C505 124 536 63 696 104C856 145 932 174 1097 121C1240 75 1310 92 1440 45V180H0Z">
+                </path>
+                <path class="wave wave--front"
+                    d="M0 86C134 26 190 141 338 137C505 132 522 91 672 112C824 134 935 176 1080 126C1241 71 1320 87 1440 50V180H0Z">
+                </path>
+            </svg>
         </div>
+        <!-- SEÇÃO: DEPOIMENTOS -->
+        <section class="testimonials" id="depoimentos">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-kicker text-purple">EXPERIÊNCIAS DE QUEM DEU O PRIMEIRO PASSO</h2>
+                    <p class="section-subtitle">Conheça quem já encontrou oportunidades e transformou sua história com o
+                        Primeiros Passos</p>
+                </div>
 
-        <div class="barra-busca">
-        <input type="text" placeholder="Busque por cargo, área ou empresa..." class="searchBar">
-        </div>
+                <div class="testimonials-grid">
+                    <!-- Card 1 -->
+                    <div class="testimonial-card">
+                        <div class="card-header">
+                            <img src="https://i.pravatar.cc/150?img=5" alt="Mariana" class="avatar">
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+                        </div>
+                        <p class="quote">"Consegui minha primeira oportunidade como Jovem Aprendiz. O Primeiros Passos
+                            me ajudou a encontrar vagas que realmente combinavam comigo."</p>
+                        <div class="card-footer">
+                            <div class="author-info">
+                                <span class="name">Mariana</span>
+                                <span class="role">Jovem Aprendiz</span>
+                            </div>
+                            <div class="quote-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 11L8 15H11V19H5V11L7 7H10L10 11ZM19 11L17 15H20V19H14V11L16 7H19L19 11Z"
+                                        fill="#7C3AED" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
 
-      </div>
+                    <!-- Card 2 -->
+                    <div class="testimonial-card">
+                        <div class="card-header">
+                            <img src="https://i.pravatar.cc/150?img=11" alt="Lucas" class="avatar">
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+                        </div>
+                        <p class="quote">"Consegui minha primeira oportunidade como Jovem Aprendiz. O Primeiros Passos
+                            me ajudou a encontrar vagas que realmente combinavam comigo."</p>
+                        <div class="card-footer">
+                            <div class="author-info">
+                                <span class="name">Lucas</span>
+                                <span class="role">Estagiário de Tecnologia</span>
+                            </div>
+                            <div class="quote-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 11L8 15H11V19H5V11L7 7H10L10 11ZM19 11L17 15H20V19H14V11L16 7H19L19 11Z"
+                                        fill="#7C3AED" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
 
-      <div class="filtros-pesquisa">
+                    <!-- Card 3 -->
+                    <div class="testimonial-card">
+                        <div class="card-header">
+                            <img src="https://i.pravatar.cc/150?img=9" alt="Ana" class="avatar">
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+                        </div>
+                        <p class="quote">"Consegui minha primeira oportunidade como Jovem Aprendiz. O Primeiros Passos
+                            me ajudou a encontrar vagas que realmente combinavam comigo."</p>
+                        <div class="card-footer">
+                            <div class="author-info">
+                                <span class="name">Ana</span>
+                                <span class="role">Assistente Administrativo</span>
+                            </div>
+                            <div class="quote-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 11L8 15H11V19H5V11L7 7H10L10 11ZM19 11L17 15H20V19H14V11L16 7H19L19 11Z"
+                                        fill="#7C3AED" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <p>Mais buscadas:</p>
+        <!-- SEÇÃO: POR QUE USAR -->
+        <section class="benefits" id="beneficios">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-kicker text-purple">POR QUE USAR O PRIMEIROS PASSOS?</h2>
+                    <p class="section-subtitle main-subtitle">Começar sua carreira pode ser <span
+                            class="text-purple-light">mais simples</span></p>
+                </div>
 
-        <button btn-filtros>Jovem aprendiz</button>
-        <button btn-filtros>Estágio</button>
-        <button btn-filtros>Atendimento</button>
-        <button btn-filtros>Administração</button>
-        <button btn-filtros>Marketing</button>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <img src="./src/assets/images/home/alvo-home.png" alt="">
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Vagas para o seu momento</h3>
+                            <p>Oportunidades de jovem aprendiz, estágio e primeiro emprego</p>
+                        </div>
+                    </div>
 
-      </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <img src="./src/assets/images/home/lamp-home.png" alt="">
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Vagas para o seu momento</h3>
+                            <p>Oportunidades de jovem aprendiz, estágio e primeiro emprego</p>
+                        </div>
+                    </div>
 
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <img src="./src/assets/images/home/user-home.png" alt="">
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Vagas para o seu momento</h3>
+                            <p>Oportunidades de jovem aprendiz, estágio e primeiro emprego</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    </section>
+        <!-- SEÇÃO: CTA FINAL -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-banner">
+                    <div class="cta-content">
+                        <h2>Seu futuro começa<br>com o <span class="text-purple-light">primeiro passo.</span></h2>
+                        <p>Cadastre-se agora e encontre oportunidades<br>que combinam com você.</p>
+                        <a href="src/pages/cadastro.html" class="btn btn-primary">Criar meu perfil &rarr;</a>
+                    </div>
 
-    <section class="container">
+                    <!-- Substitua o src pela imagem exportada da menina do Figma -->
+                    <div class="cta-image">
+                        <img src="./src/assets/images/home/banner-home.png" alt="Jovem sorrindo com mochila">
+                        
+                    </div>
+                    <span class="handwritten-note">Mais oportunidades<br>para um futuro real!</span>
+                </div>
+            </div>
+        </section>
 
-      <div class="img-hero">
+        <!-- FOOTER -->
+        <footer class="app-footer">
+                    <div class="footer-container">
+                        <div class="footer-brand">
+                            <a href="index.html" class="footer-logo-link">
+                                <img src="./src/assets/logos/logo.png" alt="Logo Primeiros Passos" class="footer-logo-icon" />
+                            </a>
+                        </div>
+                        <div class="footer-vertical-divider"></div>
+                        <div class="footer-column">
+                            <h3 class="footer-column-title">Navegação</h3>
+                            <ul class="footer-links-list">
+                                <li><a href="index.html" class="footer-link">Inicio</a></li>
+                                <li><a href="src/pages/vagas.html" class="footer-link">Vagas</a></li>
+                                <li><a href="src/pages/para-empresas.html" class="footer-link">Para empresas</a></li>
+                                <li><a href="src/pages/dicas.html" class="footer-link">Dicas</a></li>
+                                <li><a href="src/pages/sobre-nos.html" class="footer-link">Sobre nós</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-vertical-divider"></div>
+                        <div class="footer-column">
+                            <h3 class="footer-column-title">Ajuda</h3>
+                            <ul class="footer-links-list">
+                                <li><a href="#" class="footer-link">Perguntas frequentes</a></li>
+                                <li><a href="#" class="footer-link">Como Funciona</a></li>
+                                <li><a href="#" class="footer-link">Suporte</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-vertical-divider"></div>
+                        <div class="footer-column">
+                            <h3 class="footer-column-title">Legal</h3>
+                            <ul class="footer-links-list">
+                                <li><a href="#" class="footer-link">Termos de uso</a></li>
+                                <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+                                <li><a href="#" class="footer-link">Acessibilidade</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-vertical-divider"></div>
+                        <div class="footer-social-column">
+                            <h3 class="footer-column-title">Siga-nos</h3>
+                            <div class="footer-social-icons">
+                                <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                                <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                                <a href="#" class="social-icon-btn" aria-label="TikTok"><i class="ri-tiktok-fill"></i></a>
+                                <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+                            </div>
+                            <p class="footer-social-desc">Acompanhe nossas novidades e faça parte dessa jornada!</p>
+                            <hr class="footer-horizontal-divider" />
+                            <div class="footer-contact-list">
+                                <div class="footer-contact-item"><span class="footer-contact-icon"><i
+                                            class="ri-mail-line"></i></span><span>primeirospassos@gmail.com</span></div>
+                                <div class="footer-contact-item"><span class="footer-contact-icon"><i
+                                            class="ri-phone-line"></i></span><span>(11) 91111-0000</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom-copyright">
+                        <p>&copy; 2026 Primeiros Passos. Todos os direitos reservados.</p>
+                    </div>
+            </footer>
+    </main>
+    <script type="module" src="src/js/main.js"></script>
+    <script src="src/js/vlibras.js"></script>
+</body>
 
-        <img src="#" alt="Jovem de mochila nas costas entrando em uma porta que dá acesso à uma cidade.">
-
-      </div>
-
-
-    </section>
-
-    <section class="container">
-
-      <div class="dados-pp">
-
-        <div class="caixa-dados">
-
-          <div class="img-dados">
-          <img src="#" alt="maleta de trabalho">
-
-          </div>
-
-          <div class="texto-caixa">
-
-            <h1>1250+</h1>
-            <p>Oportunidades disponíveis</p>
-
-          </div>
-
-        </div>
-        <div class="caixa-dados">
-
-          <div class="img-dados">
-          <img src="#" alt="3 icones de usuario com um raio em cima">
-
-          </div>
-
-          <div class="texto-caixa">
-
-            <h1>860+</h1>
-            <p>Empresas Parceiras</p>
-
-          </div>
-
-        </div>
-        <div class="caixa-dados">
-
-          <div class="img-dados">
-          <img src="#" alt="capelo">
-
-          </div>
-
-          <div class="texto-caixa">
-
-            <h1>5430+</h1>
-            <p>Jovens conectados à oportunidades</p>
-
-          </div>
-
-        </div>
-        <div class="caixa-dados">
-
-          <div class="img-dados">
-          <img src="#" alt="gráfico de crescimento">
-
-          </div>
-
-          <div class="texto-caixa">
-
-            <h1>98%</h1>
-            <p>De jovens recomendam a plataforma</p>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-
-    </section>
-
-        
-    
-
-
-
-
-
-
-
-  </body>
-  <script type="module" src="./js/main.js"></script>
 </html>

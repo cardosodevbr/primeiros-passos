@@ -1,18 +1,48 @@
 body {
-    font-family: var(--font-family-base);
-    font-style: var(--font-style-normal);
-    color: var(--color-background);
+  font-family: var(--font-family-base);
+  color: var(--color-content-primary);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
 }
 
-.heading {
-    font-family: var(--font-family-primary);
+/* Force Inter em elementos de texto */
+p,
+span,
+div,
+a,
+button,
+input,
+textarea,
+select,
+label {
+  font-family: var(--font-family-primary);
 }
 
-.body {
-    font-family: var(--font-family-base);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-primary);
+  color: var(--color-content-primary);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-display);
 }
 
-/* body font
-heading defaults
-links
-text rendering */
+/* 🎨 Dev tip: classe para os títulos com gradiente vibrante */
+.text-gradient {
+  background: var(--gradient-brand-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cyan {
+  background: var(--gradient-cool-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

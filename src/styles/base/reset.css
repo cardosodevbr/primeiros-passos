@@ -1,4 +1,5 @@
 /*  para remover os padrões do HTML/CSS */
+@import url(../tokens/colors.css);
 
 *,
 *::after,
@@ -19,7 +20,7 @@ body {
 img,
 picture,
 video,
-canva,
+canvas,
 svg {
     display: block;
     max-width: 100%;
@@ -34,11 +35,19 @@ textarea {
 
 button {
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 a {
     color: inherit;
     text-decoration: none;
+}
+
+a:visited {
+    color: var (--color-indigo-400);
+    text-decoration: italic;
 }
 
 ul,
