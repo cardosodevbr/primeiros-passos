@@ -59,8 +59,8 @@ export function initHeader() {
         profileMenu.setAttribute('aria-expanded', 'false')
       }
     })
-    menu.querySelector('.account-menu-logout')?.addEventListener('click', () => {
-      logoutAccount()
+    menu.querySelector('.account-menu-logout')?.addEventListener('click', async () => {
+      await logoutAccount()
       window.location.href = `${pagesBase}login.html`
     })
   })
