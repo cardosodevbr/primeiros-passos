@@ -6,13 +6,14 @@
     <title>Detalhes da Vaga - Primeiros Passos</title>
     <link rel="icon" type="image/png" href="../assets/logos/logo.png" />
     <link rel="stylesheet" href="../styles/global.css" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <div class="dashboard-layout">
-      <!-- ================= SIDEBAR (Menu Lateral) ================= -->
-      <div class="app-shell">
+    <div class="app-shell">
       <!-- Mobile Sidebar Backdrop Overlay -->
       <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
 
@@ -68,187 +69,291 @@
         </nav>
       </aside>
       <!-- ================= CONTEÚDO PRINCIPAL ================= -->
-      <main class="main-content">
-        <!-- Header do Topo -->
-        <header class="topbar">
-          <div class="topbar-actions">
-            <button class="btn-notification">
-              <img src="/src/assets/icons/userbar/icon-notif.png" alt="Ícone Notificação" />
+      <div class="app-main">
+        <header class="app-header">
+          <button
+            class="mobile-menu-toggle"
+            id="btn-toggle-sidebar"
+            aria-label="Abrir menu lateral"
+          >
+            <i class="ri-menu-line"></i>
+          </button>
+          <div class="header-user-controls">
+            <button class="icon-button" aria-label="Notificações">
+              <i class="ri-notification-3-line"></i><span class="notification-dot"></span>
             </button>
-
-            <div class="user-profile">
-              <div class="avatar">
-                <span>A</span>
-                <!-- Pode ser substituído por uma img se o usuário tiver foto -->
-              </div>
-              <span class="user-name">Ana Silva</span>
-              <img src="/src/assets/icons/detalhes-vaga/icon-seta.png" alt="Ícone Dropdown" class="dropdown-icon" />
+            <div class="user-profile-menu">
+              <div class="user-avatar">A</div>
+              <span class="user-name">Ana Silva</span
+              ><i class="ri-arrow-down-s-line user-chevron"></i>
             </div>
           </div>
         </header>
+        <main class="main-content">
+          <!-- Área de Informações da Vaga -->
+          <div class="page-content">
+            <a href="#" class="back-link"> &larr; Voltar para vagas </a>
 
-        <!-- Área de Informações da Vaga -->
-        <div class="page-content">
-          <a href="#" class="back-link"> &larr; Voltar para vagas </a>
+            <div class="job-layout-grid">
+              <!-- Lado Esquerdo: Detalhes Principais -->
+              <section class="job-main-details">
+                <span class="badge">Aprendiz</span>
 
-          <div class="job-layout-grid">
-            <!-- Lado Esquerdo: Detalhes Principais -->
-            <section class="job-main-details">
-              <span class="badge">Aprendiz</span>
+                <h1 class="job-title">Jovem Aprendiz em Tecnologia</h1>
 
-              <h1 class="job-title">Jovem Aprendiz em Tecnologia</h1>
-
-              <div class="company-header">
-                <img src="/src/assets/icons/detalhes-vaga/icon-tv.png" alt="Logo Tech Solutions" class="company-logo-small" />
-                <span class="company-name">Tech Solutions</span>
-              </div>
-
-              <div class="job-tags">
-                <span class="tag">
-                  <img src="/src/assets/icons/detalhes-vaga/icon-local.png" alt="Ícone Localização" />
-                  São Paulo
-                </span>
-                <span class="tag">
-                  <img src="/src/assets/icons/detalhes-vaga/icon-mod.png" alt="Ícone Modalidade" />
-                  Híbrido
-                </span>
-                <span class="tag">
-                  <img src="/src/assets/icons/detalhes-vaga/icon-rel.png" alt="Ícone Carga Horária" />
-                  6h por dia
-                </span>
-              </div>
-
-              <p class="job-intro">
-                Estamos em busca de jovens aprendizes apaixonados por tecnologia e vontade de
-                aprender. Aqui, você terá a oportunidade de desenvolver habilidades, aprender na
-                prática e dar os primeiros passos na sua carreira!
-              </p>
-
-              <div class="job-section">
-                <h2>
-                  <img src="/src/assets/icons/detalhes-vaga/icon-list.png" alt="Ícone Sobre a vaga" />
-                  Sobre a vaga
-                </h2>
-                <p>
-                  Você fará parte do nosso time de tecnologia, apoiando nas rotinas diárias e
-                  aprendendo com profissionais experientes. Buscamos alguém curioso, proativo e com
-                  vontade de crescer.
-                </p>
-              </div>
-
-              <div class="job-section">
-                <h2>
-                  <img src="/src/assets/icons/detalhes-vaga/icon-list2.png" alt="Ícone Principais Atividades" />
-                  PRINCIPAIS ATIVIDADES
-                </h2>
-                <ul>
-                  <li>Apoiar na manutenção de sistemas e ferramentas internas;</li>
-                  <li>Auxiliar na organização e análise de dados;</li>
-                  <li>Colaborar em projetos da equipe de tecnologia;</li>
-                  <li>Participar de treinamentos e capacitações oferecidos pela empresa.</li>
-                </ul>
-              </div>
-
-              <div class="job-section">
-                <h2>
-                  <img src="/src/assets/icons/detalhes-vaga/icon-alvo.png" alt="Ícone Requisitos" />
-                  REQUISITOS
-                </h2>
-                <ul>
-                  <li>Ter entre 14 e 24 anos;</li>
-                  <li>Estar cursando ensino médio ou técnico ou superior;</li>
-                  <li>Interesse em tecnologia e inovação;</li>
-                  <li>Vontade de aprender e trabalhar em equipe.</li>
-                </ul>
-              </div>
-
-              <div class="job-section">
-                <h2>
-                  <img src="" alt="Ícone Diferenciais" />
-                  DIFERENCIAIS
-                </h2>
-                <ul>
-                  <li>Diferenciais não informados.</li>
-                </ul>
-              </div>
-            </section>
-
-            <!-- Lado Direito: Cards Laterais -->
-            <aside class="job-sidebar">
-              <!-- Card de Ação (Candidatar/Excluir) -->
-              <div class="card action-card">
-                <div class="action-icon-wrapper">
-                  <img src="/src/assets/icons/detalhes-vaga/icon-pasta.png" alt="Ícone Maleta" />
+                <div class="company-header">
+                  <img
+                    src="/src/assets/icons/detalhes-vaga/icon-tv.png"
+                    alt="Logo Tech Solutions"
+                    class="company-logo-small"
+                  />
+                  <span class="company-name">Tech Solutions</span>
                 </div>
-                <p>Pronto para<br />dar seu primeiro passo?</p>
 
-                <button class="btn btn-primary">
-                  <img src="/src/assets/icons/detalhes-vaga/icon-flight.png" alt="Ícone Enviar" />
-                  Quero me candidatar
-                </button>
+                <div class="job-tags">
+                  <span class="tag">
+                    <img
+                      src="/src/assets/icons/detalhes-vaga/icon-local.png"
+                      alt="Ícone Localização"
+                    />
+                    São Paulo
+                  </span>
+                  <span class="tag">
+                    <img
+                      src="/src/assets/icons/detalhes-vaga/icon-mod.png"
+                      alt="Ícone Modalidade"
+                    />
+                    Híbrido
+                  </span>
+                  <span class="tag">
+                    <img
+                      src="/src/assets/icons/detalhes-vaga/icon-rel.png"
+                      alt="Ícone Carga Horária"
+                    />
+                    6h por dia
+                  </span>
+                </div>
 
-                <button class="btn btn-danger">
-                  <img src="/src/assets/icons/detalhes-vaga/icon-lixeira.png" alt="Ícone Lixeira" />
-                  Excluir vaga
-                </button>
-              </div>
+                <p class="job-intro">
+                  Estamos em busca de jovens aprendizes apaixonados por tecnologia e vontade de
+                  aprender. Aqui, você terá a oportunidade de desenvolver habilidades, aprender na
+                  prática e dar os primeiros passos na sua carreira!
+                </p>
 
-              <!-- Card de Informações Técnicas -->
-              <div class="card info-card">
-                <h3>Informações da vaga</h3>
-                <ul class="info-list">
-                  <li>
-                    <img src="/src/assets/icons/detalhes-vaga/icon-pasta2.png" alt="Ícone Tipo de Vaga" />
-                    <span class="info-label">Tipo de vaga</span>
-                    <span class="info-value">Aprendiz</span>
-                  </li>
-                  <li>
-                    <img src="/src/assets/icons/detalhes-vaga/icon-cubo.png" alt="Ícone Área" />
-                    <span class="info-label">Área</span>
-                    <span class="info-value">Tecnologia da Informação</span>
-                  </li>
-                  <li>
-                    <img src="/src/assets/icons/detalhes-vaga/icon-rel2.png" alt="Ícone Carga horária" />
-                    <span class="info-label">Carga horária</span>
-                    <span class="info-value">6 horas por dia</span>
-                  </li>
-                  <li>
-                    <img src="/src/assets/icons/detalhes-vaga/icon-mod2.png" alt="Ícone Modalidade" />
-                    <span class="info-label">Modalidade</span>
-                    <span class="info-value">Híbrido</span>
-                  </li>
-                  <li class="align-start">
-                    <img src="/src/assets/icons/detalhes-vaga/icon-bene.png" alt="Ícone Benefícios" />
-                    <span class="info-label">Benefícios</span>
-                    <span class="info-value">Vale transporte, Vale refeição, Seguro de vida</span>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Card Sobre a Empresa -->
-              <div class="card company-card">
-                <h3>Sobre a empresa</h3>
-                <div class="company-card-content">
-                  <img src="/src/assets/icons/detalhes-vaga/icon-tv.png" alt="Logo Tech Solutions Grande" class="company-logo-large" />
+                <div class="job-section">
+                  <h2>
+                    <img
+                      src="/src/assets/icons/detalhes-vaga/icon-list.png"
+                      alt="Ícone Sobre a vaga"
+                    />
+                    Sobre a vaga
+                  </h2>
                   <p>
-                    A Tech Solutions é uma empresa inovadora que desenvolve soluções tecnológicas
-                    para transformar negócios e pessoas.
+                    Você fará parte do nosso time de tecnologia, apoiando nas rotinas diárias e
+                    aprendendo com profissionais experientes. Buscamos alguém curioso, proativo e
+                    com vontade de crescer.
                   </p>
                 </div>
-              </div>
 
-              <!-- Card de Status -->
-              <div class="card status-card">
-                <div class="status-header">
-                  <img src="/src/assets/icons/detalhes-vaga/icon-i.png" alt="Ícone Informação" />
-                  <h4>Vaga ativa</h4>
+                <div class="job-section">
+                  <h2>
+                    <img
+                      src="/src/assets/icons/detalhes-vaga/icon-list2.png"
+                      alt="Ícone Principais Atividades"
+                    />
+                    PRINCIPAIS ATIVIDADES
+                  </h2>
+                  <ul>
+                    <li>Apoiar na manutenção de sistemas e ferramentas internas;</li>
+                    <li>Auxiliar na organização e análise de dados;</li>
+                    <li>Colaborar em projetos da equipe de tecnologia;</li>
+                    <li>Participar de treinamentos e capacitações oferecidos pela empresa.</li>
+                  </ul>
                 </div>
-                <p>Está vaga está visível para candidatos</p>
-              </div>
-            </aside>
+
+                <div class="job-section">
+                  <h2>
+                    <img
+                      src="/src/assets/icons/detalhes-vaga/icon-alvo.png"
+                      alt="Ícone Requisitos"
+                    />
+                    REQUISITOS
+                  </h2>
+                  <ul>
+                    <li>Ter entre 14 e 24 anos;</li>
+                    <li>Estar cursando ensino médio ou técnico ou superior;</li>
+                    <li>Interesse em tecnologia e inovação;</li>
+                    <li>Vontade de aprender e trabalhar em equipe.</li>
+                  </ul>
+                </div>
+
+                <div class="job-section">
+                  <h2>
+                    <img src="" alt="Ícone Diferenciais" />
+                    DIFERENCIAIS
+                  </h2>
+                  <ul>
+                    <li>Diferenciais não informados.</li>
+                  </ul>
+                </div>
+              </section>
+
+              <!-- Lado Direito: Cards Laterais -->
+              <aside class="job-sidebar">
+                <!-- Card de Ação (Candidatar/Excluir) -->
+                <div class="card action-card">
+                  <div class="action-icon-wrapper">
+                    <img src="/src/assets/icons/detalhes-vaga/icon-pasta.png" alt="Ícone Maleta" />
+                  </div>
+                  <p>Pronto para<br />dar seu primeiro passo?</p>
+
+                  <button class="btn btn-primary">
+                    <img src="/src/assets/icons/detalhes-vaga/icon-flight.png" alt="Ícone Enviar" />
+                    Quero me candidatar
+                  </button>
+
+                  <button class="btn btn-danger">
+                    <img
+                      src="/src/assets/icons/detalhes-vaga/icon-lixeira.png"
+                      alt="Ícone Lixeira"
+                    />
+                    Excluir vaga
+                  </button>
+                </div>
+
+                <!-- Card de Informações Técnicas -->
+                <div class="card info-card">
+                  <h3>Informações da vaga</h3>
+                  <ul class="info-list">
+                    <li>
+                      <img
+                        src="/src/assets/icons/detalhes-vaga/icon-pasta2.png"
+                        alt="Ícone Tipo de Vaga"
+                      />
+                      <span class="info-label">Tipo de vaga</span>
+                      <span class="info-value">Aprendiz</span>
+                    </li>
+                    <li>
+                      <img src="/src/assets/icons/detalhes-vaga/icon-cubo.png" alt="Ícone Área" />
+                      <span class="info-label">Área</span>
+                      <span class="info-value">Tecnologia da Informação</span>
+                    </li>
+                    <li>
+                      <img
+                        src="/src/assets/icons/detalhes-vaga/icon-rel2.png"
+                        alt="Ícone Carga horária"
+                      />
+                      <span class="info-label">Carga horária</span>
+                      <span class="info-value">6 horas por dia</span>
+                    </li>
+                    <li>
+                      <img
+                        src="/src/assets/icons/detalhes-vaga/icon-mod2.png"
+                        alt="Ícone Modalidade"
+                      />
+                      <span class="info-label">Modalidade</span>
+                      <span class="info-value">Híbrido</span>
+                    </li>
+                    <li class="align-start">
+                      <img
+                        src="/src/assets/icons/detalhes-vaga/icon-bene.png"
+                        alt="Ícone Benefícios"
+                      />
+                      <span class="info-label">Benefícios</span>
+                      <span class="info-value">Vale transporte, Vale refeição, Seguro de vida</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Card Sobre a Empresa -->
+                <div class="card company-card">
+                  <h3>Sobre a empresa</h3>
+                  <div class="company-card-content">
+                    <img
+                      src="/src/assets/icons/detalhes-vaga/icon-tv.png"
+                      alt="Logo Tech Solutions Grande"
+                      class="company-logo-large"
+                    />
+                    <p>
+                      A Tech Solutions é uma empresa inovadora que desenvolve soluções tecnológicas
+                      para transformar negócios e pessoas.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card de Status -->
+                <div class="card status-card">
+                  <div class="status-header">
+                    <img src="/src/assets/icons/detalhes-vaga/icon-i.png" alt="Ícone Informação" />
+                    <h4>Vaga ativa</h4>
+                  </div>
+                  <p>Está vaga está visível para candidatos</p>
+                </div>
+              </aside>
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+        <footer class="app-footer">
+          <div class="footer-container">
+            <div class="footer-brand">
+              <a href="../../index.html" class="footer-logo-link"
+                ><img
+                  src="../assets/logos/logo.png"
+                  alt="Logo Primeiros Passos"
+                  class="footer-logo-icon"
+              /></a>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-column">
+              <h3 class="footer-column-title">Navegação</h3>
+              <ul class="footer-links-list">
+                <li><a href="../../index.html" class="footer-link">Início</a></li>
+                <li><a href="vagas.html" class="footer-link">Vagas</a></li>
+                <li><a href="para-empresas.html" class="footer-link">Para empresas</a></li>
+                <li><a href="dicas.html" class="footer-link">Dicas</a></li>
+                <li><a href="sobre-nos.html" class="footer-link">Sobre nós</a></li>
+              </ul>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-column">
+              <h3 class="footer-column-title">Ajuda</h3>
+              <ul class="footer-links-list">
+                <li><a href="#" class="footer-link">Perguntas frequentes</a></li>
+                <li><a href="#" class="footer-link">Como Funciona</a></li>
+                <li><a href="#" class="footer-link">Suporte</a></li>
+              </ul>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-column">
+              <h3 class="footer-column-title">Legal</h3>
+              <ul class="footer-links-list">
+                <li><a href="#" class="footer-link">Termos de uso</a></li>
+                <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+                <li><a href="#" class="footer-link">Acessibilidade</a></li>
+              </ul>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-social-column">
+              <h3 class="footer-column-title">Siga-nos</h3>
+              <div class="footer-social-icons">
+                <a href="#" class="social-icon-btn" aria-label="Instagram"
+                  ><i class="ri-instagram-line"></i></a
+                ><a href="#" class="social-icon-btn" aria-label="LinkedIn"
+                  ><i class="ri-linkedin-fill"></i></a
+                ><a href="#" class="social-icon-btn" aria-label="YouTube"
+                  ><i class="ri-youtube-fill"></i
+                ></a>
+              </div>
+              <p class="footer-social-desc">
+                Acompanhe nossas novidades e faça parte dessa jornada!
+              </p>
+            </div>
+          </div>
+          <div class="footer-bottom-copyright">
+            <p>&copy; 2026 Primeiros Passos. Todos os direitos reservados.</p>
+          </div>
+        </footer>
+      </div>
     </div>
 
     <script type="module" src="../js/main.js"></script>

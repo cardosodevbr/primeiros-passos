@@ -33,7 +33,6 @@ a {
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
   min-width: 0; /* Evita estouro de flexbox no mobile */
 }
 
@@ -76,7 +75,7 @@ a {
 .avatar {
   width: 36px;
   height: 36px;
-  background-color: var(--purple-main, #8B5CF6);
+  background-color: var(--purple-main, #8b5cf6);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -107,7 +106,7 @@ a {
 }
 
 .back-link {
-  color: var(--pink-main, #D946EF);
+  color: var(--pink-main, #d946ef);
   font-size: 14px;
   font-weight: 600;
   display: inline-flex;
@@ -133,7 +132,7 @@ a {
    DETALHES DA VAGA (ESQUERDA)
 ========================================= */
 .job-main-details {
-  background-color: var(--bg-card, #12121C);
+  background-color: var(--bg-card, #12121c);
   border: 1px solid rgba(139, 92, 246, 0.2);
   border-radius: 20px;
   padding: 40px;
@@ -142,7 +141,7 @@ a {
 .job-main-details > .badge {
   display: inline-block;
   background-color: rgba(139, 92, 246, 0.15);
-  color: var(--purple-light, #A78BFA);
+  color: var(--purple-light, #a78bfa);
   padding: 6px 16px;
   border-radius: 20px;
   font-size: 12px;
@@ -199,7 +198,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   font-size: 13px;
-  color: var(--text-muted, #9CA3AF);
+  color: var(--text-muted, #9ca3af);
 }
 
 .tag img {
@@ -211,7 +210,7 @@ a {
 /* Textos e Listas da Vaga */
 .job-intro {
   font-size: 15px;
-  color: var(--text-muted, #9CA3AF);
+  color: var(--text-muted, #9ca3af);
   line-height: 1.6;
   margin-bottom: 36px;
 }
@@ -233,7 +232,7 @@ a {
   align-items: center;
   gap: 10px;
   margin-bottom: 16px;
-  color: var(--text-white, #F8FAFC);
+  color: var(--text-white, #f8fafc);
 }
 
 .job-section h2 img {
@@ -242,7 +241,7 @@ a {
 }
 
 .job-section p {
-  color: var(--text-muted, #9CA3AF);
+  color: var(--text-muted, #9ca3af);
   line-height: 1.6;
   font-size: 14px;
 }
@@ -251,7 +250,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  color: var(--text-muted, #9CA3AF);
+  color: var(--text-muted, #9ca3af);
   font-size: 14px;
   margin-left: 18px;
   list-style-type: disc;
@@ -271,7 +270,7 @@ a {
 }
 
 .card {
-  background-color: var(--bg-card, #12121C);
+  background-color: var(--bg-card, #12121c);
   border: 1px solid rgba(139, 92, 246, 0.2);
   border-radius: 20px;
   padding: 24px;
@@ -304,7 +303,7 @@ a {
 
 .action-card p {
   font-size: 15px;
-  color: var(--text-white, #F8FAFC);
+  color: var(--text-white, #f8fafc);
   margin-bottom: 20px;
   line-height: 1.4;
   font-weight: 500;
@@ -331,7 +330,7 @@ a {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #7C3AED 0%, #D946EF 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #d946ef 100%);
   border: none;
   color: white;
   box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
@@ -351,7 +350,7 @@ a {
 .btn-danger {
   background-color: transparent;
   border: 1px solid rgba(239, 68, 68, 0.35);
-  color: #EF4444;
+  color: #ef4444;
 }
 
 .btn-danger:hover {
@@ -369,7 +368,7 @@ a {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: var(--text-white, #F8FAFC);
+  color: var(--text-white, #f8fafc);
 }
 
 .info-list {
@@ -395,12 +394,12 @@ a {
 
 .info-label {
   width: 105px;
-  color: var(--text-muted, #9CA3AF);
+  color: var(--text-muted, #9ca3af);
   flex-shrink: 0;
 }
 
 .info-value {
-  color: var(--text-white, #F8FAFC);
+  color: var(--text-white, #f8fafc);
   flex: 1;
 }
 
@@ -424,7 +423,7 @@ a {
 
 .company-card-content p {
   font-size: 13.5px;
-  color: var(--text-muted, #9CA3AF);
+  color: var(--text-muted, #9ca3af);
   line-height: 1.5;
 }
 
@@ -449,14 +448,14 @@ a {
 }
 
 .status-header h4 {
-  color: #22C55E;
+  color: #22c55e;
   font-size: 15px;
   font-weight: 600;
 }
 
 .status-card p {
   font-size: 13px;
-  color: var(--text-muted, #9CA3AF);
+  color: var(--text-muted, #9ca3af);
 }
 
 /* =========================================

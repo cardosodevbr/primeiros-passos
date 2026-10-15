@@ -717,7 +717,7 @@
   margin-top: auto; /* empurra para baixo, ancorando na base */
   filter: drop-shadow(0 -10px 40px rgba(107, 50, 255, 0.3));
   animation: floatIllustration 6s ease-in-out infinite;
-  align-self: flex-end;
+  align-self: center;
 }
 
 /* ─── STAR DECORATIONS ────────────────────────────────── */

@@ -1,261 +1,389 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Primeiros Passos - Sobre Nós</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Primeiros Passos - Sobre Nós</title>
 
-  <!-- FAVICON DO SITE -->
-  <link rel="icon" type="image/png" href="../assets/images/sobre-nos/logo.png">
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Ficheiro CSS Separado -->
-  <link rel="stylesheet" href="style.css">
-  
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body class="bg-[#03050d] text-white flex min-h-screen font-['Inter',sans-serif]">
+    <!-- FAVICON DO SITE -->
+    <link rel="icon" type="image/png" href="../assets/images/sobre-nos/logo.png" />
 
-  <!-- BOTÃO DE ACESSIBILIDADE FIXO NA LATERAL DIREITA DA TELA -->
-  <button id="btn-acessibilidade" title="Ativar Tradutor de Libras" class="fixed top-1/2 right-4 -translate-y-1/2 z-50 w-11 h-11 rounded-xl bg-[#070a1a] border border-blue-400/50 shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition cursor-pointer">
-    <img src="../assets/images/sobre-nos/acessibilidade.png" alt="Botão de acessibilidade com símbolo de libras, para ativar tradução em linguagem de sinais" class="w-7 h-7 object-contain">
-  </button>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- BARRA LATERAL (SIDEBAR) AUMENTADA E PROPORCIONAL -->
-  <aside class="w-72 border-r border-slate-800/60 bg-[#040612] p-7 flex flex-col justify-between hidden md:flex shrink-0">
-    <div>
-      <!-- LOGO (ÍCONE E TEXTO AUMENTADOS) -->
-      <div class="flex items-center gap-3.5 mb-12">
-        <img src="../assets/images/sobre-nos/logo.png" alt="Logo do projeto Primeiros Passos, com ícone de sapato e traços de caminhada" class="w-10 h-10 object-contain">
-        <img src="../assets/images/sobre-nos/logo-texto.png" alt="Nome do projeto Primeiros Passos em letras estilizadas" class="h-8 object-contain">
-      </div>
+    <!-- Ficheiro CSS Separado -->
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 
-      <!-- MENU DE NAVEGAÇÃO (ÍCONES E TEXTOS MAIORES) -->
-      <nav class="space-y-3">
-        <a href="inicio.html" class="flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/40 transition text-base font-medium">
-          <img src="../assets/images/sobre-nos/inicio.png" alt="Ícone de início, representando a página inicial do site" class="w-6 h-6 object-contain">
-          <span>Início</span>
-        </a>
-        <a href="vagas.html" class="flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/40 transition text-base font-medium">
-          <img src="../assets/images/sobre-nos/vagas.png" alt="Ícone de vagas, mostrando oportunidades de emprego" class="w-6 h-6 object-contain">
-          <span>Vagas</span>
-        </a>
-        <a href="#" class="flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/40 transition text-base font-medium">
-          <img src="../assets/images/sobre-nos/paraempresa.png" alt="Ícone para empresas, representando oportunidades para recrutadores" class="w-6 h-6 object-contain">
-          <span>Para empresas</span>
-        </a>
-        <a href="#" class="flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/40 transition text-base font-medium">
-          <img src="../assets/images/sobre-nos/dicas.png" alt="Ícone de dicas, mostrando orientações e conselhos" class="w-6 h-6 object-contain">
-          <span>Dicas</span>
-        </a>
-        <!-- ITEM ATIVO (Sobre nós) -->
-        <a href="#" class="flex items-center gap-3.5 px-4 py-3.5 rounded-xl bg-[#1e1a4d] text-indigo-200 border border-indigo-500/40 font-semibold text-base shadow-sm">
-          <img src="../assets/images/sobre-nos/sobrenos.png" alt="Ícone de sobre nós, indicando a página atual sobre a organização" class="w-6 h-6 object-contain">
-          <span>Sobre nós</span>
-        </a>
-      </nav>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="bg-[#03050d] text-white min-h-screen font-['Inter',sans-serif]">
+    <!-- BOTÃO DE ACESSIBILIDADE FIXO NA LATERAL DIREITA DA TELA -->
+    <button
+      id="btn-acessibilidade"
+      title="Ativar Tradutor de Libras"
+      class="fixed top-1/2 right-4 -translate-y-1/2 z-50 w-11 h-11 rounded-xl bg-[#070a1a] border border-blue-400/50 shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition cursor-pointer"
+    >
+      <img
+        src="../assets/images/sobre-nos/acessibilidade.png"
+        alt="Botão de acessibilidade com símbolo de libras, para ativar tradução em linguagem de sinais"
+        class="w-7 h-7 object-contain"
+      />
+    </button>
 
-      <!-- SEÇÃO INFERIOR DO MENU -->
-      <div class="mt-10 pt-6 border-t border-slate-800/60 space-y-3">
-        <a href="#" class="flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/40 transition text-base font-medium">
-          <img src="../assets/images/sobre-nos/candidaturas.png" alt="Ícone de candidaturas, representando inscrições e oportunidades em andamento" class="w-6 h-6 object-contain">
-          <span>Candidaturas</span>
-        </a>
-        <a href="#" class="flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/40 transition text-base font-medium">
-          <img src="../assets/images/sobre-nos/notificacao.png" alt="Ícone de notificações, indicando alertas e mensagens do sistema" class="w-6 h-6 object-contain">
-          <span>Notificações</span>
-        </a>
+    <div class="app-shell">
+      <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+      <aside class="app-sidebar" id="app-sidebar" aria-label="Navegação Principal">
+        <a href="../../index.html" class="sidebar-logo" aria-label="Primeiros Passos — Início"
+          ><img
+            src="../assets/logos/logo.png"
+            alt="Logo Primeiros Passos"
+            class="sidebar-logo-icon"
+        /></a>
+        <nav class="sidebar-nav">
+          <a href="../../index.html" class="sidebar-link"
+            ><span class="sidebar-icon"><i class="ri-home-4-line"></i></span><span>Início</span></a
+          >
+          <a href="vagas.html" class="sidebar-link"
+            ><span class="sidebar-icon"><i class="ri-briefcase-line"></i></span
+            ><span>Vagas</span></a
+          >
+          <a href="para-empresas.html" class="sidebar-link"
+            ><span class="sidebar-icon"><i class="ri-building-4-line"></i></span
+            ><span>Para empresas</span></a
+          >
+          <a href="dicas.html" class="sidebar-link"
+            ><span class="sidebar-icon"><i class="ri-lightbulb-line"></i></span
+            ><span>Dicas</span></a
+          >
+          <a href="sobre-nos.html" class="sidebar-link active" aria-current="page"
+            ><span class="sidebar-icon"><i class="ri-group-line"></i></span
+            ><span>Sobre nós</span></a
+          >
+          <hr class="sidebar-divider" />
+          <a href="candidaturas.html" class="sidebar-link"
+            ><span class="sidebar-icon"><i class="ri-file-user-line"></i></span
+            ><span>Candidaturas</span></a
+          >
+          <a href="#" class="sidebar-link"
+            ><span class="sidebar-icon"><i class="ri-notification-3-line"></i></span
+            ><span>Notificações</span></a
+          >
+        </nav>
+      </aside>
+
+      <!-- CONTEÚDO PRINCIPAL (EXPANDIDO PARA PREENCHER A TELA) -->
+      <div class="app-main">
+        <header class="app-header">
+          <button
+            class="mobile-menu-toggle"
+            id="btn-toggle-sidebar"
+            aria-label="Abrir menu lateral"
+          >
+            <i class="ri-menu-line"></i>
+          </button>
+          <div class="header-user-controls">
+            <button class="icon-button" aria-label="Notificações">
+              <i class="ri-notification-3-line"></i><span class="notification-dot"></span>
+            </button>
+            <div class="user-profile-menu">
+              <div class="user-avatar">A</div>
+              <span class="user-name">Ana Silva</span
+              ><i class="ri-arrow-down-s-line user-chevron"></i>
+            </div>
+          </div>
+        </header>
+        <main class="flex-1 flex flex-col min-w-0">
+          <!-- ÁREA DE CONTEÚDO MAIN -->
+          <div class="px-10 pb-10 max-w-7xl mx-auto w-full space-y-8">
+            <!-- HERO SECTION (TÍTULO E SUBTÍTULO EXPANDIDOS) -->
+            <div>
+              <p
+                class="text-sm md:text-base font-extrabold uppercase tracking-widest text-indigo-400 mb-3"
+              >
+                CONHEÇA O PRIMEIROS PASSOS
+              </p>
+
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- TEXTO HERO EXPANDIDO -->
+                <div class="lg:col-span-6 space-y-5">
+                  <h1
+                    class="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight"
+                  >
+                    Toda jornada começa <br />
+                    <span class="text-[#a855f7]">com uma oportunidade</span>
+                  </h1>
+                  <p class="text-slate-200 text-base lg:text-lg leading-relaxed font-normal">
+                    Conectamos jovens ao primeiro emprego e ajudamos empresas a descobrir novos
+                    talentos.
+                  </p>
+                </div>
+
+                <!-- IMAGEM HERO -->
+                <div class="lg:col-span-6 flex justify-end">
+                  <img
+                    src="../assets/images/sobre-nos/jovens.png"
+                    alt="Jovens sentados em frente a computadores em um ambiente acolhedor de estudo e trabalho, com expressões focadas e motivadas, iniciando uma jornada profissional em um espaço colaborativo e iluminado"
+                    class="w-full max-w-lg h-auto object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- CARTOES "QUEM SOMOS" E "NOSSO PROPÓSITO" -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Quem somos -->
+              <div
+                class="bg-[#070a1a] border border-slate-800/80 rounded-2xl p-6 flex gap-4 items-start"
+              >
+                <div class="p-3 bg-purple-950/40 border border-purple-800/40 rounded-xl shrink-0">
+                  <img
+                    src="../assets/images/sobre-nos/inclusao.png"
+                    alt="Ícone de inclusão e diversidade, com elementos visuais que representam acolhimento, igualdade e pertencimento em um ambiente aberto e acessível"
+                    class="w-6 h-6 object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 class="font-bold text-base text-white mb-1.5">Quem somos</h3>
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    Somos um projeto acadêmico criado por estudantes de Análise e Desenvolvimento de
+                    Sistemas. Nosso objetivo é facilitar a entrada de jovens no mercado de trabalho.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Nosso propósito -->
+              <div
+                class="bg-[#070a1a] border border-slate-800/80 rounded-2xl p-6 flex gap-4 items-start"
+              >
+                <div class="p-3 bg-purple-950/40 border border-purple-800/40 rounded-xl shrink-0">
+                  <img
+                    src="../assets/images/sobre-nos/proposito.png"
+                    alt="Ícone de propósito e caminho profissional, com uma trajetória em destaque e elementos que sugerem crescimento, direção e oportunidades de carreira"
+                    class="w-6 h-6 object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 class="font-bold text-base text-white mb-1.5">Nosso propósito</h3>
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    Acreditamos que a falta de experiência não deve impedir o começo de uma
+                    carreira. Por isso, reunimos vagas, orientação e ferramentas para dar o primeiro
+                    passo.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- TRÊS PILARES (AUMENTADOS E LEGÍVEIS) -->
+            <div
+              class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2 divide-y md:divide-y-0 md:divide-x divide-slate-800/60"
+            >
+              <!-- Pilar 1: Oportunidade -->
+              <div class="flex items-center gap-4 pr-3">
+                <div class="p-3 bg-purple-950/30 border border-purple-800/30 rounded-xl shrink-0">
+                  <img
+                    src="../assets/images/sobre-nos/oportunidade.png"
+                    alt="Ícone de oportunidade, representando acesso a novas chances de emprego, progresso e o início de uma trajetória profissional promissora"
+                    class="w-8 h-8 object-contain"
+                  />
+                </div>
+                <div>
+                  <h4 class="font-extrabold text-base md:text-lg text-white">Oportunidade</h4>
+                  <p class="text-slate-300 text-sm mt-1 leading-snug">
+                    Mais acesso a vagas para quem está começando.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Pilar 2: Inclusão -->
+              <div class="flex items-center gap-4 md:pl-6 pr-3 pt-4 md:pt-0">
+                <div class="p-3 bg-purple-950/30 border border-purple-800/30 rounded-xl shrink-0">
+                  <img
+                    src="../assets/images/sobre-nos/inclusao.png"
+                    alt="Ícone de inclusão, mostrando diversidade, acolhimento e acesso igualitário para pessoas em diferentes etapas da vida profissional"
+                    class="w-8 h-8 object-contain"
+                  />
+                </div>
+                <div>
+                  <h4 class="font-extrabold text-base md:text-lg text-white">Inclusão</h4>
+                  <p class="text-slate-300 text-sm mt-1 leading-snug">
+                    Um ambiente mais diverso e com mais chances para todos.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Pilar 3: Desenvolvimento -->
+              <div class="flex items-center gap-4 md:pl-6 pt-4 md:pt-0">
+                <div class="p-3 bg-purple-950/30 border border-purple-800/30 rounded-xl shrink-0">
+                  <img
+                    src="../assets/images/sobre-nos/desenvolvimento.png"
+                    alt="Ícone de desenvolvimento, representando aprendizado, evolução e crescimento profissional em um caminho de conquista e melhoria contínua"
+                    class="w-8 h-8 object-contain"
+                  />
+                </div>
+                <div>
+                  <h4 class="font-extrabold text-base md:text-lg text-white">Desenvolvimento</h4>
+                  <p class="text-slate-300 text-sm mt-1 leading-snug">
+                    Ferramentas e conteúdos para crescer na sua carreira.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- BLOCO MASCOTE E EQUIPE (COM TEXTOS BEM MAIORES) -->
+            <div
+              class="bg-[#070a1a] border border-slate-800/80 rounded-2xl p-0 grid grid-cols-1 lg:grid-cols-12 items-center gap-0 overflow-hidden"
+            >
+              <!-- Texto Esquerda (Aumentamos bastante os tamanhos das fontes aqui) -->
+              <div class="lg:col-span-5 space-y-3 p-7">
+                <p class="text-sm font-extrabold text-indigo-400 tracking-wider uppercase">
+                  CONHEÇA O PEZINHO
+                </p>
+                <h3 class="text-xl md:text-2xl font-black text-white leading-tight">
+                  Nosso mascote representa <br />
+                  <span class="text-pink-500">cada passo dessa jornada</span>
+                </h3>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                  e torna a experiência mais acolhedora
+                </p>
+              </div>
+
+              <!-- Imagem do Mascote no Centro -->
+              <div class="lg:col-span-2 flex justify-center items-center self-stretch h-full py-2">
+                <img
+                  src="../assets/images/sobre-nos/pezinho.png"
+                  alt="Mascote do projeto, um personagem pequeno com expressão amigável e acolhedora, representando cada passo da jornada profissional"
+                  class="h-full w-auto object-contain max-h-40"
+                />
+              </div>
+
+              <!-- Divisória Vertical e Equipe -->
+              <div
+                class="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-slate-800/80 p-7 space-y-3 flex flex-col justify-center"
+              >
+                <p class="text-sm font-extrabold text-indigo-400 tracking-wider uppercase">
+                  UM PROJETO FEITO EM EQUIPE
+                </p>
+                <div class="flex gap-4 items-center">
+                  <img
+                    src="../assets/images/sobre-nos/inclusao.png"
+                    alt="Ícone de equipe e colaboração, representando o grupo que idealizou o projeto"
+                    class="w-8 h-8 object-contain shrink-0"
+                  />
+                  <p class="text-slate-200 text-sm md:text-base font-semibold leading-relaxed">
+                    Giovana Midori • Leonardo Santos • Leonardo Lopes • Gabriel Medeiros • Victor
+                    Hugo
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- BANNER CTA INFERIOR (TOTALMENTE CENTRALIZADO E COM ÍCONE GRANDE) -->
+            <div
+              class="relative rounded-2xl p-6 md:px-10 flex flex-col md:flex-row items-center justify-center gap-6 overflow-hidden min-h-[100px] bg-gradient-to-r from-purple-700 via-purple-600 to-pink-600 border border-pink-500/40 shadow-lg shadow-purple-900/30 text-center"
+            >
+              <!-- ÍCONE DO SAPATO/PEGADAS (SUPER GRANDE) -->
+              <div
+                class="p-3 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 shrink-0"
+              >
+                <i data-lucide="footprints" class="w-10 h-10 text-white"></i>
+              </div>
+
+              <!-- LINHA PONTILHADA CURVA DECORATIVA -->
+              <svg
+                class="hidden lg:block w-32 h-6 text-pink-200/50 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                stroke-dasharray="4 4"
+                viewBox="0 0 100 20"
+              >
+                <path d="M0 10 Q50 0 100 10" stroke-width="2.5" />
+              </svg>
+
+              <!-- TEXTO CENTRALIZADO -->
+              <span class="font-extrabold text-white text-base md:text-xl tracking-wide">
+                Seu primeiro passo começa aqui.
+              </span>
+
+              <!-- BOTÃO EXPLORAR VAGAS -->
+              <a
+                href="vagas.html"
+                class="bg-white text-slate-900 hover:bg-slate-100 font-bold px-8 py-3 rounded-full text-sm flex items-center gap-2 transition shadow-lg shrink-0 hover:scale-105 active:scale-95"
+              >
+                Explorar vagas
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </main>
+        <footer class="app-footer">
+          <div class="footer-container">
+            <div class="footer-brand">
+              <a href="../../index.html" class="footer-logo-link"
+                ><img
+                  src="../assets/logos/logo.png"
+                  alt="Logo Primeiros Passos"
+                  class="footer-logo-icon"
+              /></a>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-column">
+              <h3 class="footer-column-title">Navegação</h3>
+              <ul class="footer-links-list">
+                <li><a href="../../index.html" class="footer-link">Início</a></li>
+                <li><a href="vagas.html" class="footer-link">Vagas</a></li>
+                <li><a href="para-empresas.html" class="footer-link">Para empresas</a></li>
+                <li><a href="dicas.html" class="footer-link">Dicas</a></li>
+                <li><a href="sobre-nos.html" class="footer-link">Sobre nós</a></li>
+              </ul>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-column">
+              <h3 class="footer-column-title">Ajuda</h3>
+              <ul class="footer-links-list">
+                <li><a href="#" class="footer-link">Perguntas frequentes</a></li>
+                <li><a href="#" class="footer-link">Como Funciona</a></li>
+                <li><a href="#" class="footer-link">Suporte</a></li>
+              </ul>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-column">
+              <h3 class="footer-column-title">Legal</h3>
+              <ul class="footer-links-list">
+                <li><a href="#" class="footer-link">Termos de uso</a></li>
+                <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+                <li><a href="#" class="footer-link">Acessibilidade</a></li>
+              </ul>
+            </div>
+            <div class="footer-vertical-divider"></div>
+            <div class="footer-social-column">
+              <h3 class="footer-column-title">Siga-nos</h3>
+              <div class="footer-social-icons">
+                <a href="#" class="social-icon-btn" aria-label="Instagram"
+                  ><i class="ri-instagram-line"></i></a
+                ><a href="#" class="social-icon-btn" aria-label="LinkedIn"
+                  ><i class="ri-linkedin-fill"></i></a
+                ><a href="#" class="social-icon-btn" aria-label="YouTube"
+                  ><i class="ri-youtube-fill"></i
+                ></a>
+              </div>
+              <p class="footer-social-desc">
+                Acompanhe nossas novidades e faça parte dessa jornada!
+              </p>
+            </div>
+          </div>
+          <div class="footer-bottom-copyright">
+            <p>&copy; 2026 Primeiros Passos. Todos os direitos reservados.</p>
+          </div>
+        </footer>
       </div>
     </div>
-  </aside>
 
-  <!-- CONTEÚDO PRINCIPAL (EXPANDIDO PARA PREENCHER A TELA) -->
-  <main class="flex-1 flex flex-col min-w-0">
-
-    <!-- CABEÇALHO SUPERIOR -->
-    <header class="flex justify-end items-center gap-4 px-10 py-5">
-      <button class="text-slate-400 hover:text-white p-2 rounded-full hover:bg-slate-800/40">
-        <i data-lucide="bell" class="w-5 h-5"></i>
-      </button>
-      <div class="flex items-center gap-3 cursor-pointer">
-        <div class="w-9 h-9 rounded-full bg-purple-600 flex items-center justify-center font-bold text-xs text-white">
-          A
-        </div>
-        <span class="text-sm font-medium text-slate-200">Ana Silva</span>
-        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
-      </div>
-    </header>
-
-    <!-- ÁREA DE CONTEÚDO MAIN -->
-    <div class="px-10 pb-10 max-w-7xl mx-auto w-full space-y-8">
-
-      <!-- HERO SECTION (TÍTULO E SUBTÍTULO EXPANDIDOS) -->
-      <div>
-        <p class="text-sm md:text-base font-extrabold uppercase tracking-widest text-indigo-400 mb-3">
-          CONHEÇA O PRIMEIROS PASSOS
-        </p>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
-          <!-- TEXTO HERO EXPANDIDO -->
-          <div class="lg:col-span-6 space-y-5">
-            <h1 class="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
-              Toda jornada começa <br>
-              <span class="text-[#a855f7]">com uma oportunidade</span>
-            </h1>
-            <p class="text-slate-200 text-base lg:text-lg leading-relaxed font-normal">
-              Conectamos jovens ao primeiro emprego e ajudamos empresas a descobrir novos talentos.
-            </p>
-          </div>
-
-          <!-- IMAGEM HERO -->
-          <div class="lg:col-span-6 flex justify-end">
-            <img src="../assets/images/sobre-nos/jovens.png" alt="Jovens sentados em frente a computadores em um ambiente acolhedor de estudo e trabalho, com expressões focadas e motivadas, iniciando uma jornada profissional em um espaço colaborativo e iluminado" class="w-full max-w-lg h-auto object-contain">
-          </div>
-
-        </div>
-      </div>
-
-      <!-- CARTOES "QUEM SOMOS" E "NOSSO PROPÓSITO" -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        <!-- Quem somos -->
-        <div class="bg-[#070a1a] border border-slate-800/80 rounded-2xl p-6 flex gap-4 items-start">
-          <div class="p-3 bg-purple-950/40 border border-purple-800/40 rounded-xl shrink-0">
-            <img src="../assets/images/sobre-nos/inclusao.png" alt="Ícone de inclusão e diversidade, com elementos visuais que representam acolhimento, igualdade e pertencimento em um ambiente aberto e acessível" class="w-6 h-6 object-contain">
-          </div>
-          <div>
-            <h3 class="font-bold text-base text-white mb-1.5">Quem somos</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">
-              Somos um projeto acadêmico criado por estudantes de Análise e Desenvolvimento de Sistemas. Nosso objetivo é facilitar a entrada de jovens no mercado de trabalho.
-            </p>
-          </div>
-        </div>
-
-        <!-- Nosso propósito -->
-        <div class="bg-[#070a1a] border border-slate-800/80 rounded-2xl p-6 flex gap-4 items-start">
-          <div class="p-3 bg-purple-950/40 border border-purple-800/40 rounded-xl shrink-0">
-            <img src="../assets/images/sobre-nos/proposito.png" alt="Ícone de propósito e caminho profissional, com uma trajetória em destaque e elementos que sugerem crescimento, direção e oportunidades de carreira" class="w-6 h-6 object-contain">
-          </div>
-          <div>
-            <h3 class="font-bold text-base text-white mb-1.5">Nosso propósito</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">
-              Acreditamos que a falta de experiência não deve impedir o começo de uma carreira. Por isso, reunimos vagas, orientação e ferramentas para dar o primeiro passo.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- TRÊS PILARES (AUMENTADOS E LEGÍVEIS) -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2 divide-y md:divide-y-0 md:divide-x divide-slate-800/60">
-        
-        <!-- Pilar 1: Oportunidade -->
-        <div class="flex items-center gap-4 pr-3">
-          <div class="p-3 bg-purple-950/30 border border-purple-800/30 rounded-xl shrink-0">
-            <img src="../assets/images/sobre-nos/oportunidade.png" alt="Ícone de oportunidade, representando acesso a novas chances de emprego, progresso e o início de uma trajetória profissional promissora" class="w-8 h-8 object-contain">
-          </div>
-          <div>
-            <h4 class="font-extrabold text-base md:text-lg text-white">Oportunidade</h4>
-            <p class="text-slate-300 text-sm mt-1 leading-snug">Mais acesso a vagas para quem está começando.</p>
-          </div>
-        </div>
-
-        <!-- Pilar 2: Inclusão -->
-        <div class="flex items-center gap-4 md:pl-6 pr-3 pt-4 md:pt-0">
-          <div class="p-3 bg-purple-950/30 border border-purple-800/30 rounded-xl shrink-0">
-            <img src="../assets/images/sobre-nos/inclusao.png" alt="Ícone de inclusão, mostrando diversidade, acolhimento e acesso igualitário para pessoas em diferentes etapas da vida profissional" class="w-8 h-8 object-contain">
-          </div>
-          <div>
-            <h4 class="font-extrabold text-base md:text-lg text-white">Inclusão</h4>
-            <p class="text-slate-300 text-sm mt-1 leading-snug">Um ambiente mais diverso e com mais chances para todos.</p>
-          </div>
-        </div>
-
-        <!-- Pilar 3: Desenvolvimento -->
-        <div class="flex items-center gap-4 md:pl-6 pt-4 md:pt-0">
-          <div class="p-3 bg-purple-950/30 border border-purple-800/30 rounded-xl shrink-0">
-            <img src="../assets/images/sobre-nos/desenvolvimento.png" alt="Ícone de desenvolvimento, representando aprendizado, evolução e crescimento profissional em um caminho de conquista e melhoria contínua" class="w-8 h-8 object-contain">
-          </div>
-          <div>
-            <h4 class="font-extrabold text-base md:text-lg text-white">Desenvolvimento</h4>
-            <p class="text-slate-300 text-sm mt-1 leading-snug">Ferramentas e conteúdos para crescer na sua carreira.</p>
-          </div>
-        </div>
-
-      </div>
-
-     <!-- BLOCO MASCOTE E EQUIPE (COM TEXTOS BEM MAIORES) -->
-      <div class="bg-[#070a1a] border border-slate-800/80 rounded-2xl p-0 grid grid-cols-1 lg:grid-cols-12 items-center gap-0 overflow-hidden">
-        
-        <!-- Texto Esquerda (Aumentamos bastante os tamanhos das fontes aqui) -->
-        <div class="lg:col-span-5 space-y-3 p-7">
-          <p class="text-sm font-extrabold text-indigo-400 tracking-wider uppercase">CONHEÇA O PEZINHO</p>
-          <h3 class="text-xl md:text-2xl font-black text-white leading-tight">
-            Nosso mascote representa <br>
-            <span class="text-pink-500">cada passo dessa jornada</span>
-          </h3>
-          <p class="text-slate-300 text-sm md:text-base leading-relaxed">
-            e torna a experiência mais acolhedora
-          </p>
-        </div>
-
-        <!-- Imagem do Mascote no Centro -->
-        <div class="lg:col-span-2 flex justify-center items-center self-stretch h-full py-2">
-          <img src="../assets/images/sobre-nos/pezinho.png" alt="Mascote do projeto, um personagem pequeno com expressão amigável e acolhedora, representando cada passo da jornada profissional" class="h-full w-auto object-contain max-h-40">
-        </div>
-
-        <!-- Divisória Vertical e Equipe -->
-        <div class="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-slate-800/80 p-7 space-y-3 flex flex-col justify-center">
-          <p class="text-sm font-extrabold text-indigo-400 tracking-wider uppercase">UM PROJETO FEITO EM EQUIPE</p>
-          <div class="flex gap-4 items-center">
-            <img src="../assets/images/sobre-nos/inclusao.png" alt="Ícone de equipe e colaboração, representando o grupo que idealizou o projeto" class="w-8 h-8 object-contain shrink-0">
-            <p class="text-slate-200 text-sm md:text-base font-semibold leading-relaxed">
-              Giovana Midori • Leonardo Santos • Leonardo Lopes • Gabriel Medeiros • Victor Hugo
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-     <!-- BANNER CTA INFERIOR (TOTALMENTE CENTRALIZADO E COM ÍCONE GRANDE) -->
-      <div class="relative rounded-2xl p-6 md:px-10 flex flex-col md:flex-row items-center justify-center gap-6 overflow-hidden min-h-[100px] bg-gradient-to-r from-purple-700 via-purple-600 to-pink-600 border border-pink-500/40 shadow-lg shadow-purple-900/30 text-center">
-        
-        <!-- ÍCONE DO SAPATO/PEGADAS (SUPER GRANDE) -->
-        <div class="p-3 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 shrink-0">
-          <i data-lucide="footprints" class="w-10 h-10 text-white"></i>
-        </div>
-
-        <!-- LINHA PONTILHADA CURVA DECORATIVA -->
-        <svg class="hidden lg:block w-32 h-6 text-pink-200/50 shrink-0" fill="none" stroke="currentColor" stroke-dasharray="4 4" viewBox="0 0 100 20">
-          <path d="M0 10 Q50 0 100 10" stroke-width="2.5"/>
-        </svg>
-
-        <!-- TEXTO CENTRALIZADO -->
-        <span class="font-extrabold text-white text-base md:text-xl tracking-wide">
-          Seu primeiro passo começa aqui.
-        </span>
-
-        <!-- BOTÃO EXPLORAR VAGAS -->
-        <a href="vagas.html" class="bg-white text-slate-900 hover:bg-slate-100 font-bold px-8 py-3 rounded-full text-sm flex items-center gap-2 transition shadow-lg shrink-0 hover:scale-105 active:scale-95">
-          Explorar vagas
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
-
-      </div>
-    </div>
-  </main>
-
-  <!-- Ficheiro JavaScript Separado -->
-  <script src="script.js"></script>
-
-  <script>
-    // Inicializa os ícones do Lucide
-    lucide.createIcons();
-  </script>
-  
-</body>
+    <script type="module" src="../js/main.js"></script>
+    <script src="../js/vlibras.js"></script>
+  </body>
 </html>
