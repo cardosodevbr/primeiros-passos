@@ -1,6 +1,6 @@
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from '../config/supabase.js'
 
-const supabaseConfig = window.__SUPABASE_CONFIG__ || {
+const supabaseConfig = (typeof window !== 'undefined' ? window.__SUPABASE_CONFIG__ : null) || {
   url: SUPABASE_URL,
   anonKey: SUPABASE_ANON_KEY,
 }

@@ -2,7 +2,7 @@
    PRIMEIROS PASSOS — ACCOUNTS (Login & Cadastro)
    ========================================================= */
 
-import { createAccount, loginAccount } from '../services/account-service.js'
+import { createAccount, loginAccount, loginWithGoogle } from '../services/account-service.js'
 
 export function initAccountsPage() {
   /* ─────────────────────────────────────────────────────
@@ -295,14 +295,18 @@ export function initAccountsPage() {
 
       if (valid) {
         submitWithLoading(registerForm, 'btn-register', 'Criando conta...', async () => {
-          await createAccount({
+          const result = await createAccount({
             name: nameInput.value,
             email: emailInput.value,
             password: pwdInput.value,
             type:
               document.querySelector('input[name="account-type"]:checked')?.value || 'candidato',
           })
-          window.location.href = '../../index.html'
+          if (result?.pending) {
+            showEmailConfirmBanner(result.email)
+          } else {
+            window.location.href = '../../index.html'
+          }
         })
       }
     })
@@ -335,7 +339,7 @@ export function initAccountsPage() {
         'btn-register-empresa',
         'Criando conta...',
         async () => {
-          await createAccount({
+          const result = await createAccount({
             name: name.value,
             company: name.value,
             email: email.value,
@@ -344,10 +348,84 @@ export function initAccountsPage() {
             cnpj: document.getElementById('empresa-cnpj')?.value || '',
             companyType: document.getElementById('empresa-tipo')?.value || '',
           })
-          window.location.href = 'para-empresas.html'
+          if (result?.pending) {
+            showEmailConfirmBanner(result.email)
+          } else {
+            window.location.href = 'para-empresas.html'
+          }
         },
       )
     })
+  }
+
+  /* ─────────────────────────────────────────────────────
+     GOOGLE OAUTH — botões "Continuar com Google"
+  ───────────────────────────────────────────────────── */
+
+  /**
+   * Conecta um botão "Google" ao fluxo OAuth do Supabase.
+   * @param {string} btnId   - ID do botão
+   * @param {string} type    - 'candidato' | 'empresa'
+   */
+  function wireGoogleButton(btnId, type = 'candidato') {
+    const btn = document.getElementById(btnId)
+    if (!btn) return
+
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault()
+      const original = btn.innerHTML
+      btn.innerHTML = `<span class="btn-spinner" style="border-color:rgba(0,0,0,.2);border-top-color:#333;width:16px;height:16px;margin-right:6px;"></span> Redirecionando…`
+      btn.style.pointerEvents = 'none'
+      btn.style.opacity = '0.7'
+
+      try {
+        await loginWithGoogle(type)
+        // loginWithGoogle redireciona automaticamente — não precisa de mais nada
+      } catch (err) {
+        console.error('Google OAuth error:', err)
+        btn.innerHTML = original
+        btn.style.pointerEvents = ''
+        btn.style.opacity = ''
+
+        // Mostra erro no .auth-error-msg mais próximo
+        const form = btn.closest('form') || btn.closest('.auth-form-side')
+        const feedback = form?.querySelector('.auth-error-msg')
+        if (feedback) {
+          feedback.textContent = err.message || 'Erro ao conectar com Google.'
+          feedback.classList.add('visible')
+        } else {
+          alert(err.message || 'Erro ao conectar com Google.')
+        }
+      }
+    })
+  }
+
+  wireGoogleButton('btn-google-register', 'candidato')
+  wireGoogleButton('btn-google-login', 'candidato')
+  wireGoogleButton('btn-google-register-empresa', 'empresa')
+  wireGoogleButton('btn-google-login-empresa', 'empresa')
+
+  /* ─────────────────────────────────────────────────────
+     BANNER DE CONFIRMAÇÃO DE E-MAIL
+  ───────────────────────────────────────────────────── */
+
+  /**
+   * Exibe o banner de confirmação de e-mail e esconde o formulário.
+   * @param {string} email
+   */
+  function showEmailConfirmBanner(email) {
+    const banner = document.getElementById('email-confirm-banner')
+    const emailSpan = document.getElementById('confirm-email-address')
+    const form =
+      document.getElementById('register-form') ||
+      document.getElementById('register-empresa-form')
+
+    if (emailSpan) emailSpan.textContent = email
+    if (form) form.hidden = true
+    if (banner) {
+      banner.hidden = false
+      banner.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
   }
 
   /* ─────────────────────────────────────────────────────

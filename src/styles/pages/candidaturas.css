@@ -629,9 +629,8 @@
    11. SIDEBAR DIREITA
    --------------------------------------------------------- */
 .candidaturas-sidebar-column {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+  display: none;
+  position: static;
 }
 
 @media (max-width: 639px) {
@@ -894,6 +893,9 @@
   }
 
   .candidaturas-sidebar-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
     position: sticky;
     top: var(--space-6);
   }

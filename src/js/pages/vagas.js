@@ -118,7 +118,7 @@ export async function initVagasPage() {
     jobContainer.querySelectorAll('.job-card-skeleton').forEach((item) => item.remove())
   }, 160)
 
-  // Inputs do formulário de filtro
+  // Inputs do formulário de filtro desktop
   const keywordInput = $('#filter-keyword')
   const globalSearchInput = $('#global-search-input')
   const areaSelect = $('#filter-area')
@@ -126,6 +126,19 @@ export async function initVagasPage() {
   const locationInput = $('#filter-location')
   const clearFiltersBtn = $('#btn-clear-filters')
   const filterForm = $('#vagas-filter-form')
+
+  // Elementos do Bottom Sheet Mobile
+  const fabBtn = $('#btn-filter-fab')
+  const fabBadge = $('#filter-fab-badge')
+  const bottomSheet = $('#filter-bottom-sheet')
+  const sheetOverlay = $('#filter-sheet-overlay')
+  const sheetCloseBtn = $('#filter-sheet-close')
+  const mKeywordInput = $('#m-filter-keyword')
+  const mAreaSelect = $('#m-filter-area')
+  const mTypeSelect = $('#m-filter-type')
+  const mLocationInput = $('#m-filter-location')
+  const mClearBtn = $('#m-btn-clear-filters')
+  const mApplyBtn = $('#m-btn-apply-filters')
 
   // Estado atual dos filtros
   const state = {
@@ -149,6 +162,7 @@ export async function initVagasPage() {
   const searchParam = urlParams.get('search')
   if (searchParam && keywordInput) {
     keywordInput.value = searchParam
+    if (mKeywordInput) mKeywordInput.value = searchParam
     state.keyword = searchParam
     applyFilters()
   }
@@ -263,6 +277,32 @@ export async function initVagasPage() {
     // Renderiza Empty State se nenhuma vaga corresponder aos filtros
     renderEmptyState(matchingCards.length)
     updatePagination(matchingCards.length)
+    updateActiveFilterCount(matchingCards.length)
+  }
+
+  function updateActiveFilterCount(matchingCount) {
+    let count = 0
+    if (state.keyword && state.keyword.trim()) count += 1
+    if (state.area) count += 1
+    if (state.type) count += 1
+    if (state.location && state.location.trim()) count += 1
+    count += state.modalities.length
+
+    if (fabBadge) {
+      if (count > 0) {
+        fabBadge.hidden = false
+        fabBadge.removeAttribute('hidden')
+        fabBadge.textContent = String(count)
+      } else {
+        fabBadge.hidden = true
+        fabBadge.setAttribute('hidden', '')
+      }
+    }
+
+    if (mApplyBtn) {
+      const countLabel = typeof matchingCount === 'number' ? ` (${matchingCount})` : ''
+      mApplyBtn.innerHTML = `<i class="ri-check-line"></i> Ver vagas${countLabel}`
+    }
   }
 
   function renderEmptyState(count) {
@@ -299,46 +339,119 @@ export async function initVagasPage() {
     })
   })
 
-  // Keyword input handling (for sidebar filter)
+  // Keyword input handling (Desktop & Mobile Sync)
   if (keywordInput) {
     keywordInput.addEventListener('input', (e) => {
       state.keyword = e.target.value
+      if (mKeywordInput && mKeywordInput.value !== e.target.value) {
+        mKeywordInput.value = e.target.value
+      }
       applyFilters(true)
     })
   }
 
-  // Área Dropdown
+  if (mKeywordInput) {
+    mKeywordInput.addEventListener('input', (e) => {
+      state.keyword = e.target.value
+      if (keywordInput && keywordInput.value !== e.target.value) {
+        keywordInput.value = e.target.value
+      }
+      if (globalSearchInput && globalSearchInput.value !== e.target.value) {
+        globalSearchInput.value = e.target.value
+      }
+      applyFilters(true)
+    })
+  }
+
+  // Área Dropdown (Desktop & Mobile Sync)
   if (areaSelect) {
     areaSelect.addEventListener('change', (e) => {
       state.area = e.target.value
+      if (mAreaSelect && mAreaSelect.value !== e.target.value) {
+        mAreaSelect.value = e.target.value
+      }
       applyFilters(true)
     })
   }
 
-  // Tipo de vaga Dropdown
+  if (mAreaSelect) {
+    mAreaSelect.addEventListener('change', (e) => {
+      state.area = e.target.value
+      if (areaSelect && areaSelect.value !== e.target.value) {
+        areaSelect.value = e.target.value
+      }
+      applyFilters(true)
+    })
+  }
+
+  // Tipo de vaga Dropdown (Desktop & Mobile Sync)
   if (typeSelect) {
     typeSelect.addEventListener('change', (e) => {
       state.type = e.target.value
+      if (mTypeSelect && mTypeSelect.value !== e.target.value) {
+        mTypeSelect.value = e.target.value
+      }
       applyFilters(true)
     })
   }
 
-  // Localização Input
+  if (mTypeSelect) {
+    mTypeSelect.addEventListener('change', (e) => {
+      state.type = e.target.value
+      if (typeSelect && typeSelect.value !== e.target.value) {
+        typeSelect.value = e.target.value
+      }
+      applyFilters(true)
+    })
+  }
+
+  // Localização Input (Desktop & Mobile Sync)
   if (locationInput) {
     locationInput.addEventListener(
       'input',
       debounce((e) => {
         state.location = e.target.value
+        if (mLocationInput && mLocationInput.value !== e.target.value) {
+          mLocationInput.value = e.target.value
+        }
         applyFilters(true)
       }, 200),
     )
   }
 
-  // Modalidade Checkboxes
+  if (mLocationInput) {
+    mLocationInput.addEventListener(
+      'input',
+      debounce((e) => {
+        state.location = e.target.value
+        if (locationInput && locationInput.value !== e.target.value) {
+          locationInput.value = e.target.value
+        }
+        applyFilters(true)
+      }, 200),
+    )
+  }
+
+  // Modalidade Checkboxes (Desktop & Mobile Sync)
   const modalityCheckboxes = $$('input[name="modality"]', filterForm)
+  const mModalityCheckboxes = $$('input[name="m-modality"]', bottomSheet || document)
+
   modalityCheckboxes.forEach((cb) => {
     cb.addEventListener('change', () => {
       state.modalities = modalityCheckboxes.filter((c) => c.checked).map((c) => c.value)
+      mModalityCheckboxes.forEach((mCb) => {
+        mCb.checked = state.modalities.includes(mCb.value)
+      })
+      applyFilters(true)
+    })
+  })
+
+  mModalityCheckboxes.forEach((mCb) => {
+    mCb.addEventListener('change', () => {
+      state.modalities = mModalityCheckboxes.filter((c) => c.checked).map((c) => c.value)
+      modalityCheckboxes.forEach((cb) => {
+        cb.checked = state.modalities.includes(cb.value)
+      })
       applyFilters(true)
     })
   })
@@ -351,35 +464,94 @@ export async function initVagasPage() {
     })
   }
 
-  // Botão "Limpar filtros"
+  // Função central de reset dos filtros
+  function resetAllFilters() {
+    if (keywordInput) keywordInput.value = ''
+    if (mKeywordInput) mKeywordInput.value = ''
+    if (globalSearchInput) globalSearchInput.value = ''
+    if (areaSelect) areaSelect.value = ''
+    if (mAreaSelect) mAreaSelect.value = ''
+    if (typeSelect) typeSelect.value = ''
+    if (mTypeSelect) mTypeSelect.value = ''
+    if (locationInput) locationInput.value = ''
+    if (mLocationInput) mLocationInput.value = ''
+    modalityCheckboxes.forEach((cb) => (cb.checked = false))
+    mModalityCheckboxes.forEach((cb) => (cb.checked = false))
+
+    state.activeCategory = 'todas'
+    state.keyword = ''
+    state.area = ''
+    state.type = ''
+    state.modalities = []
+    state.location = ''
+
+    // Clear URL search parameter
+    const url = new URL(window.location)
+    url.searchParams.delete('search')
+    window.history.replaceState({}, '', url)
+
+    categoryPills.forEach((p) => p.classList.remove('active'))
+    const defaultPill = $('.category-pill[data-category="todas"]')
+    if (defaultPill) defaultPill.classList.add('active')
+
+    applyFilters(true)
+  }
+
   if (clearFiltersBtn) {
-    clearFiltersBtn.addEventListener('click', () => {
-      if (keywordInput) keywordInput.value = ''
-      if (globalSearchInput) globalSearchInput.value = ''
-      if (areaSelect) areaSelect.value = ''
-      if (typeSelect) typeSelect.value = ''
-      if (locationInput) locationInput.value = ''
-      modalityCheckboxes.forEach((cb) => (cb.checked = false))
+    clearFiltersBtn.addEventListener('click', resetAllFilters)
+  }
 
-      state.activeCategory = 'todas'
-      state.keyword = ''
-      state.area = ''
-      state.type = ''
-      state.modalities = []
-      state.location = ''
+  if (mClearBtn) {
+    mClearBtn.addEventListener('click', resetAllFilters)
+  }
 
-      // Clear URL search parameter
-      const url = new URL(window.location)
-      url.searchParams.delete('search')
-      window.history.replaceState({}, '', url)
+  /* ---------------------------------------------------------
+     4. CONTROLES DO BOTTOM SHEET MOBILE (FAB + DRAWER)
+     --------------------------------------------------------- */
+  function openBottomSheet() {
+    if (!bottomSheet || !sheetOverlay) return
+    bottomSheet.classList.add('is-open')
+    sheetOverlay.classList.add('is-open')
+    bottomSheet.setAttribute('aria-hidden', 'false')
+    sheetOverlay.setAttribute('aria-hidden', 'false')
+    if (fabBtn) fabBtn.setAttribute('aria-expanded', 'true')
+    document.body.style.overflow = 'hidden'
+  }
 
-      categoryPills.forEach((p) => p.classList.remove('active'))
-      const defaultPill = $('.category-pill[data-category="todas"]')
-      if (defaultPill) defaultPill.classList.add('active')
+  function closeBottomSheet() {
+    if (!bottomSheet || !sheetOverlay) return
+    bottomSheet.classList.remove('is-open')
+    sheetOverlay.classList.remove('is-open')
+    bottomSheet.setAttribute('aria-hidden', 'true')
+    sheetOverlay.setAttribute('aria-hidden', 'true')
+    if (fabBtn) fabBtn.setAttribute('aria-expanded', 'false')
+    document.body.style.overflow = ''
+  }
 
-      applyFilters(true)
+  if (fabBtn) {
+    fabBtn.addEventListener('click', openBottomSheet)
+  }
+
+  if (sheetCloseBtn) {
+    sheetCloseBtn.addEventListener('click', closeBottomSheet)
+  }
+
+  if (sheetOverlay) {
+    sheetOverlay.addEventListener('click', closeBottomSheet)
+  }
+
+  if (mApplyBtn) {
+    mApplyBtn.addEventListener('click', () => {
+      closeBottomSheet()
+      jobContainer.scrollIntoView({ behavior: 'smooth', block: 'start' })
     })
   }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && bottomSheet?.classList.contains('is-open')) {
+      closeBottomSheet()
+    }
+  })
 
   if (pagination) {
     pagination.addEventListener('click', (event) => {

@@ -38,17 +38,17 @@
             ><span class="sidebar-icon"><i class="ri-building-4-line"></i></span
             ><span>Para empresas</span></a
           >
-          <a href="sobre-nos.html" class="sidebar-link"
+          <a href="dicas.html" class="sidebar-link"
             ><span class="sidebar-icon"><i class="ri-lightbulb-line"></i></span
             ><span>Dicas</span></a
           >
-          <a href="#" class="sidebar-link"
+          <a href="sobre-nos.html" class="sidebar-link"
             ><span class="sidebar-icon"><i class="ri-group-line"></i></span
             ><span>Sobre nós</span></a
           >
           <hr class="sidebar-divider" />
-          <a href="#" class="sidebar-link"
-            ><span class="sidebar-icon"><i class="ri-star-line"></i></span
+          <a href="candidaturas.html" class="sidebar-link"
+            ><span class="sidebar-icon"><i class="ri-file-user-line"></i></span
             ><span>Candidaturas</span></a
           >
           <a href="#" class="sidebar-link"
@@ -146,11 +146,13 @@
                   </h2>
                   <div class="grid grid-cols-2 gap-md">
                     <div class="form-group">
-                      <label class="form-label">Nome completo *</label>
+                      <label class="form-label" for="curriculo-nome">Nome completo *</label>
                       <div class="input-with-icon">
                         <span class="input-icon"><i class="ri-user-line"></i></span>
                         <input
                           type="text"
+                          id="curriculo-nome"
+                          name="nome"
                           class="form-input has-icon"
                           placeholder="Ex: Ana Silva"
                           required
@@ -158,11 +160,13 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="form-label">E-mail *</label>
+                      <label class="form-label" for="curriculo-email">E-mail *</label>
                       <div class="input-with-icon">
                         <span class="input-icon"><i class="ri-mail-line"></i></span>
                         <input
                           type="email"
+                          id="curriculo-email"
+                          name="email"
                           class="form-input has-icon"
                           placeholder="Ex: seuemail@gmail.com"
                           required
@@ -170,11 +174,13 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="form-label">Telefone *</label>
+                      <label class="form-label" for="curriculo-telefone">Telefone *</label>
                       <div class="input-with-icon">
                         <span class="input-icon"><i class="ri-phone-line"></i></span>
                         <input
                           type="tel"
+                          id="curriculo-telefone"
+                          name="telefone"
                           class="form-input has-icon"
                           placeholder="Ex: (11) 96794-7639"
                           required
@@ -182,33 +188,70 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="form-label">Data de nascimento *</label>
+                      <label class="form-label" for="curriculo-nascimento">Data de nascimento *</label>
                       <div class="input-with-icon">
                         <span class="input-icon"><i class="ri-calendar-line"></i></span>
-                        <input type="date" class="form-input has-icon" required />
+                        <input
+                          type="date"
+                          id="curriculo-nascimento"
+                          name="data_nascimento"
+                          class="form-input has-icon"
+                          required
+                        />
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="form-label">Cidade *</label>
+                      <label class="form-label" for="curriculo-cidade">Cidade *</label>
                       <div class="input-with-icon">
                         <span class="input-icon"><i class="ri-map-pin-line"></i></span>
-                        <select class="form-select has-icon" required>
-                          <option value="" disabled selected>Ex: São Paulo</option>
-                          <option value="sp">São Paulo</option>
-                          <option value="rj">Rio de Janeiro</option>
-                          <option value="bh">Belo Horizonte</option>
-                        </select>
+                        <input
+                          type="text"
+                          id="curriculo-cidade"
+                          name="cidade"
+                          class="form-input has-icon"
+                          placeholder="Ex: São Paulo"
+                          required
+                        />
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="form-label">Estado *</label>
+                      <label class="form-label" for="curriculo-estado">Estado *</label>
                       <div class="input-with-icon">
                         <span class="input-icon"><i class="ri-map-pin-2-line"></i></span>
-                        <select class="form-select has-icon" required>
+                        <select
+                          id="curriculo-estado"
+                          name="estado"
+                          class="form-select has-icon"
+                          required
+                        >
                           <option value="" disabled selected>Selecione seu estado</option>
-                          <option value="SP">SP</option>
-                          <option value="RJ">RJ</option>
-                          <option value="MG">MG</option>
+                          <option value="AC">Acre (AC)</option>
+                          <option value="AL">Alagoas (AL)</option>
+                          <option value="AP">Amapá (AP)</option>
+                          <option value="AM">Amazonas (AM)</option>
+                          <option value="BA">Bahia (BA)</option>
+                          <option value="CE">Ceará (CE)</option>
+                          <option value="DF">Distrito Federal (DF)</option>
+                          <option value="ES">Espírito Santo (ES)</option>
+                          <option value="GO">Goiás (GO)</option>
+                          <option value="MA">Maranhão (MA)</option>
+                          <option value="MT">Mato Grosso (MT)</option>
+                          <option value="MS">Mato Grosso do Sul (MS)</option>
+                          <option value="MG">Minas Gerais (MG)</option>
+                          <option value="PA">Pará (PA)</option>
+                          <option value="PB">Paraíba (PB)</option>
+                          <option value="PR">Paraná (PR)</option>
+                          <option value="PE">Pernambuco (PE)</option>
+                          <option value="PI">Piauí (PI)</option>
+                          <option value="RJ">Rio de Janeiro (RJ)</option>
+                          <option value="RN">Rio Grande do Norte (RN)</option>
+                          <option value="RS">Rio Grande do Sul (RS)</option>
+                          <option value="RO">Rondônia (RO)</option>
+                          <option value="RR">Roraima (RR)</option>
+                          <option value="SC">Santa Catarina (SC)</option>
+                          <option value="SP">São Paulo (SP)</option>
+                          <option value="SE">Sergipe (SE)</option>
+                          <option value="TO">Tocantins (TO)</option>
                         </select>
                       </div>
                     </div>

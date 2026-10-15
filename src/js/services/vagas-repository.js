@@ -33,6 +33,7 @@ function normalizeVaga(vaga) {
     beneficios: firstValue(vaga.beneficios, vaga.beneficios_vaga),
     diferenciais: firstValue(vaga.diferenciais, vaga.diferenciais_vaga),
     status: firstValue(vaga.status, vaga.statusCand_vaga, vaga.statuscand_vaga) || 'Ativa',
+    candidaturas: firstValue(vaga.candidaturas, vaga.quant_candidaturas, 0),
     imagem: firstValue(vaga.imagem, vaga.img_vaga),
     created_at: firstValue(vaga.created_at) || new Date().toISOString(),
   }

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrando... | Primeiros Passos</title>
+    <link rel="icon" type="image/png" href="../assets/logos/logo.png" />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:
+          radial-gradient(circle at 60% 20%, rgba(107, 50, 255, 0.18), transparent 50%),
+          radial-gradient(circle at 20% 80%, rgba(0, 224, 255, 0.08), transparent 40%),
+          #030610;
+        font-family: var(--font-family-primary, 'Inter', sans-serif);
+      }
+
+      .callback-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 48px 56px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        max-width: 360px;
+        width: 90%;
+      }
+
+      .callback-logo {
+        height: 40px;
+        width: auto;
+      }
+
+      .callback-spinner {
+        width: 52px;
+        height: 52px;
+        border: 3px solid rgba(168, 85, 247, 0.2);
+        border-top-color: #a855f7;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      .callback-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #f4f5ff;
+        margin: 0;
+      }
+
+      .callback-sub {
+        font-size: 0.875rem;
+        color: #64748b;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      /* Estado de erro */
+      .callback-error {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .callback-error-icon {
+        width: 52px;
+        height: 52px;
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .callback-error-icon svg {
+        width: 24px;
+        height: 24px;
+        stroke: #f87171;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .callback-error-msg {
+        font-size: 0.875rem;
+        color: #f87171;
+        margin: 0;
+      }
+
+      .callback-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 20px;
+        background: linear-gradient(135deg, #6b32ff, #9333ea);
+        color: #fff;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 10px;
+        transition: all 250ms ease;
+        box-shadow: 0 4px 14px rgba(107, 50, 255, 0.35);
+        margin-top: 4px;
+      }
+
+      .callback-back:hover {
+        background: linear-gradient(135deg, #7c3aed, #a855f7);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(107, 50, 255, 0.5);
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="callback-card" id="callback-card">
+      <img src="../assets/logos/logo.png" alt="Primeiros Passos" class="callback-logo" />
+
+      <!-- Estado de loading (padrão) -->
+      <div id="loading-state">
+        <div class="callback-spinner"></div>
+        <p class="callback-title">Autenticando com Google…</p>
+        <p class="callback-sub">Aguarde enquanto configuramos sua conta.</p>
+      </div>
+
+      <!-- Estado de erro (oculto até falhar) -->
+      <div class="callback-error" id="error-state">
+        <div class="callback-error-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+        </div>
+        <p class="callback-title" style="color: #f87171">Algo deu errado</p>
+        <p class="callback-error-msg" id="error-msg">Não foi possível autenticar com Google.</p>
+        <a href="login.html" class="callback-back">← Voltar ao login</a>
+      </div>
+    </div>
+
+    <script type="module">
+      import { handleOAuthCallback } from '../js/services/account-service.js'
+
+      async function processCallback() {
+        try {
+          const session = await handleOAuthCallback()
+
+          if (!session) {
+            throw new Error('Sessão não encontrada. Tente novamente.')
+          }
+
+          // Redireciona para a página correta com base no tipo
+          const params = new URLSearchParams(window.location.search)
+          const type = params.get('type') || session.type || 'candidato'
+
+          const dest = type === 'empresa'
+            ? '../../index.html'   // ou para-empresas.html se preferir
+            : '../../index.html'
+
+          // Pequena pausa para o usuário ver o feedback visual
+          setTimeout(() => { window.location.href = dest }, 800)
+        } catch (err) {
+          console.error('OAuth callback error:', err)
+
+          document.getElementById('loading-state').style.display = 'none'
+
+          const errorState = document.getElementById('error-state')
+          errorState.style.display = 'flex'
+
+          const errorMsg = document.getElementById('error-msg')
+          if (errorMsg) errorMsg.textContent = err.message || 'Não foi possível autenticar com Google.'
+        }
+      }
+
+      // Executa assim que o Supabase tiver injetado a sessão na URL
+      processCallback()
+    </script>
+  </body>
+</html>

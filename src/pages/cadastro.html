@@ -250,9 +250,27 @@
 
               <!-- Botão Cadastrar -->
               <button type="submit" class="auth-submit" id="btn-register">
-                Criar conta <span class="arrow" aria-hidden="true">→</span>
+                Criar conta <span class="arrow" aria-hidden="true">&rarr;</span>
               </button>
+
+              <!-- Mensagem de erro global do formulário -->
+              <span class="auth-error-msg" id="register-form-error" role="alert" aria-live="polite"></span>
             </form>
+
+            <!-- ✉️ Banner de confirmação de e-mail (escondido até o cadastro ser enviado) -->
+            <div class="auth-confirm-banner" id="email-confirm-banner" hidden aria-live="assertive">
+              <div class="auth-confirm-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="3"/>
+                  <path d="M2 7l10 7 10-7"/>
+                </svg>
+              </div>
+              <div class="auth-confirm-body">
+                <strong>Verifique seu e-mail!</strong>
+                <p>Enviamos um link de confirmação para <em id="confirm-email-address"></em>. Acesse sua caixa de entrada e clique no link para ativar sua conta.</p>
+                <a href="login.html" class="auth-confirm-cta">Ir para o login &rarr;</a>
+              </div>
+            </div>
 
             <!-- Divider -->
             <div class="auth-divider" role="separator">

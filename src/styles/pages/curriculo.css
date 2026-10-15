@@ -488,9 +488,13 @@
 /* ---------------------------------------------------------
    13. SIDEBAR DIREITA
    --------------------------------------------------------- */
-.curriculo-sidebar-column { position: static; }
+.curriculo-sidebar-column {
+  display: none;
+  position: static;
+}
 
 .sidebar-curriculo-card {
+  display: none;
   padding: var(--space-4);
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
@@ -804,11 +808,15 @@
   .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
   .curriculo-sidebar-column {
+    display: block;
     position: sticky;
     top: var(--space-6);
   }
 
-  .sidebar-curriculo-card { padding: var(--space-6); }
+  .sidebar-curriculo-card {
+    display: block;
+    padding: var(--space-6);
+  }
   .sidebar-curriculo-title { font-size: var(--text-lg); }
   .vertical-stepper { gap: var(--space-5); }
   .vertical-stepper::before { top: 16px; bottom: 16px; left: 15px; }

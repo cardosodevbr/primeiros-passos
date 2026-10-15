@@ -947,3 +947,125 @@
     display: none;
   }
 }
+
+/* ─── BANNER DE CONFIRMAÇÃO DE E-MAIL ─────────────────── */
+
+.auth-confirm-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 28px;
+  margin-top: 28px;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 50, 255, 0.18) 0%,
+    rgba(0, 224, 255, 0.10) 100%
+  );
+  border: 1.5px solid rgba(168, 85, 247, 0.4);
+  border-radius: 18px;
+  box-shadow:
+    0 0 40px rgba(107, 50, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  animation: confirmBannerIn 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-confirm-banner::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.25), transparent 70%);
+  pointer-events: none;
+}
+
+@keyframes confirmBannerIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.auth-confirm-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #6b32ff, #00e0ff);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(107, 50, 255, 0.4);
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { box-shadow: 0 8px 24px rgba(107, 50, 255, 0.4); }
+  50%       { box-shadow: 0 8px 32px rgba(107, 50, 255, 0.7), 0 0 0 8px rgba(107, 50, 255, 0.1); }
+}
+
+.auth-confirm-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: #fff;
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.auth-confirm-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.auth-confirm-body strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f4f5ff;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.auth-confirm-body p {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.auth-confirm-body em {
+  font-style: normal;
+  font-weight: 600;
+  color: #c084fc;
+}
+
+.auth-confirm-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #6b32ff, #9333ea);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(107, 50, 255, 0.4);
+}
+
+.auth-confirm-cta:hover {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(107, 50, 255, 0.55);
+  color: #fff;
+}

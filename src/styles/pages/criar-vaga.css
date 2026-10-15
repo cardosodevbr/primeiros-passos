@@ -413,8 +413,7 @@
   }
 
   .criar-vaga-preview-col {
-    position: static;
-    order: -1;
+    display: none;
   }
 
   .form-row {

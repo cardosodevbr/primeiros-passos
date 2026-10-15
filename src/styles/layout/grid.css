@@ -38,6 +38,6 @@
   }
 
   .filters-sidebar-column {
-    position: static;
+    display: none !important;
   }
 }

@@ -69,6 +69,11 @@
             <span class="sidebar-icon"><i class="ri-notification-3-line"></i></span>
             <span>Notificações</span>
           </a>
+
+          <a href="curriculo.html" class="sidebar-link">
+            <span class="sidebar-icon"><i class="ri-user-line"></i></span>
+            <span>Perfil</span>
+          </a>
         </nav>
       </aside>
 
@@ -108,8 +113,8 @@
 
             <!-- Profile Menu -->
             <div class="user-profile-menu">
-              <div class="user-avatar">A</div>
-              <span class="user-name">Ana Silva</span>
+              <div class="user-avatar"><i class="ri-user-line"></i></div>
+              <span class="user-name">Entrar</span>
               <i class="ri-arrow-down-s-line user-chevron"></i>
             </div>
           </div>
@@ -261,6 +266,126 @@
             </aside>
           </div>
         </main>
+
+        <!-- ━━━ MOBILE FILTER BOTTOM SHEET ━━━ -->
+        <!-- Overlay -->
+        <div class="filter-sheet-overlay" id="filter-sheet-overlay" aria-hidden="true"></div>
+
+        <!-- Bottom Sheet -->
+        <div
+          class="filter-bottom-sheet"
+          id="filter-bottom-sheet"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Filtros de vagas"
+          aria-hidden="true"
+        >
+          <!-- Handle de arrasto -->
+          <div class="filter-sheet-handle" aria-hidden="true"></div>
+
+          <!-- Header -->
+          <div class="filter-sheet-header">
+            <h2 class="filter-sheet-title">
+              <i class="ri-equalizer-3-line"></i> Filtros
+            </h2>
+            <button
+              type="button"
+              class="filter-sheet-close"
+              id="filter-sheet-close"
+              aria-label="Fechar filtros"
+            >
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
+
+          <!-- Form body (mesmo form, conteúdo espelhado) -->
+          <div class="filter-sheet-body">
+
+            <!-- Palavra-chave -->
+            <div class="form-group">
+              <label for="m-filter-keyword" class="form-label">Palavra-chave</label>
+              <div class="input-with-icon">
+                <span class="input-icon"><i class="ri-search-line"></i></span>
+                <input type="text" id="m-filter-keyword" class="form-input has-icon" placeholder="Buscar por cargo, empresa...">
+              </div>
+            </div>
+
+            <!-- Área -->
+            <div class="form-group">
+              <label for="m-filter-area" class="form-label">Área</label>
+              <select id="m-filter-area" class="form-select">
+                <option value="">Todas</option>
+                <option value="tecnologia">Tecnologia</option>
+                <option value="administrativo">Administrativo</option>
+                <option value="marketing">Marketing</option>
+                <option value="atendimento">Atendimento</option>
+                <option value="operacional">Operacional</option>
+              </select>
+            </div>
+
+            <!-- Tipo de vaga -->
+            <div class="form-group">
+              <label for="m-filter-type" class="form-label">Tipo de vaga</label>
+              <select id="m-filter-type" class="form-select">
+                <option value="">Todos</option>
+                <option value="Aprendiz">Jovem Aprendiz</option>
+                <option value="Estágio">Estágio</option>
+              </select>
+            </div>
+
+            <!-- Modalidade -->
+            <div class="form-group">
+              <label class="form-label">Modalidade</label>
+              <div class="filter-chip-group">
+                <label class="filter-chip">
+                  <input type="checkbox" name="m-modality" value="Presencial">
+                  <span>Presencial</span>
+                </label>
+                <label class="filter-chip">
+                  <input type="checkbox" name="m-modality" value="Híbrido">
+                  <span>Híbrido</span>
+                </label>
+                <label class="filter-chip">
+                  <input type="checkbox" name="m-modality" value="Remoto">
+                  <span>Remoto</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Localização -->
+            <div class="form-group">
+              <label for="m-filter-location" class="form-label">Localização</label>
+              <div class="input-with-icon">
+                <span class="input-icon"><i class="ri-map-pin-line"></i></span>
+                <input type="text" id="m-filter-location" class="form-input has-icon" placeholder="Cidade ou estado">
+              </div>
+            </div>
+
+          </div><!-- /.filter-sheet-body -->
+
+          <!-- Footer de ação -->
+          <div class="filter-sheet-footer">
+            <button type="button" class="filter-sheet-clear" id="m-btn-clear-filters">
+              Limpar
+            </button>
+            <button type="button" class="filter-sheet-apply" id="m-btn-apply-filters">
+              <i class="ri-check-line"></i> Ver vagas
+            </button>
+          </div>
+        </div><!-- /.filter-bottom-sheet -->
+
+        <!-- ━━━ FLOATING FILTER BUTTON (mobile only) ━━━ -->
+        <button
+          class="filter-fab"
+          id="btn-filter-fab"
+          aria-label="Abrir filtros"
+          aria-expanded="false"
+          aria-controls="filter-bottom-sheet"
+        >
+          <i class="ri-equalizer-3-line filter-fab-icon"></i>
+          <span class="filter-fab-label">Filtros</span>
+          <span class="filter-fab-badge" id="filter-fab-badge" hidden>0</span>
+        </button>
 
         <!-- Footer Oficial  -->
         <footer class="app-footer">

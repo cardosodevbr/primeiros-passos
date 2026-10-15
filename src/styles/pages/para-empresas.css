@@ -713,8 +713,7 @@
   }
 
   .para-empresas-side-col {
-    position: static;
-    order: -1;
+    display: none;
   }
 
   .empresa-hero-image {

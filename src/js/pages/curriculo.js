@@ -4,12 +4,103 @@
 
 import { $, $$ } from '../core/dom.js';
 import { initGlobalSearch } from '../services/search-service.js';
+import { getUserProfile } from '../services/account-service.js';
+
+const ESTADO_MAP = {
+  'acre': 'AC', 'ac': 'AC',
+  'alagoas': 'AL', 'al': 'AL',
+  'amapá': 'AP', 'amapa': 'AP', 'ap': 'AP',
+  'amazonas': 'AM', 'am': 'AM',
+  'bahia': 'BA', 'ba': 'BA',
+  'ceará': 'CE', 'ceara': 'CE', 'ce': 'CE',
+  'distrito federal': 'DF', 'df': 'DF',
+  'espírito santo': 'ES', 'espirito santo': 'ES', 'es': 'ES',
+  'goiás': 'GO', 'goias': 'GO', 'go': 'GO',
+  'maranhão': 'MA', 'maranhao': 'MA', 'ma': 'MA',
+  'mato grosso': 'MT', 'mt': 'MT',
+  'mato grosso do sul': 'MS', 'ms': 'MS',
+  'minas gerais': 'MG', 'mg': 'MG',
+  'pará': 'PA', 'para': 'PA', 'pa': 'PA',
+  'paraíba': 'PB', 'paraiba': 'PB', 'pb': 'PB',
+  'paraná': 'PR', 'parana': 'PR', 'pr': 'PR',
+  'pernambuco': 'PE', 'pe': 'PE',
+  'piauí': 'PI', 'piaui': 'PI', 'pi': 'PI',
+  'rio de janeiro': 'RJ', 'rj': 'RJ',
+  'rio grande do norte': 'RN', 'rn': 'RN',
+  'rio grande do sul': 'RS', 'rs': 'RS',
+  'rondônia': 'RO', 'rondonia': 'RO', 'ro': 'RO',
+  'roraima': 'RR', 'rr': 'RR',
+  'santa catarina': 'SC', 'sc': 'SC',
+  'são paulo': 'SP', 'sao paulo': 'SP', 'sp': 'SP',
+  'sergipe': 'SE', 'se': 'SE',
+  'tocantins': 'TO', 'to': 'TO',
+};
+
+function formatDateForInput(dateVal) {
+  if (!dateVal) return '';
+  const str = String(dateVal).trim();
+  const match = str.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (match) return `${match[1]}-${match[2]}-${match[3]}`;
+  const brMatch = str.match(/^(\d{2})\/(\d{2})\/(\d{4})/);
+  if (brMatch) return `${brMatch[3]}-${brMatch[2]}-${brMatch[1]}`;
+  return str;
+}
+
+async function loadUserProfileIntoCurriculo() {
+  const nomeInput = $('#curriculo-nome');
+  const emailInput = $('#curriculo-email');
+  const telefoneInput = $('#curriculo-telefone');
+  const nascimentoInput = $('#curriculo-nascimento');
+  const cidadeInput = $('#curriculo-cidade');
+  const estadoSelect = $('#curriculo-estado');
+
+  try {
+    const user = await getUserProfile();
+    if (!user) return;
+
+    if (nomeInput && user.name && !nomeInput.value) {
+      nomeInput.value = user.name;
+    }
+
+    if (emailInput && user.email && !emailInput.value) {
+      emailInput.value = user.email;
+    }
+
+    if (telefoneInput && user.phone && !telefoneInput.value) {
+      telefoneInput.value = user.phone;
+    }
+
+    if (nascimentoInput && user.birthDate && !nascimentoInput.value) {
+      nascimentoInput.value = formatDateForInput(user.birthDate);
+    }
+
+    if (cidadeInput && user.city && !cidadeInput.value) {
+      cidadeInput.value = user.city;
+    }
+
+    if (estadoSelect && user.state && !estadoSelect.value) {
+      const stateNorm = String(user.state).trim().toLowerCase();
+      const uf = ESTADO_MAP[stateNorm] || stateNorm.toUpperCase();
+      for (const opt of estadoSelect.options) {
+        if (opt.value.toUpperCase() === uf || opt.text.toLowerCase().includes(stateNorm)) {
+          estadoSelect.value = opt.value;
+          break;
+        }
+      }
+    }
+  } catch (err) {
+    console.warn('Erro ao carregar dados do usuário no currículo:', err);
+  }
+}
 
 export function initCurriculoPage() {
   initGlobalSearch();
 
   const form = $('#form-curriculo');
   if (!form) return;
+
+  // Carrega e preenche automaticamente os dados do usuário
+  loadUserProfileIntoCurriculo();
 
   // ── Seletores principais ─────────────────────────────────
   const steps = $$('.form-step', form);
