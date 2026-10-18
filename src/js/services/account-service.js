@@ -376,10 +376,9 @@ export async function getUserProfile() {
     }
   }
 
-  // 2. Se ainda não há usuário logado, adota o usuário candidato oficial (Leonardo Lopo)
+  // 2. Se ainda não há usuário logado, retorna null (não adota usuário padrão)
   if (!account) {
-    const defaultCandidate = SEED_USERS.find((u) => u.type === 'candidato') || SEED_USERS[0]
-    account = profileToAccount(defaultCandidate)
+    return null
   }
 
   // 3. Tenta buscar informações atualizadas diretamente do Supabase
