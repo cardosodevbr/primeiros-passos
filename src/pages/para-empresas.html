@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/pages/para-empresas.css" />
     <title>Para Empresas | Primeiros Passos</title>
     <link rel="icon" type="image/png" href="../assets/logos/favicon.png" />
   </head>
@@ -237,185 +238,7 @@
                   id="empresa-vagas-list"
                   aria-label="Minhas vagas publicadas"
                 >
-                  <!-- ─── Vaga 1: Jovem Aprendiz em Tecnologia (Ativa) ─── -->
-                  <article
-                    class="empresa-job-card"
-                    data-job-id="1"
-                    data-status="ativa"
-                    aria-label="Jovem Aprendiz em Tecnologia — Ativa"
-                  >
-                    <div class="empresa-job-card-main">
-                      <!-- Icon box -->
-                      <div class="empresa-job-icon-box" aria-hidden="true">
-                        <i class="ri-code-s-slash-line"></i>
-                      </div>
-
-                      <!-- Job info -->
-                      <div class="empresa-job-info">
-                        <div class="empresa-job-title-row">
-                          <span class="empresa-job-title">Jovem Aprendiz em Tecnologia</span>
-                          <span class="badge-status badge-status-ativa" data-status-badge
-                            >Ativa</span
-                          >
-                        </div>
-                        <span class="empresa-job-company">Tech Solutions</span>
-                        <div class="empresa-job-meta-row">
-                          <span>São Paulo - SP</span>
-                          <span>•</span>
-                          <span class="badge badge-tag">Aprendiz</span>
-                          <span class="badge badge-tag">Tecnologia</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Right: stats + date + actions -->
-                    <div class="empresa-job-right">
-                      <div class="empresa-job-stats">
-                        <!-- Candidaturas -->
-                        <div class="empresa-stat-item">
-                          <i class="ri-group-line empresa-stat-icon" aria-hidden="true"></i>
-                          <span class="empresa-stat-value">12</span>
-                          <span class="empresa-stat-label">Candidaturas</span>
-                        </div>
-
-                        <div class="empresa-stat-divider" aria-hidden="true"></div>
-
-                        <!-- Data de publicação -->
-                        <div class="empresa-stat-item">
-                          <i class="ri-calendar-line empresa-stat-icon" aria-hidden="true"></i>
-                          <span class="empresa-stat-label">Publicado em</span>
-                          <span class="empresa-stat-value" style="font-size: var(--text-sm)"
-                            >10/09/2026</span
-                          >
-                        </div>
-                      </div>
-
-                      <!-- ⋮ Actions -->
-                      <div class="empresa-actions-wrapper">
-                        <button
-                          class="btn-card-actions"
-                          type="button"
-                          aria-label="Ações para Jovem Aprendiz em Tecnologia"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                          data-actions-trigger
-                        >
-                          <i class="ri-more-2-fill"></i>
-                        </button>
-
-                        <div class="empresa-actions-dropdown" role="menu" data-actions-dropdown>
-                          <button
-                            type="button"
-                            class="dropdown-item action-toggle-status"
-                            role="menuitem"
-                            data-action="toggle-status"
-                          >
-                            <i class="ri-pause-circle-line"></i>
-                            <span data-toggle-label>Pausar vaga</span>
-                          </button>
-                          <div class="dropdown-divider" aria-hidden="true"></div>
-                          <a
-                            href="criar-vaga.html"
-                            class="dropdown-item action-edit"
-                            role="menuitem"
-                          >
-                            <i class="ri-edit-line"></i>
-                            Editar vaga
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-
-                  <!-- ─── Vaga 2: Estagiário em Front End (Pausada) ─── -->
-                  <article
-                    class="empresa-job-card"
-                    data-job-id="2"
-                    data-status="pausada"
-                    aria-label="Estagiário em Front End — Pausada"
-                  >
-                    <div class="empresa-job-card-main">
-                      <!-- Icon box -->
-                      <div class="empresa-job-icon-box" aria-hidden="true">
-                        <i class="ri-code-s-slash-line"></i>
-                      </div>
-
-                      <!-- Job info -->
-                      <div class="empresa-job-info">
-                        <div class="empresa-job-title-row">
-                          <span class="empresa-job-title">Estagiário em Front End</span>
-                          <span class="badge-status badge-status-pausada" data-status-badge
-                            >Pausada</span
-                          >
-                        </div>
-                        <span class="empresa-job-company">Tech Solutions</span>
-                        <div class="empresa-job-meta-row">
-                          <span>São Paulo - SP</span>
-                          <span>•</span>
-                          <span class="badge badge-tag">Estágio</span>
-                          <span class="badge badge-tag">Tecnologia</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Right: stats + date + actions -->
-                    <div class="empresa-job-right">
-                      <div class="empresa-job-stats">
-                        <!-- Candidaturas -->
-                        <div class="empresa-stat-item">
-                          <i class="ri-group-line empresa-stat-icon" aria-hidden="true"></i>
-                          <span class="empresa-stat-value">8</span>
-                          <span class="empresa-stat-label">Candidaturas</span>
-                        </div>
-
-                        <div class="empresa-stat-divider" aria-hidden="true"></div>
-
-                        <!-- Data de publicação -->
-                        <div class="empresa-stat-item">
-                          <i class="ri-calendar-line empresa-stat-icon" aria-hidden="true"></i>
-                          <span class="empresa-stat-label">Publicado em</span>
-                          <span class="empresa-stat-value" style="font-size: var(--text-sm)"
-                            >05/09/2026</span
-                          >
-                        </div>
-                      </div>
-
-                      <!-- ⋮ Actions -->
-                      <div class="empresa-actions-wrapper">
-                        <button
-                          class="btn-card-actions"
-                          type="button"
-                          aria-label="Ações para Estagiário em Front End"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                          data-actions-trigger
-                        >
-                          <i class="ri-more-2-fill"></i>
-                        </button>
-
-                        <div class="empresa-actions-dropdown" role="menu" data-actions-dropdown>
-                          <button
-                            type="button"
-                            class="dropdown-item action-toggle-status"
-                            role="menuitem"
-                            data-action="toggle-status"
-                          >
-                            <i class="ri-play-circle-line"></i>
-                            <span data-toggle-label>Ativar vaga</span>
-                          </button>
-                          <div class="dropdown-divider" aria-hidden="true"></div>
-                          <a
-                            href="criar-vaga.html"
-                            class="dropdown-item action-edit"
-                            role="menuitem"
-                          >
-                            <i class="ri-edit-line"></i>
-                            Editar vaga
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
+                  <!-- Cards renderizados dinamicamente pelo JS -->
                 </div>
               </section>
             </div>
@@ -578,6 +401,36 @@
             <p>&copy; 2026 Primeiros Passos. Todos os direitos reservados.</p>
           </div>
         </footer>
+      </div>
+    </div>
+
+    <!-- MODAL: CONFIRMAR EXCLUSÃO DE VAGA -->
+    <div class="modal-overlay" id="modal-excluir-vaga" hidden role="dialog" aria-modal="true" aria-labelledby="modal-excluir-heading">
+      <div class="modal-dialog modal-dialog-sm">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modal-excluir-heading">
+            <i class="ri-delete-bin-line"></i> Excluir vaga
+          </h3>
+          <button type="button" class="modal-close" id="modal-excluir-fechar" aria-label="Fechar">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-excluir-texto">
+            Tem certeza que deseja excluir a vaga
+            <strong id="modal-excluir-titulo">"(título)"</strong>?
+          </p>
+          <p class="modal-excluir-aviso">
+            <i class="ri-error-warning-line" aria-hidden="true"></i>
+            Esta ação não pode ser desfeita.
+          </p>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-outline" id="btn-cancelar-excluir">Cancelar</button>
+          <button type="button" class="btn-danger" id="btn-confirmar-excluir">
+            <i class="ri-delete-bin-line"></i> Excluir vaga
+          </button>
+        </div>
       </div>
     </div>
 

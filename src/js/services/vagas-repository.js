@@ -54,6 +54,7 @@ function toDatabaseVaga(vaga) {
     diferenciais: 'diferenciais_vaga',
     localizacao: 'endereco_vaga',
     empresa: 'Empresa',
+    tipo: 'tipo_vaga',
   }
 
   return Object.entries(fields).reduce((databaseVaga, [field, databaseField]) => {
@@ -76,42 +77,81 @@ function writeLocal(vagas) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(vagas.map(normalizeVaga)))
 }
 
+/* ---------------------------------------------------------
+   Mescla vagas do Supabase com vagas locais (criadas offline).
+   Vagas locais têm IDs no formato "vaga-<timestamp>-<random>".
+   --------------------------------------------------------- */
+function isLocalId(id) {
+  return typeof id === 'string' && id.startsWith('vaga-')
+}
+
 export async function listVagas() {
   const supabase = await getSupabaseClient()
+  let remoteVagas = []
+
   if (supabase) {
-    const { data, error } = await supabase
-      .from(TABLE_NAME)
-      .select('*')
-      .order('created_at', { ascending: false })
-    if (error) throw error
-    return data.map(normalizeVaga)
+    try {
+      const { data, error } = await supabase
+        .from(TABLE_NAME)
+        .select('*')
+        .order('created_at', { ascending: false })
+      if (!error && data) {
+        remoteVagas = data.map(normalizeVaga)
+      }
+    } catch (err) {
+      console.warn('[vagas-repository] listVagas Supabase falhou, usando local:', err)
+    }
   }
-  return readLocal()
+
+  // Inclui vagas criadas localmente (offline) que não existem no Supabase
+  const localVagas = readLocal().filter((v) => isLocalId(v.id))
+
+  return [...remoteVagas, ...localVagas]
 }
 
 export async function getVaga(id) {
   const supabase = await getSupabaseClient()
-  if (supabase) {
-    const { data, error } = await supabase.from(TABLE_NAME).select('*').eq('id_vaga', id).single()
-    if (error) throw error
-    return normalizeVaga(data)
+
+  if (supabase && !isLocalId(id)) {
+    try {
+      const { data, error } = await supabase
+        .from(TABLE_NAME)
+        .select('*')
+        .eq('id_vaga', id)
+        .maybeSingle()
+      if (!error && data) return normalizeVaga(data)
+    } catch (err) {
+      console.warn('[vagas-repository] getVaga Supabase falhou, usando local:', err)
+    }
   }
+
   return readLocal().find((vaga) => vaga.id === id) || null
 }
 
 export async function createVaga(payload) {
-  const vaga = normalizeVaga(payload)
+  const vaga = normalizeVaga({ ...payload, id: createId() })
   const supabase = await getSupabaseClient()
+
   if (supabase) {
-    const { data, error } = await supabase
-      .from(TABLE_NAME)
-      .insert(toDatabaseVaga(vaga))
-      .select()
-      .single()
-    if (error) throw error
-    return normalizeVaga(data)
+    try {
+      const { data, error } = await supabase
+        .from(TABLE_NAME)
+        .insert(toDatabaseVaga(vaga))
+        .select()
+        .single()
+
+      if (!error && data) {
+        return normalizeVaga(data)
+      }
+
+      // Loga o erro do Supabase mas não lança — cai no fallback local
+      console.warn('[vagas-repository] createVaga Supabase retornou erro, salvando local:', error?.message)
+    } catch (err) {
+      console.warn('[vagas-repository] createVaga Supabase falhou, salvando local:', err)
+    }
   }
 
+  // Fallback: salva localmente
   const vagas = readLocal()
   vagas.unshift(vaga)
   writeLocal(vagas)
@@ -120,20 +160,36 @@ export async function createVaga(payload) {
 
 export async function updateVaga(id, payload) {
   const supabase = await getSupabaseClient()
-  if (supabase) {
-    const { data, error } = await supabase
-      .from(TABLE_NAME)
-      .update(toDatabaseVaga(payload))
-      .eq('id_vaga', id)
-      .select()
-      .single()
-    if (error) throw error
-    return normalizeVaga(data)
+
+  if (supabase && !isLocalId(id)) {
+    try {
+      const { data, error } = await supabase
+        .from(TABLE_NAME)
+        .update(toDatabaseVaga(payload))
+        .eq('id_vaga', id)
+        .select()
+        .single()
+
+      if (!error && data) {
+        return normalizeVaga(data)
+      }
+
+      console.warn('[vagas-repository] updateVaga Supabase retornou erro, atualizando local:', error?.message)
+    } catch (err) {
+      console.warn('[vagas-repository] updateVaga Supabase falhou, atualizando local:', err)
+    }
   }
 
+  // Fallback: atualiza localmente
   const vagas = readLocal()
   const index = vagas.findIndex((vaga) => vaga.id === id)
-  if (index === -1) return null
+  if (index === -1) {
+    // Vaga não existe localmente, cria
+    const nova = normalizeVaga({ ...payload, id })
+    vagas.unshift(nova)
+    writeLocal(vagas)
+    return nova
+  }
   vagas[index] = normalizeVaga({ ...vagas[index], ...payload, id })
   writeLocal(vagas)
   return vagas[index]
@@ -141,13 +197,22 @@ export async function updateVaga(id, payload) {
 
 export async function deleteVaga(id) {
   const supabase = await getSupabaseClient()
-  if (supabase) {
-    const { error } = await supabase.from(TABLE_NAME).delete().eq('id_vaga', id)
-    if (error) throw error
-    return true
+
+  if (supabase && !isLocalId(id)) {
+    try {
+      const { error } = await supabase.from(TABLE_NAME).delete().eq('id_vaga', id)
+      if (!error) {
+        // Remove do local também, caso exista cópia
+        writeLocal(readLocal().filter((vaga) => vaga.id !== id))
+        return true
+      }
+      console.warn('[vagas-repository] deleteVaga Supabase retornou erro, removendo local:', error?.message)
+    } catch (err) {
+      console.warn('[vagas-repository] deleteVaga Supabase falhou, removendo local:', err)
+    }
   }
 
-  const vagas = readLocal()
-  writeLocal(vagas.filter((vaga) => vaga.id !== id))
+  // Fallback: remove localmente
+  writeLocal(readLocal().filter((vaga) => vaga.id !== id))
   return true
 }

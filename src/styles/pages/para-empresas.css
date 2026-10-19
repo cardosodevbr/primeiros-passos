@@ -765,3 +765,183 @@
     gap: var(--space-3);
   }
 }
+
+/* =========================================================
+   AÇÃO EXCLUIR — item vermelho no dropdown
+   ========================================================= */
+.dropdown-item.action-delete {
+  color: var(--color-error, #ef4444);
+}
+
+.dropdown-item.action-delete i {
+  color: var(--color-error, #ef4444);
+}
+
+.dropdown-item.action-delete:hover {
+  background-color: rgba(239, 68, 68, 0.08);
+  color: var(--color-error, #ef4444);
+}
+
+/* =========================================================
+   ESTADOS DE LOADING / EMPTY
+   ========================================================= */
+.empresa-vagas-loading,
+.empresa-vagas-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-12) var(--space-6);
+  color: var(--color-content-secondary);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.empresa-vagas-loading i,
+.empresa-vagas-empty i {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+/* =========================================================
+   MODAL DE CONFIRMAÇÃO DE EXCLUSÃO
+   ========================================================= */
+
+/* Reutiliza .modal-overlay do curriculo.css; apenas variações: */
+.modal-dialog-sm {
+  max-width: 420px;
+  width: 100%;
+}
+
+.modal-excluir-texto {
+  font-size: var(--text-base);
+  color: var(--color-content-primary);
+  line-height: 1.6;
+  margin-bottom: var(--space-3);
+}
+
+.modal-excluir-aviso {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-error, #ef4444);
+}
+
+.modal-excluir-aviso i {
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+/* Botão de confirmação perigosa */
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2-5) var(--space-5);
+  background-color: var(--color-error, #ef4444);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn-danger:hover {
+  background-color: #dc2626;
+}
+
+.btn-danger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Herda o padrão de modal-overlay/dialog/header/body/actions do curriculo.css,
+   mas precisa que essas classes estejam acessíveis globalmente.
+   Se não estiverem em global.css, duplicamos o essencial aqui: */
+#modal-excluir-vaga.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+#modal-excluir-vaga.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#modal-excluir-vaga.modal-overlay[hidden] {
+  display: none;
+}
+
+#modal-excluir-vaga .modal-dialog {
+  background: var(--color-surface-elevated, #1e1e2e);
+  border: 1px solid var(--color-outline-subtle, rgba(255,255,255,0.08));
+  border-radius: var(--radius-xl, 16px);
+  padding: var(--space-6);
+  transform: scale(0.95);
+  transition: transform 0.2s;
+}
+
+#modal-excluir-vaga.modal-overlay.active .modal-dialog {
+  transform: scale(1);
+}
+
+#modal-excluir-vaga .modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+#modal-excluir-vaga .modal-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-content-primary);
+}
+
+#modal-excluir-vaga .modal-title i {
+  color: var(--color-error, #ef4444);
+}
+
+#modal-excluir-vaga .modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--color-content-secondary);
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: background-color 0.15s;
+}
+
+#modal-excluir-vaga .modal-close:hover {
+  background-color: var(--color-surface-active);
+}
+
+#modal-excluir-vaga .modal-body {
+  margin-bottom: var(--space-6);
+}
+
+#modal-excluir-vaga .modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}

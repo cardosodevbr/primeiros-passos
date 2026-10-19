@@ -67,6 +67,13 @@ export function initCriarVagaPage() {
     const vaga = await getVaga(editId)
     if (!vaga) return
 
+    // Atualiza título da página para modo edição
+    const pageTitle = document.querySelector('.criar-vaga-title')
+    const pageSubtitle = document.querySelector('.criar-vaga-subtitle')
+    if (pageTitle) pageTitle.textContent = 'Editar vaga'
+    if (pageSubtitle) pageSubtitle.textContent = 'Atualize as informações da vaga abaixo.'
+    document.title = 'Editar Vaga | Primeiros Passos'
+
     const values = {
       '#vaga-titulo': vaga.titulo,
       '#vaga-empresa': vaga.empresa,
@@ -252,7 +259,7 @@ export function initCriarVagaPage() {
       localizacao: localizacaoInput?.value.trim() || '',
       tipo: tipoSelect.value,
       area: areaSelect.value,
-      modalidade: tipoSelect?.value || modalidadeSelect?.value || '',
+      modalidade: modalidadeSelect?.value || '',
       carga: cargaSelect?.value ? Number(cargaSelect.value) : null,
       descricao: descricaoInput?.value.trim() || '',
       atividades: atividadesInput?.value.trim() || '',
@@ -274,7 +281,7 @@ export function initCriarVagaPage() {
         'success',
       )
       window.setTimeout(() => {
-        window.location.href = 'vagas.html'
+        window.location.href = 'para-empresas.html'
       }, 1200)
     } catch (error) {
       console.error('Não foi possível salvar a vaga.', error)

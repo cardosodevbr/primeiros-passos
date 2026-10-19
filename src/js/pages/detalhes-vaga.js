@@ -86,6 +86,15 @@ export async function initDetalhesVagaPage() {
   const editButton = $('.btn-edit-vaga')
   if (editButton) editButton.href = `criar-vaga.html?id=${encodeURIComponent(vaga.id)}`
 
+  // Botão voltar: usa a página anterior se for do mesmo site, senão vai para vagas.html
+  const backLink = $('.back-link')
+  if (backLink) {
+    const referrer = document.referrer
+    const isSameOrigin = referrer && (referrer.startsWith(window.location.origin) || referrer.startsWith('file://'))
+    const isFromApp = referrer.includes('/src/pages/')
+    backLink.href = (isSameOrigin && isFromApp) ? referrer : 'vagas.html'
+  }
+
   const deleteButton = $('.btn-danger')
   if (deleteButton) {
     deleteButton.addEventListener('click', async () => {
