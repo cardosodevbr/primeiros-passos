@@ -385,16 +385,21 @@
 .empresa-job-meta-row {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: var(--space-2);
   font-size: var(--text-xs);
   color: var(--color-content-tertiary);
   margin-top: 2px;
-  min-height: 18px;
-  max-height: 18px;
   overflow: hidden;
   white-space: nowrap;
   flex-wrap: nowrap;
+}
+
+/* badges dentro da meta-row ficam mais baixos para caber na linha */
+.empresa-job-meta-row .badge {
+  padding: 1px 8px;
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  height: auto;
 }
 
 /* Status Badges */
